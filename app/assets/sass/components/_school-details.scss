@@ -1,0 +1,15 @@
+dl.school-details {
+    dt, dd {
+      display: inline-block;
+    }
+    dt {
+      width:30%;
+      color: $secondary-text-colour;
+    }
+    dd {
+      width:65%;
+      &.double {
+        width:70%;
+      }
+    }
+}

@@ -1,0 +1,27 @@
+.vacancy {
+  &-metadata {
+    aside {
+      background-color: $panel-colour;
+    }
+    dl {
+      dt {
+        font-weight: 700;
+      }
+      dd {
+        margin-bottom: $gutter-half;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+#apply-button {
+  &-top {
+    float:right;
+    margin-top: 55px;
+  }
+  &-bottom {
+    margin-top: $gutter;
+  }
+}

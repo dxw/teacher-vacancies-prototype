@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Search vacancies
+{% endblock %}
+
+{% block content %}
+{% set max = 2 if search_results else 10  %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_prototype.html" %}
+    <h1 class="heading-large">There are currently 5,603 vacancies</h1>
+
+    <div class="grid-row">
+
+        <div class="column-two-thirds margin-top">
+            <form action="/vacancies">
+                <h3 class="heading-medium margin-top">Search for relevant vacancies using the options below</h3>
+                <div class="form-group">
+                    <label class="form-label" for="location">
+                        Location
+                    </label>
+                    <input class="form-control form-control-3-4" id="location" type="text" name="location" placeholder="Town, postcode or region" value="{{ data['location'] }}">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="keyword">
+                        Keyword
+                    </label>
+                    <input class="form-control form-control-3-4" id="keyword" type="text" name="keyword" placeholder="eg. role or subject" value="{{ data['keyword'] }}">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="salary-range">
+                        Salary range
+                    </label>
+                    <select name="salary-range" id="salary-range" class="form-control form-control-3-4">
+                        <option></option>
+                        {% for range in json.salary_range %}
+                            {% set selected = ' selected' if data['salary-range'] == range %}
+                            <option{{ selected }}>{{ range }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="working-pattern">
+                        Working pattern
+                    </label>
+                    <select name="working-pattern" id="working-pattern" class="form-control form-control-3-4">
+                        <option></option>
+                        {% for type in json.contract_type %}
+                            {% set selected = ' selected' if data['working-pattern'] == type %}
+                            <option{{ selected }}>{{ type }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="education-stage">
+                        Education phase
+                    </label>
+                    <select name="education-stage" id="education-stage" class="form-control form-control-3-4">
+                        <option></option>
+                        {% for stage in json.education_stages %}
+                            {% set selected = ' selected' if data['education-stage'] == stage %}
+                            <option{{ selected }}>{{ stage }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="hidden" name="search_results" value="1">
+                <input class="button button-start" type="submit" value="Search">
+            </form>
+        </div>
+        <div class="">
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

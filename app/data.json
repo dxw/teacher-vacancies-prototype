@@ -1,0 +1,147 @@
+{
+  "vacancies": [
+    {
+      "id": 1102,
+      "slug": "maths-teacher-1102",
+      "posted_at": "2017-06-30 12:34:00",
+      "closes_at": "2017-09-07 00:00:00",
+      "starts_at": "2017-10-01 00:00:00",
+      "school_id": "kent-1",
+      "reference_no": "ABC-123-456",
+      "title": "Teacher of Maths",
+      "position": "Teacher",
+      "contract_type": "Full time",
+      "main_subject": "Maths",
+      "status": "Published",
+      "views": 430,
+      "applications": 9,
+      "contract_term": "fixed",
+      "headline": "We are looking to recruit a Maths Teacher at a school where staff and students work together to create an inviting and purposeful atmosphere.",
+      "salary_min": 20000,
+      "salary_max": 35000,
+      "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
+      "skills": [],
+      "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+    }
+  ],
+  "schools": {
+    "kent-1": {
+      "name": "Landwood School",
+      "description": "Landwood School is a large school with 1175 students in KS3, KS4 and Sixth Form. Achieving excellence is at the heart of everything that we do across our curriculum and within our pastoral care of our students.",
+      "type": "Secondary",
+      "gender": "Mixed",
+      "funding_status": "State - Academy",
+      "address": "123 Main St",
+      "town": "Chatham",
+      "region": "Kent",
+      "post_code": "ME1 1AB",
+      "school_age": "11 to 18",
+      "website": "http://www.landwood.sch.uk"
+    }
+  },
+  "salary_range": [
+    "Up to £15,000",
+    "£15,001 to £25,000",
+    "£25,001 to £35,000",
+    "£35,001 to £45,000",
+    "£45,001 to £55,000",
+    "£55,001 to £65,000",
+    "£65,001 to £75,000",
+    "£75,001 to £85,000",
+    "£85,001 and above"
+  ],
+  "pay_scales": [
+    "Main pay range 1",
+    "Main pay range 2",
+    "Main pay range 3",
+    "Main pay range 4",
+    "Main pay range 5",
+    "Main pay range 6",
+    "Upper pay range 1",
+    "Upper pay range 2",
+    "Upper pay range 3",
+    "Unqualified pay range 1",
+    "Unqualified pay range 2",
+    "Unqualified pay range 3",
+    "Unqualified pay range 4",
+    "Unqualified pay range 5",
+    "Unqualified pay range 6"
+  ],
+  "contract_type": [
+    "Full time",
+    "Part time"
+  ],
+  "education_stages": [
+    "Primary",
+    "Secondary",
+    "Further Education"
+  ],
+  "subjects": [
+    "Not applicable",
+    "English",
+    "Mathematics",
+    "Science",
+    "Art and design",
+    "Citizenship",
+    "Computing",
+    "Design and technology",
+    "Geography",
+    "History",
+    "Languages",
+    "Music",
+    "Physical education",
+    "Other"
+  ],
+  "leadership_level": [
+    "Not applicable",
+    "Middle Leader",
+    "Senior Leader",
+    "Headteacher",
+    "Executive Head",
+    "Multi-Academy Trust CEO"
+  ],
+  "regions_and_stats": {
+    "London": {
+      "average_views": 400,
+      "application_rate": "7.1%",
+      "vacancies": 1098
+    },
+    "South East England": {
+      "average_views": 307,
+      "application_rate": "8.3%",
+      "vacancies": 870
+    },
+    "South West England": {
+      "average_views": 259,
+      "application_rate": "4.6%",
+      "vacancies": 454
+    },
+    "Yorkshire and the Humber": {
+      "average_views": 503,
+      "application_rate": "5.1%",
+      "vacancies": 300
+    },
+    "North West England": {
+      "average_views": 456,
+      "application_rate": "6.6%",
+      "vacancies": 788
+    },
+    "West Midlands": {
+      "average_views": 340,
+      "application_rate": "4.0%",
+      "vacancies": 421
+    },
+    "East Midlands": {
+      "average_views": 211,
+      "application_rate": "5.2%",
+      "vacancies": 780
+    },
+    "North East England": {
+      "average_views": 670,
+      "application_rate": "4.8%",
+      "vacancies": 490
+    }
+  }
+
+}

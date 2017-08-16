@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Teacher Vacancy Service Prototypes
+{% endblock %}
+
+{% block content %}
+{% set vacancy = json.vacancies[0] %}
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h2 class="heading-large">
+          Prototypes
+      </h2>
+        <ul class="list list-bullet">
+            <li>
+                <a href="/start">Start page</a>
+            </li>
+            <li>
+                <a href="/vacancies?search_results=1">Search results</a>
+            </li>
+            <li>
+                <a href="/vacancies/{{ vacancy.slug }}">Single vacancy</a>
+            </li>
+            <li>
+                <a href="/vacancies/{{ vacancy.slug }}/apply">Application form</a>
+            </li>
+            <li>
+                <a href="/dashboard/schools">Schools dashboard</a>
+            </li>
+            <li>
+                <a href="/vacancies/create/1">Publish a vacancy</a>
+            </li>
+            <li>
+                <a href="/dashboard/dfe">DfE dashboard</a>
+            </li>
+        </ul>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+

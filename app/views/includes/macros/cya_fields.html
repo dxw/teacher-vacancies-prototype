@@ -1,0 +1,19 @@
+{% macro field(question, answer='', link='') %}
+{% if answer %}
+<div>
+    <dt class="cya-question">
+        {{ question }}
+    </dt>
+    <dd class="cya-answer">
+        {{ answer }}
+    </dd>
+    <dd class="cya-change">
+        {% if link %}
+        <a href="{{ link }}">
+            Change<span class="visually-hidden"> {{ question | lower }}</span>
+        </a>
+        {% endif %}
+    </dd>
+</div>
+{% endif %}
+{% endmacro %}

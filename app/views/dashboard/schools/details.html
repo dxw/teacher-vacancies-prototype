@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Dashboard for Schools
+{% endblock %}
+
+{% block navigation_links %}
+    {% import "includes/macros/school_navigation.html" as nav %}
+    {{ nav.show('details') }}
+{% endblock %}
+
+{% block content %}
+{% set school = json.schools['kent-1'] %}
+{% set school_address = [school.address, school.town, school.region, school.post_code] %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    <h1 class="heading-large">
+        School details
+    </h1>
+    <div class="grid-row">
+        <div class="column-full">
+            <dl class="govuk-check-your-answers cya-questions-short">
+                {% import "includes/macros/cya_fields.html" as cya with context %}
+                {% set url = '#' %}
+                {{ cya.field('Description', school.description, url) }}
+                {{ cya.field('Address', school_address | filterEmpty | join(', ')) }}
+                {{ cya.field('Gender', school.gender) }}
+                {{ cya.field('Phase', school.type) }}
+                {{ cya.field('School age', school.school_age) }}
+                {{ cya.field('Type', school.funding_status) }}
+                {{ cya.field('Website', school.website) }}
+            </dl>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

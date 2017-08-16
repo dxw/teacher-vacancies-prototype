@@ -1,0 +1,9 @@
+.filters {
+  background-color: $panel-colour;
+  input, select {
+    border-color: $grey-1;
+  }
+  .form-group {
+    @extend .margin-bottom;
+  }
+}

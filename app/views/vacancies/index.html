@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Vacancies
+{% endblock %}
+
+{% block content %}
+{% set max = 2 if search_results else 10  %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_prototype.html" %}
+    {% if search_results %}
+        <a href="/vacancies" class="link-back">Back</a>
+        <h1 class="heading-large margin-top">We found {{ max }} results for your search</h1>
+    {%  else %}
+        <h1 class="heading-large">There are currently 5,603 vacancies</h1>
+    {% endif %}
+    <div class="grid-row">
+
+        <div class="column-one-third margin-top">
+            {% include "includes/filters.html" %}
+        </div>
+        <div class="column-two-thirds">
+            {% include "includes/search_alert.html" %}
+            <ul class="vacancies">
+                {% for job in json.vacancies %}
+                {% for i in range(0, max) %}
+                {% set school = json.schools[job.school_id] %}
+                <li itemscope itemtype="http://schema.org/JobPosting" class="margin-top padding-bottom">
+                    <h3 class="job-title">
+                        <a href="{{ job.slug | url('vacancies') }}" title="{{ job.title }}">
+                            <span itemprop="title">{{ job.title }}</span>
+                        </a>
+                    </h3>
+                    <p>
+                        <span itemprop="hiringOrganization" itemscope itemtype="http://schema.org/Organization">
+                            <span itemprop="name">{{ school.name }}</span>
+                        </span>,
+                        <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
+                            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                <meta itemprop="streetAddress" content="{{ school.address }}" />
+                                <meta itemprop="postalCode" content="{{ school.post_code }}" />
+                                <span itemprop="addressLocality">{{ school.town }}</span>, <span itemprop="addressRegion">{{ school.region }}</span>
+                            </span>
+                        </span>
+                    </p>
+                    <dl>
+                        <dt>Salary</dt>
+                        <dd class="double">
+                            <span itemprop="baseSalary" itemscope itemtype="http://schema.org/MonetaryAmount">
+                                <meta itemprop="currency" content="GBP" />
+                                £<span itemprop="minValue">{{ job.salary_min | number }}</span> -
+                                £<span itemprop="maxValue">{{ job.salary_max | number }}</span> per annum
+                            </span>
+                        </dd>
+                        <dt>Closing date</dt>
+                        <dd itemprop="validThrough" content="{{ job.closes_at }}">{{ job.closes_at | date }}</dd>
+                        <dt>Posted on</dt>
+                        <dd itemprop="datePosted" content="{{ job.posted_at }}">{{ job.posted_at | date }}</dd>
+                        <dt>Contract</dt>
+                        <dd itemprop="employmentType">{{ job.contract_type }}</dd>
+                        <dt>Job ref</dt>
+                        <dd itemprop="identifier">{{ job.reference_no }}</dd>
+                    </dl>
+                    <meta itemprop="educationRequirements" content="{{ job.education_requirements }}" />
+                    <meta itemprop="experienceRequirements" content="{{ job.experience_requirements }}" />
+                    <meta itemprop="description" content="{{ job.headline }}" />
+                    <meta itemprop="url" content="{{ job.slug | url('vacancies') }}" />
+                    <meta itemprop="industry" content="Education" />
+
+                </li>
+                {% endfor %}
+                {% else %}
+                <li>No vacancies found. Try expanding your search.</li>
+                {% endfor %}
+            </ul>
+            {% if max > 9  %}
+            <ul class="margin-top font-xsmall pagination">
+                <li><a href="#" class="current">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

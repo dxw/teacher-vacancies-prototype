@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Candidate specification
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    <a href="/vacancies/create/1" class="link-back">Back</a>
+    <h2 class="heading-large margin-top">
+        Publish a vacancy
+        <span class="heading-secondary">Step 2 of 3</span>
+    </h2>
+    <h3 class="heading-medium margin-top">Candidate specification</h3>
+    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id.</p>
+
+    <div class="grid-row margin-top">
+        <div class="column-two-thirds">
+            {% import "includes/macros/form_fields.html" as form_fields with context %}
+            <form action="/vacancies/create/3" method="post" class="form">
+                {{ form_fields.multiple('essential_requirements', 'Essential requirements', 'Qualifications, experience, and/or professional registrations', 5, true) }}
+                {{ form_fields.multiple('education', 'Education', 'Educational background needed for the position') }}
+                {{ form_fields.multiple('qualifications', 'Qualifications', 'Specific qualifications required for this role') }}
+                {{ form_fields.multiple('experience', 'Experience', 'Expected teaching or other experience') }}
+                {{ form_fields.submit('Save and continue') }}
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Dashboard for DfE
+{% endblock %}
+
+{#{% block navigation_links %}#}
+    {#{% import "includes/macros/school_navigation.html" as nav %}#}
+    {#{{ nav.show('vacancies') }}#}
+{#{% endblock %}#}
+
+{% block content %}
+    <main id="content" role="main" class="dashboard">
+        {% include "includes/phase_banner_prototype.html" %}
+        <header>
+            <h1 class="heading-xlarge margin-bottom-large">
+                Dashboard
+            </h1>
+        </header>
+
+        <form action="" class="form background-panel padding-large margin-bottom-large">
+            <div class="grid-row">
+                <div class="column-half">
+                    <label for="filter" id="filter-keywords" class="form-label-bold">Filter by job title</label>
+                    <input id="filter" name="keyword" value="" type="search" class="form-control form-control-3-4" />
+                </div>
+                <div class="column-half">
+                    <label for="region" id="filter-region" class="form-label-bold">Region</label>
+                    <select id="region" name="region" class="form-control form-control-3-4">
+                        <option value="">All</option>
+                        {% for region, stats in json.regions_and_stats %}
+                        <option>{{ region }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <div class="grid-row margin-bottom">
+            {% import "includes/macros/dashboard_data.html" as dashboard %}
+            <div class="column-third">
+                {{ dashboard.display_data('Current vacancies', 5603 | number) }}
+            </div>
+            <div class="column-third">
+                {{ dashboard.display_data('Schools recruiting', 2881 | number) }}
+            </div>
+            <div class="column-third">
+                {{ dashboard.display_data('Average vacancy lifetime', '15 days') }}
+            </div>
+            <div class="column-third">
+                {{ dashboard.display_data('Average vacancy views', 377 | number) }}
+            </div>
+            <div class="column-third">
+                {{ dashboard.display_data('Application rate', '5.2%') }}
+            </div>
+            <div class="column-third">
+                {{ dashboard.display_data('Active subscriptions', '490') }}
+            </div>
+        </div>
+
+        <table class="margin-top">
+            <thead>
+            <tr>
+                <th scope="col">Region</th>
+                <th class="numeric" scope="col">Average views</th>
+                <th class="numeric" scope="col">Application rate</th>
+                <th class="numeric" scope="col">Vacancies</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for region, stats in json.regions_and_stats %}
+            <tr>
+                <th scope="row"><a href="/dashboard/dfe?region={{ region | slug }}">{{ region }}</a></th>
+                <td class="numeric">{{ stats.average_views | number }}</td>
+                <td class="numeric">{{ stats.application_rate }}</td>
+                <td class="numeric">{{ stats.vacancies | number }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}
+
+

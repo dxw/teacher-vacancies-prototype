@@ -1,0 +1,8 @@
+{% macro display_data(label, data) %}
+    {% if label %}
+        <div class="data">
+            <span class="data-item data-item-label bold-medium">{{ label }}</span>
+            <span class="data-item bold-xxlarge">{{ data }}</span>
+        </div>
+    {% endif %}
+{% endmacro %}

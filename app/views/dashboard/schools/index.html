@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Dashboard for Schools
+{% endblock %}
+
+{% block navigation_links %}
+    {% import "includes/macros/school_navigation.html" as nav %}
+    {{ nav.show('vacancies') }}
+{% endblock %}
+
+{% block content %}
+    <main id="content" role="main">
+        {% include "includes/phase_banner_prototype.html" %}
+        <div class="right">
+            <a href="/vacancies/create/1" class="button margin-top-big">Publish a vacancy</a>
+        </div>
+        <h1 class="heading-large">
+            Vacancies
+        </h1>
+        <ul class="table-filters background-panel padding margin-bottom margin-top">
+            <li>Filter: </li>
+            <li><a href="?status=all">All</a></li>
+            <li><a href="?status=published" class="current">Published</a></li>
+            <li><a href="?status=draft">Draft</a></li>
+            <li><a href="?status=expired">Expired</a></li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Job title</th>
+                    <th scope="col">Status</th>
+                    <th class="numeric" scope="col">Publish date</th>
+                    <th class="numeric" scope="col">Deadline date</th>
+                    <th class="numeric" scope="col">Views</th>
+                    <th class="numeric" scope="col">Applications</th>
+                    <th class="numeric" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for vacancy in json.vacancies %}
+                <tr>
+                    <td scope="row"><a href="/vacancies/{{ vacancy.slug }}">{{ vacancy.title }}</a></td>
+                    <td>{{ vacancy.status }}</td>
+                    <td class="numeric">{{ vacancy.publish_at | date }}</td>
+                    <td class="numeric">{{ vacancy.closes_at | date }}</td>
+                    <td class="numeric">{{ vacancy.views }}</td>
+                    <td class="numeric">{{ vacancy.applications }}</td>
+                    <td class="numeric"><a href="#">Edit</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+{% endblock %}
+
+

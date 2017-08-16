@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Application complete for {{ vacancy.title }}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+
+    <div class="grid-row margin-top">
+        <div class="column-two-thirds">
+            <h1 class="heading-large">
+                Application complete
+            </h1>
+            <p>
+                Your application reference number is <br>
+                <strong class="heading-medium">987654</strong>
+            </p>
+            <p class="text">
+                You should receive a confirmation email. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt
+            </p>
+            <p><a href="/vacancies?search_results=1">Search for more vacancies like this one</a></p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

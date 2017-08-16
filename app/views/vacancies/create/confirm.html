@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Confirm details before you submit
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    <a href="/vacancies/create/3" class="link-back">Back</a>
+    <h2 class="heading-large margin-top">
+        Publish a vacancy
+        <span class="heading-secondary">Confirm details before you submit</span>
+    </h2>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            {% import "includes/macros/cya_fields.html" as cya with context %}
+
+            <h2 class="heading-medium margin-top">
+                Job specification
+            </h2>
+            <dl class="govuk-check-your-answers cya-questions-short">
+                {% set url = '/vacancies/create/1' %}
+                {{ cya.field('Job title', data.title, url) }}
+                {{ cya.field('Headline', data.headline, url) }}
+                {{ cya.field('Job description', data.description, url) }}
+                {{ cya.field('Benefits', data.benefits, url) }}
+                {{ cya.field('Main subject', data.main_subject, url) }}
+                {{ cya.field('Salary range', data.salary_min + ' to ' + data.salary_max, url) }}
+                {{ cya.field('Pay scale', data.pay_scale, url) }}
+                {{ cya.field('Working pattern', data.working_pattern, url) }}
+                {% if data.fte %}
+                    {{ cya.field('Full time equivalent', data.fte + '%', url) }}
+                {% endif %}
+                {{ cya.field('Weekly hours', data.weekly_hours, url) }}
+                {{ cya.field('Leadership level', data.leadership_level, url) }}
+                {{ cya.field('Start date', data.starts_at, url) }}
+                {{ cya.field('End date', data.ends_at, url) }}
+            </dl>
+
+            <h2 class="heading-medium">
+                Candidate specification
+            </h2>
+            <dl class="govuk-check-your-answers cya-questions-short">
+                {% set url = '/vacancies/create/2' %}
+                {{ cya.field('Essential requirements', data.essential_requirements, url) }}
+                {{ cya.field('Education', data.education, url) }}
+                {{ cya.field('Qualifications', data.qualifications, url) }}
+                {{ cya.field('Experience', data.experience, url) }}
+            </dl>
+
+            <h2 class="heading-medium">
+                Application details
+            </h2>
+            <dl class="govuk-check-your-answers cya-questions-short">
+                {% set url = '/vacancies/create/3' %}
+                {{ cya.field('Vacancy contact email', data.vacancy_contact_email, url) }}
+                {{ cya.field('Application instructions', data.application_instructions, url) }}
+                {{ cya.field('Vacancy deadline date', data['closes_at-day'] + '/' + data['closes_at-month'] + '/' + data['closes_at-year'], url) }}
+                {% if data.publish_today != true %}
+                    {{ cya.field('Vacancy publication date', data['posted_at-day'] + '/' + data['posted_at-month'] + '/' + data['posted_at-year'], url) }}
+                {% endif %}
+            </dl>
+
+            <h2 class="heading-medium">Now submit your vacancy</h2>
+
+            <p class="text">
+                You can <a href="#">preview</a> your vacancy to see how it will look for potential applicants.
+            </p>
+            <p class="text">
+                By submitting you are confirming that, to the best of your knowledge, the details you are providing are correct.
+            </p>
+
+            <div class="form-group">
+                <a href="/vacancies/create/published" class="button">Confirm and submit vacancy</a>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

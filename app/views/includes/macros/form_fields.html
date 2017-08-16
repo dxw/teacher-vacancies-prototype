@@ -1,0 +1,157 @@
+{% set form_control_class = 'form-control-block' %}
+
+{% macro field(name, label='', type='text', hint='', required=false) %}
+{% set label = label + ' (optional)' if required == false else label %}
+{% set form_control_class = form_control_class if type != 'number' else 'form-control-1-8' %}
+<div class="form-group">
+    <label class="form-label-bold" for="{{ name }}">
+        {{ label }}
+        {% if hint != '' %}
+        <span class="form-hint">
+            {{ hint }}
+        </span>
+        {% endif %}
+    </label>
+    <input class="form-control {{ form_control_class }}" id="{{ name }}" type="{{ type }}" name="{{ name }}" value="{{ data[name] }}" {{ 'required' if required }}>
+</div>
+{% endmacro %}
+
+{% macro textarea(name, label='', hint='', rows=3, required=false) %}
+{% set label = label + ' (optional)' if required == false else label %}
+<div class="form-group">
+    <label class="form-label-bold" for="{{ name }}">
+        {{ label }}
+        {% if hint != '' %}
+        <span class="form-hint">
+            {{ hint }}
+        </span>
+        {% endif %}
+    </label>
+    <textarea name="{{ name }}" id="{{ name }}" class="form-control {{ form_control_class }}" rows="{{ rows }}" {{ 'required' if required }}>{{ data[name] }}</textarea>
+</div>
+{% endmacro %}
+
+{% macro multiple(name, label='', hint='', rows=3, required=false) %}
+{% set label = label + ' (optional)' if required == false else label %}
+<div class="form-group" >
+    <label class="form-label-bold" for="{{ name }}">
+        {{ label }}
+        {% if hint != '' %}
+        <span class="form-hint">
+            {{ hint }}
+        </span>
+        {% endif %}
+    </label>
+    <input class="form-control form-control-multiple {{ form_control_class }}" id="{{ name }}" type="{{ type }}" name="{{ name }}" data-value="{{ data[name] | stringify }}">
+</div>
+{% endmacro %}
+
+{% macro submit(value) %}
+<input class="button" type="submit" value="{{ value }}">
+{% endmacro %}
+
+{% macro salary_range() %}
+<div class="form-group">
+    <label class="form-label-bold" for="salary_min">
+        Salary range
+        <span class="form-hint">
+            Annual pay before tax (£)
+        </span>
+    </label>
+    <input class="form-control form-control-1-4" id="salary_min" type="number" name="salary_min" value="{{ data['salary_min'] }}" required> to
+    <input class="form-control form-control-1-4" id="salary_max" type="number" name="salary_max" value="{{ data['salary_max'] }}">
+</div>
+{% endmacro %}
+
+{% macro select(name, label, options, hint='', required=false) %}
+{% set label = label + ' (optional)' if required == false else label %}
+<div class="form-group">
+    <label class="form-label-bold" for="{{ name }}">
+        {{ label }}
+        {% if hint != '' %}
+        <span class="form-hint">
+            {{ hint }}
+        </span>
+        {% endif %}
+    </label>
+    <select class="form-control" id="{{ name }}" name="{{ name }}" {{ 'required' if required }}>
+        <option></option>
+        {% for option in options %}
+        <option
+            {% if option == data[name] %}
+            selected="selected"
+            {% endif %}
+        >
+            {{ option }}</option>
+        {% endfor %}
+    </select>
+</div>
+{% endmacro %}
+
+{% macro input(name, label='', type='text', hint='', required=false) %}
+{% set label = label + ' (optional)' if required == false else label %}
+<label class="form-label-bold" for="{{ name }}">
+    {{ label }}
+    {% if hint != '' %}
+    <span class="form-hint">
+        {{ hint }}
+    </span>
+    {% endif %}
+</label>
+<input class="form-control" type="text" id="{{ name }}" name="{{ name }}" value="{{ data[name] }}" {{ 'required' if required }}>
+{% endmacro %}
+
+{% macro date(name, label='', hint='', required=false) %}
+{% set label = label + ' (optional)' if required == false else label %}
+<div class="form-group">
+    <fieldset>
+        <legend>
+        <span class="form-label-bold">
+          {{ label }}
+        </span>
+        {% if hint != '' %}
+        <span class="form-hint">
+            {{ hint }}
+        </span>
+        {% endif %}
+        </legend>
+        <div class="form-date">
+            <div class="form-group form-group-day">
+                <label class="form-label-bold" for="{{ name }}-day">Day</label>
+                <input class="form-control" id="{{ name }}-day" name="{{ name }}-day" type="number" pattern="[0-9]*" min="0" max="31" value="{{ data[name+'-day'] }}" {{ 'required' if required }}>
+            </div>
+            <div class="form-group form-group-month">
+                <label class="form-label-bold" for="{{ name }}-month">Month</label>
+                <input class="form-control" id="{{ name }}-month" name="{{ name }}-month" type="number" pattern="[0-9]*" min="0" max="12" value="{{ data[name+'-month'] }}" {{ 'required' if required }}>
+            </div>
+            <div class="form-group form-group-year">
+                <label class="form-label-bold" for="{{ name }}-year">Year</label>
+                <input class="form-control" id="{{ name }}-year" name="{{ name }}-year" type="number" pattern="[0-9]*" min="2017" max="2060" value="{{ data[name+'-year'] }}" {{ 'required' if required }}>
+            </div>
+        </div>
+    </fieldset>
+</div>
+{% endmacro %}
+
+
+{% macro checkbox(name, label='', checked=false) %}
+<div class="form-group">
+<div class="multiple-choice">
+    <input id="{{ name }}" name="{{ name }}" type="checkbox" value="1"
+       {% if checked %}
+       checked="checked"
+       {% endif %}
+    >
+    <label for="{{ name }}">{{ label }}</label>
+</div>
+</div>
+{% endmacro %}
+
+{% macro file(name, label) %}
+<div class="form-group">
+    <label class="form-label-bold" for="{{ name }}">
+        {{ label }}
+    </label>
+    <input type="file" id="{{ name }}" name="{{ name }}">
+</div>
+{% endmacro %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ vacancy.title }}
+{% endblock %}
+
+{% block content %}
+{% import "includes/macros/apply_now_button.html" as apply_now %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    <a href="/vacancies" class="link-back">Back</a>
+    <div id="apply-button-top">
+        {{ apply_now.button(vacancy.slug) }}
+    </div>
+    <h1 class="heading-large margin-top">
+        {{ vacancy.title }}
+        <span class="heading-secondary">{{ vacancy.school.name }}, {{ vacancy.school.town }}, {{ vacancy.school.region }}</span>
+    </h1>
+    <div class="grid-row margin-top">
+        <div class="column-two-thirds">
+            <p class="lede">
+                {{ vacancy.headline }}
+            </p>
+            <h3 class="heading-medium">Job description</h3>
+            <p>{{ vacancy.description }}</p>
+            <h3 class="heading-medium">Essential Requirements</h3>
+            <p>{{ vacancy.experience_requirements }}</p>
+            <h3 class="heading-medium">Education</h3>
+            <p>{{ vacancy.education_requirements }}</p>
+            <hr>
+            {% include "includes/school_details.html" %}
+            <div id="apply-button-bottom">
+                {{ apply_now.button(vacancy.slug) }}
+            </div>
+        </div>
+        <div class="column-one-third vacancy-metadata">
+            <aside class="padding">
+                <dl>
+                    <dt>Annual pay</dt>
+                    <dd>£{{ vacancy.salary_min | number }} - £{{ vacancy.salary_max | number }}</dd>
+                    <dt>Working pattern</dt>
+                    <dd>{{ vacancy.contract_type | default('Full time') }}</dd>
+                    <dt>Weekly hours</dt>
+                    <dd>{{ vacancy.weekly_hours | default('40') }}</dd>
+                    {% if vacancy.pay_scale %}
+                    <dt>Pay scale</dt>
+                    <dd>{{ vacancy.pay_scale }}</dd>
+                    {% endif %}
+                    <dt>Reference number</dt>
+                    <dd>{{ vacancy.reference_no }}</dd>
+                    {% if vacancy.main_subject %}
+                    <dt>Main subject</dt>
+                    <dd>{{ vacancy.main_subject }}</dd>
+                    {% endif %}
+                    <dt>Posted on</dt>
+                    <dd>{{ vacancy.posted_at | date }}</dd>
+                    <dt>Closing date</dt>
+                    <dd>{{ vacancy.closes_at | date }}</dd>
+                </dl>
+            </aside>
+        </div>
+
+    </div>
+</main>
+
+{% endblock %}
+
+

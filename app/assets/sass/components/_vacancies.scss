@@ -1,0 +1,27 @@
+.vacancies {
+  .job-title {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  li {
+    border-bottom: 1px solid $grey-3;
+
+    dl {
+      font-size: 90%;
+    }
+    dt, dd {
+      display: inline-block;
+    }
+    dt {
+      width:20%;
+      color: $secondary-text-colour;
+    }
+    dd {
+      width:25%;
+      &.double {
+        width:70%;
+      }
+    }
+  }
+
+}

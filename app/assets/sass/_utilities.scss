@@ -1,0 +1,77 @@
+.margin {
+  margin: $gutter/2;
+  &-top {
+    margin-top: $gutter/2;
+    &-big {
+      margin-top: $gutter*1.5;
+    }
+    &-half {
+      margin-top: $gutter-half/2;
+    }
+  }
+  &-left {
+    margin-left: $gutter/2;
+  }
+  &-right {
+    margin-right: $gutter/2;
+  }
+  &-bottom {
+    margin-bottom: $gutter/2;
+    &-large {
+      margin-bottom: $gutter;
+    }
+  }
+}
+.padding {
+  padding: $gutter/2;
+  &-top {
+    padding-top: $gutter/2;
+  }
+  &-left {
+    padding-left: $gutter/2;
+  }
+  &-right {
+    padding-right: $gutter/2;
+  }
+  &-bottom {
+    padding-bottom: $gutter/2;
+  }
+  &-large {
+    padding: $gutter;
+  }
+}
+
+.no {
+  &-margin {
+    margin: 0;
+  }
+  &-padding {
+    padding: 0;
+  }
+}
+.right {
+  float:right;
+}
+.form-control-block {
+  width:100%;
+}
+.form-control-multiple {
+  margin-bottom: $gutter-half/2;
+}
+.inline-block {
+  display: inline-block;
+}
+.background {
+  &-panel {
+    background-color: $panel-colour;
+  }
+  &-alert {
+    background-color: lighten($panel-colour, 10%);
+    border: 1px solid $border-colour;
+  }
+}
+.cf:after {
+  content: "";
+  display: table;
+  clear: both;
+}

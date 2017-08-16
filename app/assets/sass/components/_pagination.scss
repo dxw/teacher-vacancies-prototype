@@ -1,0 +1,12 @@
+.pagination, .table-filters {
+  li {
+    margin-right: $gutter-half/2;
+    display: inline-block;
+    color: $grey-1;
+    a.current {
+      color: $text-colour;
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+}

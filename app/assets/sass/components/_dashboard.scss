@@ -1,0 +1,14 @@
+.dashboard {
+  .data {
+    color: $govuk-blue;
+
+    @media (min-width: 641px) {
+      margin-bottom: 1.25em;
+    }
+    &-item-label {
+      color: $text-colour;
+      margin-bottom: $gutter-half/2;
+    }
+  }
+
+}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{{ vacancy.title }}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    <a href="/vacancies/{{ vacancy.slug }}/apply" class="link-back">Back</a>
+    <h1 class="heading-large margin-top">
+        Apply for '{{ vacancy.title }}'
+        <span class="heading-secondary">{{ vacancy.school.name }}</span>
+    </h1>
+    <div class="grid-row margin-top">
+        <div class="column-two-thirds">
+            {% import "includes/macros/cya_fields.html" as cya with context %}
+            <h2 class="heading-medium margin-top">
+                Application details
+            </h2>
+            <dl class="govuk-check-your-answers cya-questions-short">
+                {% set url = '/vacancies/'+vacancy.slug+'/apply' %}
+                {{ cya.field('Full name', data.full_name, url) }}
+                {{ cya.field('Email address', data.email, url) }}
+                {{ cya.field('Cover letter', data.cover_letter, url) }}
+                {{ cya.field('Curriculum Vitae', 'cv.docx', url) }}
+            </dl>
+
+            <h2 class="heading-medium">Now send your application</h2>
+
+            <p class="text">
+                By submitting you are confirming that, to the best of your knowledge, the details you are providing are correct.
+            </p>
+
+            <div class="form-group">
+                <a href="/vacancies/{{ vacancy.slug }}/apply/success" class="button">Confirm and send application</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{{ vacancy.title }}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    <a href="/vacancies/{{ vacancy.slug }}" class="link-back">Back</a>
+    <h1 class="heading-large margin-top">
+        Apply for '{{ vacancy.title }}'
+        <span class="heading-secondary">{{ vacancy.school.name }}</span>
+    </h1>
+    <div class="grid-row margin-top">
+        <div class="column-two-thirds">
+            {% import "includes/macros/form_fields.html" as form_fields with context %}
+            <form action="/vacancies/{{ vacancy.slug }}/apply/confirm" method="post" class="form">
+                {{ form_fields.field('full_name', 'Full name', 'text', '', true) }}
+                {{ form_fields.field('email', 'Email address', 'email', '', true) }}
+                {{ form_fields.textarea('cover_letter', 'Cover letter', '', 15, true) }}
+                {{ form_fields.file('cv', 'Upload your CV') }}
+                {{ form_fields.submit('Save and continue') }}
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

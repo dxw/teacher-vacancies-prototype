@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Complete
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    {% set vacancy = json.vacancies[0] %}
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-large">Vacancy submitted</h1>
+            <p>
+                The system reference number is <br>
+                <strong class="heading-medium">ABC-123-456</strong>
+            </p>
+            {% if data.publish_today %}
+            <p>The vacancy has been posted, you can view it here: </p>
+            <p><a href="{{ vacancy.slug | url('vacancies') }}">{{ vacancy.slug | url('vacancies') }}</a></p>
+            {% else %}
+            <p>The vacancy will be posted on <strong class="bold-small">{{ data['posted_at-day'] + '/' + data['posted_at-month'] + '/' + data['posted_at-year'] }}</strong>, you can preview it here: </p>
+            <p><a href="{{ vacancy.slug | url('vacancies') }}">{{ vacancy.slug | url('vacancies') }}</a></p>
+            {% endif %}
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

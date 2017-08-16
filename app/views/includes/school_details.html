@@ -1,0 +1,17 @@
+{% set school_address = [vacancy.school.address, vacancy.school.town, vacancy.school.region, vacancy.school.post_code] %}
+<h3 class="heading-medium">About {{ vacancy.school.name }}</h3>
+<p>{{ vacancy.school.description }}</p>
+<dl class="school-details">
+    <dt>Address</dt>
+    <dd>{{ school_address | filterEmpty | join(', ') }}</dd>
+    <dt>Gender</dt>
+    <dd>{{ vacancy.school.gender }}</dd>
+    <dt>Phase</dt>
+    <dd>{{ vacancy.school.type }}</dd>
+    <dt>School age</dt>
+    <dd>{{ vacancy.school.school_age }}</dd>
+    <dt>Type</dt>
+    <dd>{{ vacancy.school.funding_status }}</dd>
+    <dt>Website</dt>
+    <dd><a href="{{ vacancy.school.website }}" target="_blank">{{ vacancy.school.website }}</a></dd>
+</dl>
