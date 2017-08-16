@@ -10,11 +10,14 @@
     {% set vacancy = json.vacancies[0] %}
     <div class="grid-row">
         <div class="column-two-thirds">
-            <h1 class="heading-large">Vacancy submitted</h1>
-            <p>
-                The system reference number is <br>
-                <strong class="heading-medium">ABC-123-456</strong>
-            </p>
+            <div class="govuk-box-highlight margin-bottom-large">
+                <h1 class="heading-large margin-top">Vacancy submitted</h1>
+                <p>
+                    The system reference number is <br>
+                    <strong class="heading-medium">ABC-123-456</strong>
+                </p>
+            </div>
+
             {% if data.publish_today %}
             <p>The vacancy has been posted, you can view it here: </p>
             <p><a href="{{ vacancy.slug | url('vacancies') }}">{{ vacancy.slug | url('vacancies') }}</a></p>
