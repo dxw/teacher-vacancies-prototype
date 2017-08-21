@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block content %}
-{% set max = 2 if search_results else 10  %}
+{% set max = vacancies.length if search_results else 10  %}
 
 <main id="content" role="main">
     {% include "includes/phase_banner_prototype.html" %}
     {% if search_results %}
         <a href="/vacancies" class="link-back">Back</a>
-        <h1 class="heading-large margin-top">We found {{ max }} results for your search</h1>
+        <h1 class="heading-large margin-top">We found {{ vacancies.length }} {{ 'results' | pluralize(max) }} for your search</h1>
     {%  else %}
         <h1 class="heading-large">There are currently 5,603 vacancies</h1>
     {% endif %}

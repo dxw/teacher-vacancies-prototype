@@ -1,4 +1,5 @@
 var moment = require('moment')
+var pluralize = require('pluralize')
 
 module.exports = function (env) {
   /**
@@ -62,6 +63,9 @@ module.exports = function (env) {
   }
   filters.slug = function (string) {
     return string.toLowerCase().replace(/[^a-z0-9]/g, '-')
+  }
+  filters.pluralize = function (string, number) {
+    return pluralize(string, number)
   }
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
