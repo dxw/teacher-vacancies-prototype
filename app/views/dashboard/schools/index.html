@@ -42,7 +42,7 @@
                 <tr>
                     <td scope="row"><a href="/vacancies/{{ vacancy.slug }}">{{ vacancy.title }}</a></td>
                     <td>{{ vacancy.status }}</td>
-                    <td class="numeric">{{ vacancy.publish_at | date }}</td>
+                    <td class="numeric">{{ vacancy.posted_at | date }}</td>
                     <td class="numeric">{{ vacancy.closes_at | date }}</td>
                     <td class="numeric">{{ vacancy.views }}</td>
                     <td class="numeric">{{ vacancy.applications }}</td>

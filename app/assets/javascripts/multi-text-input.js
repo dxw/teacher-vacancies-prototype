@@ -37,7 +37,8 @@
     base.clone = function (el) {
       var $clone = $(el).clone()
       $clone.appendTo(base.$el.parent()).bind('blur', function () {
-        if (this.value === '' && $(this).index() !== base.getInputs().length) {
+        var index = base.$el.parent().find('input:visible').index($(this));
+        if (this.value === '' && index < base.getInputs().length - 2) {
           base.remove($(this));
         }
         base.updateMaster();
@@ -63,8 +64,7 @@
     base.duplicate = function (e) {
       var n = base.getInputs().length
       var $el = $(e)
-
-      if (n >= base.options.max) {
+      if (n >= base.options.max || (n > 1 && $el.prev().val() === '')) {
         return
       }
       $el.unbind('focus');
@@ -82,7 +82,7 @@
     }
     base.remove = function (el) {
       for (var i = 0; i < base.inputs.length; i++) {
-        if (base.inputs[i].attr('name') == el.attr('name')) {
+        if (base.inputs[i].attr('name') === el.attr('name')) {
           base.inputs.splice(i, 1);
           $(el).remove();
           base.shuffleNames();
@@ -97,15 +97,17 @@
   };
 
   $.multiTextInput.defaultOptions = {
-    'min'                         : 2,                               // minimum number of characters/words
-    'max'                         : 500,                             // maximum number of characters/words, -1 for unlimited, 'auto' to use maxlength attribute
-    'init'                        : function(el){}                   // Callback: function(element) - Fires after the counter is initially setup
+    'min': 2,
+    'max': 500,
+    'init': function(el){}
   };
 
   $.fn.multiTextInput = function(options) {
-    return this.each(function() {
+    return this.each(function () {
       new $.multiTextInput(this, options);
     });
   };
+  //onmax
+  //val override
 
 })(jQuery);

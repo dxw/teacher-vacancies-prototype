@@ -23,8 +23,7 @@
         <div class="column-two-thirds">
             {% include "includes/search_alert.html" %}
             <ul class="vacancies">
-                {% for job in json.vacancies %}
-                {% for i in range(0, max) %}
+                {% for job in vacancies | sort(vacancies, false, false, 'score') %}
                 {% set school = json.schools[job.school_id] %}
                 <li itemscope itemtype="http://schema.org/JobPosting" class="margin-top padding-bottom">
                     <h3 class="job-title">
@@ -69,9 +68,8 @@
                     <meta itemprop="industry" content="Education" />
 
                 </li>
-                {% endfor %}
                 {% else %}
-                <li>No vacancies found. Try expanding your search.</li>
+                <li class="margin-top">No vacancies found. Try expanding your search.</li>
                 {% endfor %}
             </ul>
             {% if max > 9  %}

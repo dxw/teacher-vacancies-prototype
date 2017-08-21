@@ -18,6 +18,7 @@
     "browser-sync": "^2.11.1",
     "cross-spawn": "^5.0.0",
     "dotenv": "^4.0.0",
+    "elasticlunr": "^0.9.5",
     "express": "4.15.2",
     "express-session": "^1.13.0",
     "express-writer": "0.0.4",
@@ -45,7 +46,8 @@
     "serve-favicon": "2.4.2",
     "standard": "^10.0.2",
     "supertest": "^3.0.0",
-    "sync-request": "^4.0.3"
+    "sync-request": "^4.0.3",
+    "underscore": "^1.8.3"
   },
   "greenkeeper": {
     "ignore": [

@@ -84,4 +84,8 @@ $(document).ready(function () {
   initMultipleTextInput('#education')
   initMultipleTextInput('#qualifications')
   initMultipleTextInput('#experience')
+
+  $('#close-notification').on('click', function () {
+    $(this).parents('.notification').hide()
+  })
 })

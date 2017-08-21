@@ -29,7 +29,7 @@
             <label class="form-label" for="working-pattern">
                 Working pattern
             </label>
-            <select name="working-pattern" id="working-pattern" class="form-control form-control-block">
+            <select name="contract_type" id="working-pattern" class="form-control form-control-block">
                 <option></option>
                 {% for type in json.contract_type %}
                     {% set selected = ' selected' if data['working-pattern'] == type %}

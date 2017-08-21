@@ -1,0 +1,37 @@
+{
+  "fields": {
+    "title": {
+      "boost": 20
+    },
+    "main_subject": {
+      "boost": 10
+    },
+    "headline": {
+      "boost": 5
+    },
+    "school": {
+      "boost": 5
+    },
+    "reference_no": {
+      "boost": 1
+    },
+    "salary_range": {
+      "boost": 1
+    },
+    "contract_term": {
+      "boost": 1
+    },
+    "description": {
+      "boost": 1
+    },
+    "education_requirements": {
+      "boost": 1
+    },
+    "experience_requirements": {
+      "boost": 1
+    },
+    "contract_type": {
+      "boost": 10
+    }
+  }
+}
