@@ -23,6 +23,14 @@ var checkPermanent = function () {
   }
 }
 
+var checkFlexible = function () {
+  if (!$('#is_flexible').prop('checked')) {
+    $('#flexible-panel').addClass('js-hidden').find('input').val('')
+  } else {
+    $('#flexible-panel').removeClass('js-hidden')
+  }
+}
+
 var checkPublishToday = function () {
   if ($('#publish_today').prop('checked')) {
     $('#posted_at-panel').addClass('js-hidden').find('input').val('')
@@ -74,6 +82,11 @@ $(document).ready(function () {
   checkPublishToday()
   $('#publish_today').on('change', function () {
     checkPublishToday()
+  })
+
+  checkFlexible()
+  $('#is_flexible').on('change', function () {
+    checkFlexible()
   })
 
   autosize($('textarea'))

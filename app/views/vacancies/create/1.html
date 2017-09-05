@@ -35,6 +35,11 @@
             <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
                 {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
             </div>
+            {{ form_fields.checkbox('is_flexible', 'This is position offers flexible working', checked('is_flexible', '1') if data.is_flexible else false) }}
+            <div class="panel panel-border-narrow js-hidden" id="flexible-panel">
+                {{ form_fields.textarea('flexible_working_details', 'Flexible working details', 'Provide further details here') }}
+            </div>
+            {{ form_fields.checkbox('is_job_share', 'This position has a job share available', checked('is_job_share', '1') if data.is_flexible else false) }}
             {{ form_fields.submit('Save and continue') }}
             </form>
         </div>
