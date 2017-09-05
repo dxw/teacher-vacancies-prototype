@@ -3,7 +3,7 @@ var data = require('./data')
 var config = require('./search.config.json')
 var _ = require('underscore')
 
-var stopWords = ['school', 'teacher']
+var stopWords = ['school', 'teacher', 'time']
 elasticlunr.addStopWords(stopWords)
 
 var search = {}
