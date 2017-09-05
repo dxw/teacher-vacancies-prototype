@@ -58,8 +58,8 @@
                         <dd itemprop="datePosted" content="{{ job.posted_at }}">{{ job.posted_at | date }}</dd>
                         <dt>Contract</dt>
                         <dd itemprop="employmentType">{{ job.contract_type }}</dd>
-                        <dt>Job ref</dt>
-                        <dd itemprop="identifier">{{ job.reference_no }}</dd>
+                        <dt>Start date</dt>
+                        <dd>{{ job.starts_at | date }}</dd>
                     </dl>
                     <meta itemprop="educationRequirements" content="{{ job.education_requirements }}" />
                     <meta itemprop="experienceRequirements" content="{{ job.experience_requirements }}" />
