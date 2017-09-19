@@ -28,7 +28,7 @@
             <div class="panel panel-border-narrow js-hidden" id="fte-panel">
                 {{ form_fields.field('fte', 'Full time equivalent', 'number', 'Percentage of a full time position') }}
             </div>
-            {{ form_fields.field('weekly_hours', 'Weekly hours', 'number', 'Number of hours to be worked each week') }}
+            {{ form_fields.field('weekly_hours', 'Weekly hours', 'text', 'Number of hours to be worked each week') }}
             {{ form_fields.select('leadership_level', 'Leadership level', json.leadership_level) }}
             {{ form_fields.date('starts_at', 'Start date', 'Expected start date of the job') }}
             {{ form_fields.checkbox('is_permanent', 'This is a permanent position', checked('is_permanent', '1') if data.is_permanent else true) }}
