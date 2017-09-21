@@ -12,7 +12,20 @@
         </span>
         {% endif %}
     </label>
+    {% if type == 'yesno' %}
+        <fieldset class="inline">
+        <div class="multiple-choice">
+            <input id="{{ name }}" type="radio" name="{{ name }}" value="Yes" {{ ' checked="checked"' if data[name] != 'No' }}>
+            <label for="{{ name }}">Yes</label>
+        </div>
+        <div class="multiple-choice">
+            <input id="{{ name }}" type="radio" name="{{ name }}" value="No" {{ ' checked="checked"' if data[name] == 'No' }}>
+            <label for="{{ name }}">No</label>
+        </div>
+        </fieldset>
+    {% else %}
     <input class="form-control {{ form_control_class }}" id="{{ name }}" type="{{ type }}" name="{{ name }}" value="{{ data[name] }}" {{ 'required' if required }}>
+    {% endif %}
 </div>
 {% endmacro %}
 

@@ -61,6 +61,7 @@ Confirm details before you submit
                 {% if data.publish_today != true %}
                     {{ cya.field('Vacancy publication date', data['posted_at-day'] + '/' + data['posted_at-month'] + '/' + data['posted_at-year'], url) }}
                 {% endif %}
+                {{ cya.field('Allow recruiters to contact you?', data.allow_recruiters_to_contact, url) }}
             </dl>
 
             <h2 class="heading-medium">Now submit your vacancy</h2>
