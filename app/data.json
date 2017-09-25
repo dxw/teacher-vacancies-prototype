@@ -376,6 +376,12 @@
     "Executive Head",
     "Multi-Academy Trust CEO"
   ],
+  "search_radius": [
+    "5 miles",
+    "10 miles",
+    "20 miles",
+    "50 miles"
+  ],
   "regions_and_stats": {
     "London": {
       "average_views": 400,

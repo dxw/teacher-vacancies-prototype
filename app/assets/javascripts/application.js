@@ -39,6 +39,18 @@ var checkPublishToday = function () {
   }
 }
 
+var checkLocation = function () {
+  if ($('#location').val().length) {
+    $('#search-radius').removeAttr('disabled')
+    $('#exactly').attr('selected', 'selected')
+    $('#nationally').removeAttr('selected')
+  } else {
+    $('#search-radius').attr('disabled', 'disabled')
+    $('#exactly').removeAttr('selected')
+    $('#nationally').attr('selected', 'selected')
+  }
+}
+
 var initWordCounter = function (selector, maxWords) {
   $(selector).textcounter({
     type: 'word',
@@ -100,5 +112,10 @@ $(document).ready(function () {
 
   $('#close-notification').on('click', function () {
     $(this).parents('.notification').hide()
+  })
+
+  checkLocation()
+  $('#location').on('change', function () {
+    checkLocation()
   })
 })
