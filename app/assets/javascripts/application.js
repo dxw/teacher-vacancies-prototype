@@ -115,7 +115,7 @@ $(document).ready(function () {
   })
 
   checkLocation()
-  $('#location').on('change', function () {
+  $('#location').on('keyup', function () {
     checkLocation()
   })
 })

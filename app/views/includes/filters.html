@@ -31,7 +31,7 @@
                 Salary range
             </label>
             <select name="salary-range" id="salary-range" class="form-control form-control-block">
-                <option>Any</option>
+                <option value="">Any</option>
                 {% for range in json.salary_range %}
                     {% set selected = ' selected' if data['salary-range'] == range %}
                     <option{{ selected }}>{{ range }}</option>
@@ -43,7 +43,7 @@
                 Working pattern
             </label>
             <select name="contract_type" id="working-pattern" class="form-control form-control-block">
-                <option>Any</option>
+                <option value="">Any</option>
                 {% for type in json.contract_type %}
                     {% set selected = ' selected' if data['working-pattern'] == type %}
                     <option{{ selected }}>{{ type }}</option>
@@ -55,7 +55,7 @@
                 Education phase
             </label>
             <select name="education-stage" id="education-stage" class="form-control form-control-block">
-                <option>Any</option>
+                <option value="">Any</option>
                 {% for stage in json.education_stages %}
                     {% set selected = ' selected' if data['education-stage'] == stage %}
                     <option{{ selected }}>{{ stage }}</option>
