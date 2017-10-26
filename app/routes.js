@@ -12,9 +12,17 @@ router.use(function (req, res, next) {
   if (req.query.search_results) {
     res.locals.search_results = req.query.search_results
   }
+  if (req.query.show_map) {
+    res.locals.show_map = req.query.show_map
+  }
   res.locals.version = req.session.version ? req.session.version : 1
   res.locals.url = process.env.URL
   res.locals.json = data.getAll()
+  res.locals.multiple_checked = function (item, data) {
+    if (data && data.indexOf(item) >= 0) {
+      return ' checked'
+    }
+  }
   next()
 })
 // Route index page

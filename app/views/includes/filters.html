@@ -39,9 +39,8 @@
             <div class="options-container" id="salary-range">
                 <div class="js-auto-height-inner">
                     {% for range in json.salary_range %}
-                        {% set selected = ' selected' if data['salary-range'] == range %}
                         <label for="{{ range | slug }}">
-                            <input name="salary_ranges[]" value="{{ range }}" id="{{ range | slug }}" type="checkbox" aria-controls="">
+                            <input name="salary_ranges[]" value="{{ range }}" id="{{ range | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(range, data['salary_ranges']) }}>
                             {{ range }}
                         </label>
                     {% endfor %}
@@ -55,9 +54,8 @@
             <div class="options-container" id="market-sector">
                 <div class="js-auto-height-inner">
                     {% for type in json.contract_type %}
-                        {% set selected = ' selected' if data['working-pattern'] == type %}
                         <label for="{{ type | slug }}">
-                            <input name="working-patterns[]" value="{{ type }}" id="{{ type | slug }}" type="checkbox" aria-controls="">
+                            <input name="working_patterns[]" value="{{ type }}" id="{{ type | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(type, data['working_patterns']) }}>
                             {{ type }}
                         </label>
                     {% endfor %}
@@ -71,11 +69,27 @@
             <div class="options-container" id="market-sector">
                 <div class="js-auto-height-inner">
                     {% for stage in json.key_stages %}
-                        {% set selected = ' checked' if data['key_stages'].indexOf(stage) >= 0 %}
                         <label for="{{ stage | slug }}">
-                            <input name="key_stages[]" value="{{ stage }}" id="{{ stage | slug }}" type="checkbox" aria-controls="">
+                            <input name="key_stages[]" value="{{ stage }}" id="{{ stage | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(stage, data['key_stages']) }}>
                             {{ stage }}
                         </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="govuk-option-select" data-closed-on-load="true">
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Leadership level</div>
+            </div>
+            <div class="options-container" id="market-sector">
+                <div class="js-auto-height-inner">
+                    {% for level in json.leadership_level %}
+                        {% if level != 'Not applicable' %}
+                            <label for="{{ level | slug }}">
+                                <input name="leadership_levels[]" value="{{ level }}" id="{{ level | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(level, data['leadership_levels']) }}>
+                                {{ level }}
+                            </label>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

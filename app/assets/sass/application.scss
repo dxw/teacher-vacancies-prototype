@@ -7,6 +7,7 @@ $path: "/public/images/";
 @import 'govuk-elements';
 @import '../lib/digitalmarketplace-frontend-toolkit/scss/forms/option-select';
 @import '../lib/digitalmarketplace-frontend-toolkit/scss/forms/keyword-search';
+@import '../lib/digitalmarketplace-frontend-toolkit/scss/previous-next-navigation';
 
 
 @import 'utilities';
@@ -47,4 +48,46 @@ $path: "/public/images/";
     font-weight: normal;
     font-size: 0.85em;
   }
+}
+.govuk-previous-and-next-navigation {
+  margin-top: $gutter-half;
+}
+
+.items-control {
+  position: relative;
+  margin-top: $gutter-half;
+  margin-bottom : $gutter;
+  .view-toggle {
+    a {
+      text-decoration: none;
+      //color: $black;
+      font-weight: 700;
+      i {
+        margin-right:4px;
+      }
+    }
+  }
+  .sortable-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @extend .font-xsmall;
+    margin-bottom: $gutter;
+    a {
+      margin: 0 4px;
+      &.active {
+        font-weight:700;
+        text-decoration: none;
+        &.sortby--asc:after {
+          content: ' \25B4';
+        }
+        &.sortby--desc:after {
+          content: ' \25BE';
+        }
+      }
+    }
+  }
+}
+#map {
+  height: 500px;
 }

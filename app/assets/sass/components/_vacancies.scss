@@ -2,10 +2,20 @@
   .job-title {
     font-weight: 700;
     font-size: 22px;
+    a {
+      text-decoration: none;
+    }
+  }
+  .job-location {
+    font-weight: 700;
+    margin: 0 0 $gutter-half 0;
   }
   li {
     border-bottom: 1px solid $grey-3;
-
+    .school_logo{
+      height: 60px;
+      float:right;
+    }
     dl {
       font-size: 90%;
     }

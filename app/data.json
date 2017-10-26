@@ -221,7 +221,8 @@
       "region": "Kent",
       "post_code": "ME1 1AB",
       "school_age": "11 to 18",
-      "website": "http://www.landwood.sch.uk"
+      "website": "http://www.landwood.sch.uk",
+      "logo": "landwood.jpg"
     },
     "surrey-1": {
       "name": "Acme Primary School",
@@ -234,7 +235,8 @@
       "region": "Surrey",
       "post_code": "SE1 1AB",
       "school_age": "6 to 11",
-      "website": "http://www.acme.sch.uk"
+      "website": "http://www.acme.sch.uk",
+      "logo": "acme.jpg"
     },
     "surrey-2": {
       "name": "Beaways School",
@@ -247,7 +249,8 @@
       "region": "Surrey",
       "post_code": "SE1 1AB",
       "school_age": "3 to 11",
-      "website": "http://www.beaways.sch.uk"
+      "website": "http://www.beaways.sch.uk",
+      "logo": "beaways.jpg"
     },
     "surrey-3": {
       "name": "Vine Lane School",
@@ -260,7 +263,8 @@
       "region": "London Borough of Croydon",
       "post_code": "SW1 1AB",
       "school_age": "3 to 11",
-      "website": "http://www.vine-lane.sch.uk"
+      "website": "http://www.vine-lane.sch.uk",
+      "logo": "vine_lane.jpg"
     },
     "poole-1": {
       "name": "Sandpoole Academy",
@@ -273,7 +277,8 @@
       "region": "Dorset",
       "post_code": "PO1 1AB",
       "school_age": "3 to 11",
-      "website": "http://www.sandpoole-academy.sch.uk"
+      "website": "http://www.sandpoole-academy.sch.uk",
+      "logo": "sandpoole.jpg"
     },
     "sandbanks-1": {
       "name": "Rayley Mills Primary School",
@@ -286,7 +291,8 @@
       "region": "Dorset",
       "post_code": "PO1 1AB",
       "school_age": "3 to 11",
-      "website": "http://www.rayley-mills.sch.uk"
+      "website": "http://www.rayley-mills.sch.uk",
+      "logo": "rayley_mills.jpg"
     },
     "stevenage-1": {
       "name": "St Steven's Primary School",
@@ -299,7 +305,8 @@
       "region": "Hertfordshire",
       "post_code": "SG1 1AB",
       "school_age": "5 to 11",
-      "website": "http://www.st-stevens.sch.uk"
+      "website": "http://www.st-stevens.sch.uk",
+      "logo": "st_stevens.jpg"
     },
     "abingdon-1": {
       "name": "Thames View School",
@@ -312,7 +319,8 @@
       "region": "Oxfordshire",
       "post_code": "OX1 1AB",
       "school_age": "11 to 16",
-      "website": "http://www.thames-view.sch.uk"
+      "website": "http://www.thames-view.sch.uk",
+      "logo": "thames_view.jpg"
     }
   },
   "salary_range": [
@@ -378,6 +386,9 @@
     "Not applicable",
     "Middle Leader",
     "Senior Leader",
+    "Principal",
+    "Assistant Head",
+    "Deputy Head",
     "Headteacher",
     "Executive Head",
     "Multi-Academy Trust CEO"
