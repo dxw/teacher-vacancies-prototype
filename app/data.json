@@ -349,8 +349,14 @@
   ],
   "education_stages": [
     "Primary",
-    "Secondary",
-    "Further Education"
+    "Secondary"
+  ],
+  "key_stages": [
+    "Key Stage 1",
+    "Key Stage 2",
+    "Key Stage 3",
+    "Key Stage 4",
+    "Key Stage 5"
   ],
   "subjects": [
     "Not applicable",

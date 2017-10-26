@@ -51,16 +51,17 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-label" for="education-stage">
-                Education phase
+            <label class="form-label">
+                Education stage
             </label>
-            <select name="education-stage" id="education-stage" class="form-control form-control-block">
-                <option value="">Any</option>
-                {% for stage in json.education_stages %}
-                    {% set selected = ' selected' if data['education-stage'] == stage %}
-                    <option{{ selected }}>{{ stage }}</option>
-                {% endfor %}
-            </select>
+
+            {% for stage in json.key_stages %}
+                {% set selected = ' checked' if data['key_stages'].indexOf(stage) >= 0 %}
+                <div>
+                    <input type="checkbox" name="key_stages[]" {{ selected }} value="{{ stage }}" id="{{ stage | slug }}">
+                    <label for="{{ stage | slug }}">{{ stage }}</label>
+                </div>
+            {% endfor %}
         </div>
         <input type="hidden" name="search_results" value="1">
         <input class="button" type="submit" value="Apply filters">
