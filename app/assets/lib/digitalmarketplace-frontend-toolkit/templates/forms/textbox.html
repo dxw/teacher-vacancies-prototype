@@ -1,0 +1,103 @@
+{% if hint %}
+  {% set answer_advice_id="input-" + name + "-answer-advice" %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-" + name + "-question-advice" %}
+{% endif %}
+
+{% if error %}
+  <div class="validation-wrapper">
+{% elif message %}
+  <div class="message-wrapper">
+{% endif %}
+  <div class="question{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
+    <label for="input-{{ name }}">
+      <span class="question-heading">
+        {% if question_number %}
+          <span class="question-number">
+            {{ question_number }}
+          </span>
+        {% endif %}
+        {{ question }}
+        {% if unit_in_full %}
+          <span class="text-box-unit-qualifier">(in {{ unit_in_full }})</span>
+        {% endif %}
+      </span>
+      {% if error %}
+        <span class="validation-message">
+          {{ error }}
+        </span>
+      {% elif message %}
+        <span class="message-content">
+          {{ message }}
+        </span>
+      {% endif %}
+    </label>
+    {% if hidden and not error %}
+      <noscript>
+        <span class="hint">
+          You may not need to answer this question depending on how you answered an earlier question.
+        </span>
+      </noscript>
+    {% endif %}
+    {% if optional %}
+      <span class="question-optional">
+        <strong>Optional</strong>
+      </span>
+    {% endif %}
+    {% if question_advice %}
+    <span class="question-advice" id="{{ question_advice_id }}">
+      {{ question_advice }}
+    </span>
+    {% endif %}
+    {% if hint %}
+    <span class="hint" id="{{ answer_advice_id }}">
+      {{ hint }}
+    </span>
+    {% endif %}
+    {% if large %}
+      {% if max_length_in_words %}
+        <div class="word-count">
+          <textarea
+            class="text-box text-box-large{% if error %}-with-error{% endif %}"
+            name="{{ name }}"
+            id="input-{{ name }}"
+            data-max-length-in-words="{{ max_length_in_words }}"
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
+          >
+          {%- if value != None -%}
+            {{ value }}
+          {%- endif -%}
+          </textarea>
+        </div>
+      {% else %}
+        <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="input-{{ name }}">
+        {%- if value != None -%}
+        	{{ value }}
+        {%- endif -%}
+	</textarea>
+      {% endif %}
+    {% else %}
+      {% if unit_position == "before" %}
+        <label for="input-{{ name }}" class="text-box-unit">
+          {{ unit }}
+        </label>
+      {% endif %}
+      <input
+        type="text"
+        name="{{ name }}"
+        id="input-{{ name }}"
+        class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}{% if smaller %} text-box-smaller{% endif %}"
+        value="{% if value !=  None %}{{ value }}{% endif %}"
+        {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
+      />
+      {% if unit_position == "after" %}
+        <label for="input-{{ name }}" class="text-box-unit">
+          {{ unit }}
+        </label>
+      {% endif %}
+    {% endif %}
+  </div>
+{% if error or message %}
+  </div>
+{% endif %}

@@ -1,0 +1,76 @@
+{% if hint %}
+  {% set answer_advice_id="input-" + name + "-answer-advice" %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-" + name + "-question-advice" %}
+{% endif %}
+
+{% if error %}
+  <div class="validation-wrapper">
+{% elif message %}
+  <div class="message-wrapper">
+{% endif %}
+  <div class="question" id="{{ name }}">
+    <label for="input-{{ name }}">
+      {% if question %}
+        <span class="question-heading">
+          {% if question_number %}
+            <span class="question-number">
+              {{ question_number }}
+            </span>
+          {% endif %}
+          {{ question }}
+        </span>
+      {% endif %}
+      {% if error %}
+        <span class="validation-message">
+          {{ error }}
+        </span>
+      {% elif message %}
+        <span class="message-content">
+          {{ message }}
+        </span>
+      {% endif %}
+    </label>
+    {% if optional %}
+      <span class="question-optional">
+        <strong>Optional</strong>
+      </span>
+    {% endif %}
+    {% if question_advice %}
+      <span class="question-advice" id="{{ question_advice_id }}">
+        {{ question_advice }}
+      </span>
+    {% endif %}
+    {% if hint %}
+      <span class="hint" id="{{ answer_advice_id }}">
+        {{ hint }}
+      </span>
+    {% endif %}
+    {% if value %}
+      <p class="file-upload-existing-value">
+        {% if link %}
+          <a href="{{ link }}" class='document-link-with-narrow-icon'>
+        {% else %}
+          <span class='document-link-with-narrow-icon'>
+        {% endif %}
+            <span class='document-icon-blank'></span>
+            {{ value }}
+        {% if link %}
+          </a>
+        {% else %}
+          </span>
+        {% endif %}
+      </p>
+    {% endif %}
+    <input
+      type="file"
+      name="{{ name }}"
+      id="input-{{ name }}"
+      class="file-upload-input"
+      {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
+    />
+  </div>
+{% if error or message %}
+</div>
+{% endif %}

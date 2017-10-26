@@ -1,0 +1,52 @@
+{% if hint %}
+  {% set answer_advice_id="checkbox-tree__inputs-answer-advice" %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="checkbox-tree__inputs-question-advice" %}
+{% endif %}
+
+{% if error %}
+<div class="validation-wrapper">
+{% endif %}
+  <div class="question" id="{{ id }}">
+    <label for="checkbox-tree__inputs">
+      <span class="question-heading">
+        {{ question }}
+      </span>
+      {% if error %}
+        <span class="validation-message">
+          {{ error }}
+        </span>
+      {% endif %}
+    </label>
+    {% if question_advice %}
+    <span class="question-advice" id="{{ question_advice_id }}">
+      {{ question_advice }}
+    </span>
+    {% endif %}
+    {% if hint %}
+    <span class="hint" id="{{ answer_advice_id }}">
+      {{ hint }}
+    </span>
+    {% endif %}
+
+    <div class="checkbox-tree">
+      <div class="grid-row">
+        <div class="column-one-third">
+          <div class="checkbox-tree__counter">
+            <div class="js-stick-at-top-when-scrolling">
+              <p>You can choose up to {{ number_of_items }}&nbsp;categories.</p>
+            </div>
+          </div>
+        </div>
+        <div class="column-two-thirds">
+          {% include 'toolkit/forms/_checkbox-tree-selection-buttons.html' %}
+        </div>
+      </div>
+    </div>{# end of .checkbox-tree #}
+    {# used to mark the lowest point the counter should reach #}
+    <div class="js-footer"></div>
+  </div>
+{% if error %}
+</div>
+{% endif %}

@@ -1,0 +1,14 @@
+// Copied from GOVUK Elements
+// Version: https://github.com/alphagov/govuk_elements/commit/cdeb958a0c3c0df5934497b74707322571ae6b21
+//
+// Large hit area
+// Radio buttons & checkboxes
+
+@import "colours";
+@import "measurements";
+@import "conditionals";
+@import "typography";
+@import "elements/forms/_form-multiple-choice";
+
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss

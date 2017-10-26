@@ -1,0 +1,18 @@
+<div class="banner-{{ type }}{% if action %}-with-action{% else %}-without-action{% endif %}">
+  {% if heading %}
+    <h2>
+      {{ heading }}
+    </h2>
+  {% endif %}
+  {% if message %}
+    <p class="banner-message">
+      {{ message }}
+    </p>
+  {% endif %}
+  {% if content %}
+    <div class="banner-content">
+      {{ content }}
+    </div>
+  {% endif %}
+  {{ action }}
+</div>
