@@ -1,4 +1,5 @@
 {% set school_address = [vacancy.school.address, vacancy.school.town, vacancy.school.region, vacancy.school.post_code] %}
+
 <h3 class="heading-medium">About {{ vacancy.school.name }}</h3>
 <p>{{ vacancy.school.description }}</p>
 <dl class="school-details">
@@ -15,3 +16,24 @@
     <dt>Website</dt>
     <dd><a href="{{ vacancy.school.website }}" target="_blank">{{ vacancy.school.website }}</a></dd>
 </dl>
+<div id="map_zoom"></div>
+<script>
+
+  function initMap() {
+    var myLatLng = {lat: {{ vacancy.school.lat }}, lng: {{ vacancy.school.lng}} };
+
+    var map = new google.maps.Map(document.getElementById('map_zoom'), {
+      zoom: 17,
+      center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: '{{ vacancy.school.name }}'
+    });
+  }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap">
+</script>

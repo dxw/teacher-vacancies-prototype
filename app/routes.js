@@ -17,6 +17,7 @@ router.use(function (req, res, next) {
   }
   res.locals.version = req.session.version ? req.session.version : 1
   res.locals.url = process.env.URL
+  res.locals.GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY
   res.locals.json = data.getAll()
   res.locals.multiple_checked = function (item, data) {
     if (data && data.indexOf(item) >= 0) {

@@ -27,8 +27,7 @@
             <p>{{ vacancy.experience_requirements }}</p>
             <h3 class="heading-medium">Education</h3>
             <p>{{ vacancy.education_requirements }}</p>
-            <hr>
-            {% include "includes/school_details.html" %}
+
             <div id="apply-button-bottom">
                 {{ apply_now.button(vacancy.slug) }}
             </div>
@@ -71,6 +70,17 @@
                     <dd>{{ vacancy.starts_at | date }}</dd>
                 </dl>
             </aside>
+        </div>
+    </div>
+    <hr>
+
+    <div class="grid-row school_details">
+        <div class="column-two-thirds ">
+            {% include "includes/school_details.html" %}
+        </div>
+        <div class="column-one-third">
+            <img src="/public/images/school_logos/{{ vacancy.school.logo }}" alt="{{ vacancy.school.name }} logo" class="school_logo">
+
         </div>
     </div>
 </main>

@@ -13,3 +13,17 @@ dl.school-details {
       }
     }
 }
+.school_details {
+   .school_logo {
+        float: right;
+        width:100%;
+   }
+   h3 {
+        margin-top: 0;
+   }
+   #map_zoom {
+        width: 100%;
+        height:400px;
+        margin-top: $gutter;
+   }
+}
