@@ -222,7 +222,9 @@
       "post_code": "ME1 1AB",
       "school_age": "11 to 18",
       "website": "http://www.landwood.sch.uk",
-      "logo": "landwood.jpg"
+      "logo": "landwood.jpg",
+      "lng":0.522130,
+      "lat":51.380952
     },
     "surrey-1": {
       "name": "Acme Primary School",
@@ -236,7 +238,9 @@
       "post_code": "SE1 1AB",
       "school_age": "6 to 11",
       "website": "http://www.acme.sch.uk",
-      "logo": "acme.jpg"
+      "logo": "acme.jpg",
+      "lng": -0.267382,
+      "lat":51.336036
     },
     "surrey-2": {
       "name": "Beaways School",
@@ -250,7 +254,9 @@
       "post_code": "SE1 1AB",
       "school_age": "3 to 11",
       "website": "http://www.beaways.sch.uk",
-      "logo": "beaways.jpg"
+      "logo": "beaways.jpg",
+      "lng": -0.798802,
+      "lat":51.214321
     },
     "surrey-3": {
       "name": "Vine Lane School",
@@ -264,7 +270,9 @@
       "post_code": "SW1 1AB",
       "school_age": "3 to 11",
       "website": "http://www.vine-lane.sch.uk",
-      "logo": "vine_lane.jpg"
+      "logo": "vine_lane.jpg",
+      "lng": -0.098234,
+      "lat":51.376165
     },
     "poole-1": {
       "name": "Sandpoole Academy",
@@ -278,7 +286,9 @@
       "post_code": "PO1 1AB",
       "school_age": "3 to 11",
       "website": "http://www.sandpoole-academy.sch.uk",
-      "logo": "sandpoole.jpg"
+      "logo": "sandpoole.jpg",
+      "lng": -1.987248,
+      "lat":50.715050
     },
     "sandbanks-1": {
       "name": "Rayley Mills Primary School",
@@ -292,7 +302,9 @@
       "post_code": "PO1 1AB",
       "school_age": "3 to 11",
       "website": "http://www.rayley-mills.sch.uk",
-      "logo": "rayley_mills.jpg"
+      "logo": "rayley_mills.jpg",
+      "lng": -1.940864,
+      "lat":50.687894
     },
     "stevenage-1": {
       "name": "St Steven's Primary School",
@@ -306,7 +318,9 @@
       "post_code": "SG1 1AB",
       "school_age": "5 to 11",
       "website": "http://www.st-stevens.sch.uk",
-      "logo": "st_stevens.jpg"
+      "logo": "st_stevens.jpg",
+      "lng": -0.196612,
+      "lat":51.903761
     },
     "abingdon-1": {
       "name": "Thames View School",
@@ -320,7 +334,9 @@
       "post_code": "OX1 1AB",
       "school_age": "11 to 16",
       "website": "http://www.thames-view.sch.uk",
-      "logo": "thames_view.jpg"
+      "logo": "thames_view.jpg",
+      "lng": -1.287953,
+      "lat":51.670780
     }
   },
   "salary_range": [
