@@ -345,7 +345,8 @@
   ],
   "contract_type": [
     "Full time",
-    "Part time"
+    "Part time",
+    "Flexible"
   ],
   "education_stages": [
     "Primary",
@@ -355,8 +356,7 @@
     "Key Stage 1",
     "Key Stage 2",
     "Key Stage 3",
-    "Key Stage 4",
-    "Key Stage 5"
+    "Key Stage 4"
   ],
   "subjects": [
     "Not applicable",

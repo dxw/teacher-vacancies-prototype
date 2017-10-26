@@ -5,6 +5,9 @@ $path: "/public/images/";
 // Import GOV.UK elements from /govuk-modules/, this will import the frontend toolkit and some base styles.
 // Take a look in /govuk-modules/_govuk-elements.scss to see which files are imported.
 @import 'govuk-elements';
+@import '../lib/digitalmarketplace-frontend-toolkit/scss/forms/option-select';
+@import '../lib/digitalmarketplace-frontend-toolkit/scss/forms/keyword-search';
+
 
 @import 'utilities';
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
@@ -19,3 +22,29 @@ $path: "/public/images/";
 @import 'components/dashboard';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+.filter-field-text {
+  @extend .govuk-option-select;
+  padding:0;
+  .container-head {
+    padding: 0 0 3px  0;
+  }
+  .container-search {
+    .form-control {
+      border: 1px solid $border-colour;
+      margin-top: 5px;
+      background-color: white;
+    }
+  }
+}
+.govuk-option-select {
+  margin-bottom: $gutter;
+}
+.filter-controls {
+  font-weight: bold;
+  margin-bottom: $gutter-half;
+  .clear-filters {
+    float: right;
+    font-weight: normal;
+    font-size: 0.85em;
+  }
+}

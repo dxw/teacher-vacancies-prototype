@@ -1,68 +1,86 @@
-<aside class="filters padding">
+<aside class="">
     <form action="/vacancies">
-        <h3 class="heading-medium no-margin">Filter vacancies</h3>
-        <div class="form-group">
-            <label class="form-label" for="location">
-                Location
-            </label>
-            <input class="form-control form-control-block" id="location" type="text" name="location" placeholder="Town, postcode or region" value="{{ data['location'] }}">
+        <div class="filter-controls">
+            Filter vacancies:
+            <div class="clear-filters">
+                <a href="/vacancies">Clear filters</a>
+            </div>
         </div>
-        <div class="form-group">
-            <label class="form-label" for="search-radius">
-                Search radius
-            </label>
-            <select name="search-radius" id="search-radius" class="form-control form-control-block" disabled>
-                <option id="nationally">Nationally</option>
-                <option id="exactly">This area exactly</option>
-                {% for radius in json.search_radius %}
-                    {% set selected = ' selected' if data['search-radius'] == range %}
-                    <option{{ selected }}>{{ radius }}</option>
-                {% endfor %}
-            </select>
+        <div class="filter-field-text">
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Location</div>
+            </div>
+            <div class="container-search">
+                <input id="location" type="search" name="location" placeholder="Town, postcode or region" value="{{ data['location'] }}">
+                <select name="search-radius" id="search-radius" class="form-control form-control-block" disabled>
+                    <option id="nationally">Nationally</option>
+                    <option id="exactly">This area exactly</option>
+                    {% for radius in json.search_radius %}
+                        {% set selected = ' selected' if data['search-radius'] == range %}
+                        <option{{ selected }}>{{ radius }}</option>
+                    {% endfor %}
+                </select>
+                <input class="submit" type="submit" value="Search">
+            </div>
         </div>
-        <div class="form-group">
-            <label class="form-label" for="keyword">
-                Keyword
-            </label>
-            <input class="form-control form-control-block" id="keyword" type="text" name="keyword" placeholder="eg. role or subject" value="{{ data['keyword'] }}">
+        <div class="filter-field-text">
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Keywords</div>
+            </div>
+            <div class="container-search">
+                <input id="keyword" type="search" name="keyword" placeholder="eg. role or subject" value="{{ data['keyword'] }}">
+                <input class="submit" type="submit" value="Search">
+            </div>
         </div>
-        <div class="form-group">
-            <label class="form-label" for="salary-range">
-                Salary range
-            </label>
-            <select name="salary-range" id="salary-range" class="form-control form-control-block">
-                <option value="">Any</option>
-                {% for range in json.salary_range %}
-                    {% set selected = ' selected' if data['salary-range'] == range %}
-                    <option{{ selected }}>{{ range }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label" for="working-pattern">
-                Working pattern
-            </label>
-            <select name="contract_type" id="working-pattern" class="form-control form-control-block">
-                <option value="">Any</option>
-                {% for type in json.contract_type %}
-                    {% set selected = ' selected' if data['working-pattern'] == type %}
-                    <option{{ selected }}>{{ type }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">
-                Education stage
-            </label>
-
-            {% for stage in json.key_stages %}
-                {% set selected = ' checked' if data['key_stages'].indexOf(stage) >= 0 %}
-                <div>
-                    <input type="checkbox" name="key_stages[]" {{ selected }} value="{{ stage }}" id="{{ stage | slug }}">
-                    <label for="{{ stage | slug }}">{{ stage }}</label>
+        <div class="govuk-option-select" >
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Salary range</div>
+            </div>
+            <div class="options-container" id="salary-range">
+                <div class="js-auto-height-inner">
+                    {% for range in json.salary_range %}
+                        {% set selected = ' selected' if data['salary-range'] == range %}
+                        <label for="{{ range | slug }}">
+                            <input name="salary_ranges[]" value="{{ range }}" id="{{ range | slug }}" type="checkbox" aria-controls="">
+                            {{ range }}
+                        </label>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         </div>
+        <div class="govuk-option-select" data-closed-on-load="true">
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Working pattern</div>
+            </div>
+            <div class="options-container" id="market-sector">
+                <div class="js-auto-height-inner">
+                    {% for type in json.contract_type %}
+                        {% set selected = ' selected' if data['working-pattern'] == type %}
+                        <label for="{{ type | slug }}">
+                            <input name="working-patterns[]" value="{{ type }}" id="{{ type | slug }}" type="checkbox" aria-controls="">
+                            {{ type }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="govuk-option-select" data-closed-on-load="true">
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Education stage</div>
+            </div>
+            <div class="options-container" id="market-sector">
+                <div class="js-auto-height-inner">
+                    {% for stage in json.key_stages %}
+                        {% set selected = ' checked' if data['key_stages'].indexOf(stage) >= 0 %}
+                        <label for="{{ stage | slug }}">
+                            <input name="key_stages[]" value="{{ stage }}" id="{{ stage | slug }}" type="checkbox" aria-controls="">
+                            {{ stage }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
         <input type="hidden" name="search_results" value="1">
         <input class="button" type="submit" value="Apply filters">
     </form>
