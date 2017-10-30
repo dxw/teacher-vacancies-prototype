@@ -21,7 +21,8 @@
             <form action="/vacancies/create/confirm" method="post" class="form">
                 {{ form_fields.field('vacancy_contact_email', 'Vacancy contact email', 'email', 'The email address of the individual or shared mailbox the applicant should contact about the job', true) }}
                 {{ form_fields.textarea('application_instructions', 'Application instructions', 'Instructions on how to apply', 3, true) }}
-                {{ form_fields.date('closes_at', 'Vacancy deadline date', 'The deadline for receiving applications', true) }}
+                {{ form_fields.date('closes_at', 'Vacancy deadline date', 'The deadline date for receiving applications', true) }}
+                {{ form_fields.time('closes_at_time', 'Vacancy deadline time', 'The deadline time for receiving applications') }}
                 {{ form_fields.checkbox('publish_today', 'Publish vacancy today', checked('publish_today', '1') if data.publish_today else true) }}
                 <div class="panel panel-border-narrow " id="posted_at-panel">
                     {{ form_fields.date('posted_at', 'Vacancy publication date', 'The date the job vacancy should go live') }}
@@ -29,6 +30,9 @@
                 <div class="panel panel-background">
                     {{ form_fields.field('allow_recruiters_to_contact', 'Allow recruitment companies to contact you?', 'yesno', 'Recruitment companies may have potential candidates that meet your requirements', true) }}
                 </div>
+                <h3 class="heading-medium margin-top-large">Application pack</h3>
+                <p>There are currently <strong class="bold">2 files</strong> included in your application pack.</p>
+                <p><a href="/vacancies/create/upload">Upload files to application pack</a></p>
                 {{ form_fields.submit('Save and continue') }}
             </form>
         </div>

@@ -22,11 +22,23 @@
                 {{ vacancy.headline }}
             </p>
             <h3 class="heading-medium">Job description</h3>
-            <p>{{ vacancy.description }}</p>
+            <div class="rich-text">{{ vacancy.description | safe }}</div>
             <h3 class="heading-medium">Essential Requirements</h3>
             <p>{{ vacancy.experience_requirements }}</p>
             <h3 class="heading-medium">Education</h3>
             <p>{{ vacancy.education_requirements }}</p>
+            {% if vacancy.qualifications %}
+                <h3 class="heading-medium">Qualifications</h3>
+                <p>{{ vacancy.qualifications }}</p>
+            {% endif %}
+            {% if vacancy.experience %}
+                <h3 class="heading-medium">Experience</h3>
+                <p>{{ vacancy.experience }}</p>
+            {% endif %}
+            {% if vacancy.benefits %}
+                <h3 class="heading-medium">Benefits</h3>
+                <p>{{ vacancy.benefits }}</p>
+            {% endif %}
 
             <div id="apply-button-bottom">
                 {{ apply_now.button(vacancy.slug) }}
@@ -52,18 +64,18 @@
                     <dt>Pay scale</dt>
                     <dd>{{ vacancy.pay_scale }}</dd>
                     {% endif %}
-                    <dt>Reference number</dt>
-                    <dd>{{ vacancy.reference_no }}</dd>
-                    {% if vacancy.main_subject %}
-                    <dt>Main subject</dt>
-                    <dd>{{ vacancy.main_subject }}</dd>
-                    {% endif %}
-                    <dt>Posted on</dt>
-                    <dd>{{ vacancy.posted_at | date }}</dd>
                     <dt>Closing date</dt>
                     <dd>{{ vacancy.closes_at | date }}</dd>
                     <dt>Start date</dt>
                     <dd>{{ vacancy.starts_at | date }}</dd>
+                    <dt>Posted on</dt>
+                    <dd>{{ vacancy.posted_at | date }}</dd>
+                    {% if vacancy.main_subject %}
+                        <dt>Main subject</dt>
+                        <dd>{{ vacancy.main_subject }}</dd>
+                    {% endif %}
+                    <dt>Reference number</dt>
+                    <dd>{{ vacancy.reference_no }}</dd>
                 </dl>
             </aside>
         </div>

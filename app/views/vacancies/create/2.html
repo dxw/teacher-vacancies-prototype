@@ -13,16 +13,17 @@
         <span class="heading-secondary">Step 2 of 3</span>
     </h2>
     <h3 class="heading-medium margin-top">Candidate specification</h3>
-    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id.</p>
+    <p class="text">Please provide information about the essential and desirable requirements for the role</p>
 
     <div class="grid-row margin-top">
         <div class="column-two-thirds">
             {% import "includes/macros/form_fields.html" as form_fields with context %}
             <form action="/vacancies/create/3" method="post" class="form">
-                {{ form_fields.multiple('essential_requirements', 'Essential requirements', 'Qualifications, experience, and/or professional registrations', 5, true) }}
-                {{ form_fields.multiple('education', 'Education', 'Educational background needed for the position') }}
-                {{ form_fields.multiple('qualifications', 'Qualifications', 'Specific qualifications required for this role') }}
-                {{ form_fields.multiple('experience', 'Experience', 'Expected teaching or other experience') }}
+                {{ form_fields.textarea('essential_requirements', 'Essential requirements', 'For example qualifications, experience, and/or professional registrations', 5, true) }}
+                <h4 class="heading-small margin-top">Desirable requirements</h4>
+                {{ form_fields.textarea('education', 'Education', 'Educational background needed for the position') }}
+                {{ form_fields.textarea('qualifications', 'Qualifications', 'Specific qualifications required for this role') }}
+                {{ form_fields.textarea('experience', 'Experience', 'Expected teaching or other experience') }}
                 {{ form_fields.submit('Save and continue') }}
             </form>
         </div>

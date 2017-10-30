@@ -24,7 +24,7 @@ Confirm details before you submit
                 {% set url = '/vacancies/create/1' %}
                 {{ cya.field('Job title', data.title, url) }}
                 {{ cya.field('Headline', data.headline, url) }}
-                {{ cya.field('Job description', data.description, url) }}
+                {{ cya.field('Job description', data.description_wysiwyg, url) }}
                 {{ cya.field('Benefits', data.benefits, url) }}
                 {{ cya.field('Main subject', data.main_subject, url) }}
                 {{ cya.field('Salary range', data.salary_min + ' to ' + data.salary_max, url) }}
@@ -58,6 +58,7 @@ Confirm details before you submit
                 {{ cya.field('Vacancy contact email', data.vacancy_contact_email, url) }}
                 {{ cya.field('Application instructions', data.application_instructions, url) }}
                 {{ cya.field('Vacancy deadline date', data['closes_at-day'] + '/' + data['closes_at-month'] + '/' + data['closes_at-year'], url) }}
+                {{ cya.field('Vacancy deadline time', data['closes_at_time-hour'] + ':' + data['closes_at_time-minute'], url) }}
                 {% if data.publish_today != true %}
                     {{ cya.field('Vacancy publication date', data['posted_at-day'] + '/' + data['posted_at-month'] + '/' + data['posted_at-year'], url) }}
                 {% endif %}
@@ -67,12 +68,11 @@ Confirm details before you submit
             <h2 class="heading-medium">Now submit your vacancy</h2>
 
             <p class="text">
-                You can <a href="#">preview</a> your vacancy to see how it will look for potential applicants.
+                You can <a href="/vacancies/{{ data.title | slug }}?preview=1" target="_blank">preview</a> your vacancy to see how it will look for potential applicants.
             </p>
             <p class="text">
                 By submitting you are confirming that, to the best of your knowledge, the details you are providing are correct.
             </p>
-
             <div class="form-group">
                 <a href="/vacancies/create/published" class="button">Confirm and submit vacancy</a>
             </div>

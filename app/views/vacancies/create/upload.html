@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Upload files to application pack
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    {% import "includes/macros/form_fields.html" as form_fields with context %}
+    <a href="/vacancies/create/3" class="link-back">Back</a>
+    <h2 class="heading-large margin-top">
+        Publish a vacancy
+        <span class="heading-secondary">Upload files to application pack</span>
+    </h2>
+    <h3 class="heading-medium">Current files</h3>
+    <ul class='document-list'>
+        <li class='document-list-item'>
+            <a href="#" class='document-link-with-icon'>
+                <span class='document-icon'>PDF<span> document:</span></span>
+                School_Brochure.pdf
+            </a>
+        </li>
+        <li class='document-list-item'>
+            <a href="#" class='document-link-with-icon'>
+                <span class='document-icon'>DOCX<span> document:</span></span>
+                Job_Specification.docx
+            </a>
+        </li>
+    </ul>
+    <h3 class="heading-medium">Upload a new file</h3>
+    <p><label for=""><input type="file"></label></p>
+    {{ form_fields.submit('Upload') }}
+    <p class="margin-top"><a href="/vacancies/create/3">Return to application details</a></p>
+</main>
+
+{% endblock %}
+
+

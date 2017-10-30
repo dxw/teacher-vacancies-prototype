@@ -79,6 +79,23 @@
         </div>
         <div class="govuk-option-select" data-closed-on-load="true">
             <div class="container-head js-container-head">
+                <div class="option-select-label">Subjects</div>
+            </div>
+            <div class="options-container" id="subjects">
+                <div class="js-auto-height-inner">
+                    {% for subject in json.subjects | sort %}
+                        {% if subject != 'Not applicable' and subject != 'Other' %}
+                        <label for="{{ subject | slug }}">
+                            <input name="subjects[]" value="{{ subject }}" id="{{ subject | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(subject, data['subjects']) }}>
+                            {{ subject }}
+                        </label>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="govuk-option-select" data-closed-on-load="true">
+            <div class="container-head js-container-head">
                 <div class="option-select-label">Leadership level</div>
             </div>
             <div class="options-container" id="market-sector">

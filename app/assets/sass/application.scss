@@ -8,6 +8,7 @@ $path: "/public/images/";
 @import '../lib/digitalmarketplace-frontend-toolkit/scss/forms/option-select';
 @import '../lib/digitalmarketplace-frontend-toolkit/scss/forms/keyword-search';
 @import '../lib/digitalmarketplace-frontend-toolkit/scss/previous-next-navigation';
+@import '../lib/digitalmarketplace-frontend-toolkit/scss/document';
 
 
 @import 'utilities';
@@ -21,6 +22,7 @@ $path: "/public/images/";
 @import 'components/pagination';
 @import 'components/school-details';
 @import 'components/dashboard';
+@import 'components/wysiwyg';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 .filter-field-text {

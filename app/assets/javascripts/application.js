@@ -103,11 +103,6 @@ $(document).ready(function () {
 
   initWordCounter('#description', 500)
 
-  initMultipleTextInput('#essential_requirements')
-  initMultipleTextInput('#education')
-  initMultipleTextInput('#qualifications')
-  initMultipleTextInput('#experience')
-
   $('#close-notification').on('click', function () {
     $(this).parents('.notification').hide()
   })
@@ -116,4 +111,25 @@ $(document).ready(function () {
   $('#location').on('keyup', function () {
     checkLocation()
   })
+  if ($('#description_wysiwyg').length) {
+    tinymce.init({
+      selector: '#description_wysiwyg',
+      valid_elements: 'a[href|target=_blank],strong/b,div[align],br,ul,ol,li,p',
+      branding: false,
+      menubar: false,
+      theme: 'inlite',
+      plugins: 'link paste contextmenu textpattern autolink wordcount',
+      insert_toolbar: false,
+      selection_toolbar: 'quicklink',
+      inline: true,
+      paste_data_images: false,
+      setup: function (editor) {
+        editor.on('keyup', function (evt) {
+          var wordCount = editor.plugins.wordcount.getCount()
+          var remaining = 500 - wordCount
+          $('#description_wordcount').text(remaining + ' words remaining')
+        })
+      }
+    })
+  }
 })

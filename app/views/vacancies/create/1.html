@@ -19,7 +19,7 @@
             <form action="/vacancies/create/2" method="post" class="form">
             {{ form_fields.field('title', 'Job title', 'text', 'Must indicate subject to be taught (secondary school) or level of seniority', true) }}
             {{ form_fields.textarea('headline', 'Headline', 'Single sentence, summing up the job on offer, to appear at top of the listing', 3,true) }}
-            {{ form_fields.textarea('description', 'Job description', 'A description of the job, and the duties involved, and competencies and attitudes expected to be shown by the jobholder', 10, true) }}
+            {{ form_fields.wysiwyg('description', 'Job description', 'A description of the job, and the duties involved, and competencies and attitudes expected to be shown by the jobholder', true) }}
             {{ form_fields.textarea('other_roles', 'Other roles', 'Other roles the applicant will be expected to fulfill', 3) }}
             {{ form_fields.textarea('benefits', 'Benefits') }}
             {{ form_fields.select('main_subject', 'Main subject', json.subjects, 'The main subject to be taught by teacher', true) }}

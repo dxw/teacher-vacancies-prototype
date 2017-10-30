@@ -1,0 +1,15 @@
+.mce-content-body {
+  min-height: 300px;
+  &:focus {
+    outline: 3px solid $focus-colour;
+    outline-offset: 0;
+  }
+}
+.cya-answer, .rich-text, .mce-content-body {
+  ol {
+    @extend .list-number;
+  }
+  ul {
+    @extend .list-bullet;
+  }
+}

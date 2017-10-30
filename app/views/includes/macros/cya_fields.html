@@ -5,7 +5,7 @@
         {{ question }}
     </dt>
     <dd class="cya-answer">
-        {{ answer }}
+        {{ answer | safe }}
     </dd>
     <dd class="cya-change">
         {% if link %}

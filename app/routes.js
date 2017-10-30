@@ -42,7 +42,7 @@ router.get('/vacancies', function (req, res) {
 })
 
 router.get('/vacancies/:slug', function (req, res) {
-  var vacancy = data.findBySlug(req.params.slug)
+  var vacancy = (req.query.preview) ? getPreview(req.session.data) : data.findBySlug(req.params.slug)
   res.render('vacancies/show', {'vacancy': vacancy})
 })
 
@@ -60,5 +60,30 @@ router.get('/vacancies/:slug/apply/success', function (req, res) {
   var vacancy = data.findBySlug(req.params.slug)
   res.render('apply/success', {'vacancy': vacancy})
 })
+
+
+function getPreview (previewData) {
+  var schools = data.getAll('schools')
+  return {
+    'slug': 'preview',
+    'school_id': 'surrey-1',
+    'reference_no': 'PREVIEW',
+    'title': previewData.title,
+    'position': 'Teacher',
+    'contract_type': previewData.working_pattern,
+    'main_subject': previewData.main_subject,
+    'status': 'Published',
+    'headline': previewData.headline,
+    'salary_min': previewData.salary_min,
+    'salary_max': previewData.salary_max,
+    'description': previewData.description_wysiwyg,
+    'education_requirements': previewData.education,
+    'experience_requirements': previewData.essential_requirements,
+    'benefits': previewData.benefits,
+    'qualifications': previewData.qualifications,
+    'experience': previewData.experience,
+    'school': schools['surrey-1']
+  }
+}
 
 module.exports = router
