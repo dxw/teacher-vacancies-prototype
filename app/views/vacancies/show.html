@@ -87,8 +87,9 @@
             {% include "includes/school_details.html" %}
         </div>
         <div class="column-one-third">
+            {% if vacancy.school.logo %}
             <img src="/public/images/school_logos/{{ vacancy.school.logo }}" alt="{{ vacancy.school.name }} logo" class="school_logo">
-
+            {% endif %}
         </div>
     </div>
 </main>

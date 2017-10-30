@@ -46,8 +46,9 @@
                 {% for job in vacancies | sort(vacancies, false, false, 'score') %}
                 {% set school = json.schools[job.school_id] %}
                 <li itemscope itemtype="http://schema.org/JobPosting" class="margin-top padding-bottom">
+                    {% if school.logo %}
                     <img src="/public/images/school_logos/{{ school.logo }}" alt="{{ school.name }} logo" class="school_logo">
-
+                    {% endif %}
                     <h3 class="job-title">
                         <a href="{{ job.slug | url('vacancies') }}" title="{{ job.title }}">
                             <span itemprop="title">{{ job.title }}</span>
