@@ -48,10 +48,6 @@
                     <dd>£{{ vacancy.salary_min | number }} - £{{ vacancy.salary_max | number }}</dd>
                     <dt>Working pattern</dt>
                     <dd>{{ vacancy.contract_type | default('Full time') }}</dd>
-                    {% if vacancy.weekly_hours %}
-                    <dt>Weekly hours</dt>
-                    <dd>{{ vacancy.weekly_hours | default('40') }}</dd>
-                    {% endif %}
                     {% if vacancy.pay_scale %}
                     <dt>Pay scale</dt>
                     <dd>{{ vacancy.pay_scale }}</dd>

@@ -12,34 +12,36 @@
         <span class="heading-secondary">Step 1 of 3</span>
     </h2>
     <h3 class="heading-medium margin-top">Job specification</h3>
-    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id.</p>
+    <p class="text">Please provide information about the vacancy</p>
     <div class="grid-row margin-top">
         <div class="column-two-thirds">
             {% import "includes/macros/form_fields.html" as form_fields with context %}
             <form action="/vacancies/create/2" method="post" class="form">
             {{ form_fields.field('title', 'Job title', 'text', 'Must indicate subject to be taught (secondary school) or level of seniority', true) }}
             {{ form_fields.textarea('headline', 'Headline', 'Single sentence, summing up the job on offer, to appear at top of the listing', 3,true) }}
-            {{ form_fields.textarea('description', 'Job description', 'A description of the job, and the duties involved, and competencies and attitudes expected to be shown by the jobholder', 5, true) }}
+            {{ form_fields.textarea('description', 'Job description', 'A description of the job, and the duties involved, and competencies and attitudes expected to be shown by the jobholder', 10, true) }}
+            {{ form_fields.textarea('other_roles', 'Other roles', 'Other roles the applicant will be expected to fulfill', 3) }}
             {{ form_fields.textarea('benefits', 'Benefits') }}
             {{ form_fields.select('main_subject', 'Main subject', json.subjects, 'The main subject to be taught by teacher', true) }}
+
             {{ form_fields.salary_range() }}
             {{ form_fields.select('pay_scale', 'Pay scale', json.pay_scales, 'The pay scale on which the salary of the job falls') }}
             {{ form_fields.select('working_pattern', 'Working pattern', json.contract_type, '', true) }}
             <div class="panel panel-border-narrow js-hidden" id="fte-panel">
                 {{ form_fields.field('fte', 'Full time equivalent', 'number', 'Percentage of a full time position') }}
             </div>
-            {{ form_fields.field('weekly_hours', 'Weekly hours', 'text', 'Number of hours to be worked each week') }}
+            <div class="panel panel-border-narrow js-hidden" id="flexible-panel">
+                {{ form_fields.textarea('flexible_working_details', 'Flexible working details', 'Provide further details here') }}
+            </div>
+            {{ form_fields.checkbox('is_job_share', 'This position has a job share available', checked('is_job_share', '1') if data.is_flexible else false) }}
+
             {{ form_fields.select('leadership_level', 'Leadership level', json.leadership_level) }}
             {{ form_fields.date('starts_at', 'Start date', 'Expected start date of the job') }}
             {{ form_fields.checkbox('is_permanent', 'This is a permanent position', checked('is_permanent', '1') if data.is_permanent else true) }}
             <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
                 {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
             </div>
-            {{ form_fields.checkbox('is_flexible', 'This is position offers flexible working', checked('is_flexible', '1') if data.is_flexible else false) }}
-            <div class="panel panel-border-narrow js-hidden" id="flexible-panel">
-                {{ form_fields.textarea('flexible_working_details', 'Flexible working details', 'Provide further details here') }}
-            </div>
-            {{ form_fields.checkbox('is_job_share', 'This position has a job share available', checked('is_job_share', '1') if data.is_flexible else false) }}
+
             {{ form_fields.submit('Save and continue') }}
             </form>
         </div>

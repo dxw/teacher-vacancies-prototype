@@ -4,7 +4,7 @@
     var vacancies = []
     {% for vacancy in vacancies %}
     vacancies.push({
-      school_name: '{{ json.schools[vacancy.school_id].name }}',
+      school: '{{ json.schools[vacancy.school_id].name }}, {{ json.schools[vacancy.school_id].town }}',
       job_title: '{{ vacancy.title }}',
       link: '{{ vacancy.slug | url('vacancies') }}',
       lng: {{ json.schools[vacancy.school_id].lng }},
@@ -22,7 +22,7 @@
     var infoWindow = new google.maps.InfoWindow();
     for (var x in vacancies) {
       var vacancy = vacancies[x]
-      infos[x] = '<h3><a href="'+vacancy.link+'">'+vacancy.job_title+'</a></h3><p><strong>'+vacancy.school_name+'</strong></p>';
+      infos[x] = '<h3><a href="'+vacancy.link+'">'+vacancy.job_title+'</a></h3><p><strong>'+vacancy.school+'</strong></p>';
       markers[x] = new google.maps.Marker({
         position: {lat: vacancy.lat, lng: vacancy.lng},
         map: map,

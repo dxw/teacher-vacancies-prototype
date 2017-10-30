@@ -24,10 +24,10 @@ var checkPermanent = function () {
 }
 
 var checkFlexible = function () {
-  if (!$('#is_flexible').prop('checked')) {
-    $('#flexible-panel').addClass('js-hidden').find('input').val('')
-  } else {
+  if ($('#working_pattern').val() === 'Flexible') {
     $('#flexible-panel').removeClass('js-hidden')
+  } else {
+    $('#flexible-panel').addClass('js-hidden').find('input').val('')
   }
 }
 
@@ -40,7 +40,8 @@ var checkPublishToday = function () {
 }
 
 var checkLocation = function () {
-  if ($('#location').val().length) {
+  var $location = $('#location')
+  if ($location.length && $location.val().length) {
     $('#search-radius').removeAttr('disabled')
     $('#exactly').attr('selected', 'selected')
     $('#nationally').removeAttr('selected')
@@ -82,8 +83,10 @@ $(document).ready(function () {
   showHideContent.init()
 
   checkWorkingPattern()
+  checkFlexible()
   $('#working_pattern').on('change', function () {
     checkWorkingPattern()
+    checkFlexible()
   })
 
   checkPermanent()
@@ -94,11 +97,6 @@ $(document).ready(function () {
   checkPublishToday()
   $('#publish_today').on('change', function () {
     checkPublishToday()
-  })
-
-  checkFlexible()
-  $('#is_flexible').on('change', function () {
-    checkFlexible()
   })
 
   autosize($('textarea'))
