@@ -91,3 +91,10 @@ $path: "/public/images/";
 #map {
   height: 500px;
 }
+.inline-checkboxes {
+  .multiple-choice {
+    display: inline-block;
+    width: 40%;
+    float: none;
+  }
+}

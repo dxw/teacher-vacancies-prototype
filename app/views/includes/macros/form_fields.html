@@ -29,6 +29,30 @@
 </div>
 {% endmacro %}
 
+{% macro multiple_checkboxes(name, label, options, hint, required=false) %}
+    {% set label = label + ' (optional)' if required == false else label %}
+    <div class="form-group">
+        <label class="form-label-bold" for="{{ name }}">
+            {{ label }}
+            {% if hint != '' %}
+                <span class="form-hint">
+                {{ hint }}
+                </span>
+            {% endif %}
+        </label>
+            <fieldset class="inline-checkboxes">
+                {% for option in options | sort %}
+                    {% if option != 'Other' and option != 'Not applicable' %}
+                    <div class="multiple-choice">
+                        <input id="{{ option }}" type="checkbox" name="{{ name }}[]" value="{{ option }}" {{ multiple_checked(option, data[name]) }}>
+                        <label for="{{ option }}">{{ option }}</label>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </fieldset>
+    </div>
+{% endmacro %}
+
 {% macro textarea(name, label='', hint='', rows=3, required=false) %}
 {% set label = label + ' (optional)' if required == false else label %}
 <div class="form-group">
