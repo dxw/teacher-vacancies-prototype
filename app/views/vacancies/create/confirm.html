@@ -5,13 +5,22 @@ Confirm details before you submit
 {% endblock %}
 
 {% block content %}
+{% set publish_later = (data.publish_today != true) %} %}
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}
     <a href="/vacancies/create/3" class="link-back">Back</a>
     <h2 class="heading-large margin-top">
-        Publish a vacancy
+        Review vacancy
         <span class="heading-secondary">Confirm details before you submit</span>
     </h2>
+
+    <h3 class="heading-medium">
+        Preview how the vacancy will look
+    </h3>
+
+    <p class="text">
+        You can <a href="/vacancies/{{ data.title | slug }}?preview=1" target="_blank">preview</a> your vacancy to see how it will look for potential applicants.
+    </p>
 
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -59,7 +68,7 @@ Confirm details before you submit
                 {{ cya.field('Application instructions', data.application_instructions, url) }}
                 {{ cya.field('Vacancy deadline date', data['closes_at-day'] + '/' + data['closes_at-month'] + '/' + data['closes_at-year'], url) }}
                 {{ cya.field('Vacancy deadline time', data['closes_at_time-hour'] + ':' + data['closes_at_time-minute'], url) }}
-                {% if data.publish_today != true %}
+                {% if publish_later %}
                     {{ cya.field('Vacancy publication date', data['posted_at-day'] + '/' + data['posted_at-month'] + '/' + data['posted_at-year'], url) }}
                 {% endif %}
                 {{ cya.field('Allow recruiters to contact you?', data.allow_recruiters_to_contact, url) }}
@@ -67,9 +76,6 @@ Confirm details before you submit
 
             <h2 class="heading-medium">Now submit your vacancy</h2>
 
-            <p class="text">
-                You can <a href="/vacancies/{{ data.title | slug }}?preview=1" target="_blank">preview</a> your vacancy to see how it will look for potential applicants.
-            </p>
             <p class="text">
                 By submitting you are confirming that, to the best of your knowledge, the details you are providing are correct.
             </p>

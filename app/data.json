@@ -414,6 +414,13 @@
     "Within 20 miles",
     "Within 50 miles"
   ],
+  "search_radius_time": [
+    "Within 15 minutes",
+    "Within 30 minutes",
+    "Within 45 minutes",
+    "Within 60 minutes",
+    "Within 90 minutes"
+  ],
   "regions_and_stats": {
     "London": {
       "average_views": 400,

@@ -12,12 +12,28 @@
             </div>
             <div class="container-search">
                 <input id="location" type="search" name="location" placeholder="Town, postcode or region" value="{{ data['location'] }}">
-                <select name="search-radius" id="search-radius" class="form-control form-control-block" disabled>
-                    <option id="nationally">Nationally</option>
-                    <option id="exactly">This area exactly</option>
+                <div class="search-radius">
+                    <label>
+                        <input type="radio" name="search_radius_type" class="search-radius" value="Distance" {{ ' checked' if data['search_radius_type'] == 'Distance' or data['search_radius_type'] == null }}> Distance
+                    </label>
+                    <label>
+                        <input type="radio" name="search_radius_type" class="search-radius" value="Commute time" {{ ' checked' if data['search_radius_type'] == 'Commute time' }}> Commute time
+                    </label>
+                </div>
+                <select name="search-radius-distance" id="search-radius-distance" class="form-control form-control-block search-radius">
+                    <option class="nationally">Nationally</option>
+                    <option class="exactly">This area exactly</option>
                     {% for radius in json.search_radius %}
-                        {% set selected = ' selected' if data['search-radius'] == range %}
+                        {% set selected = ' selected' if data['search-radius'] == radius %}
                         <option{{ selected }}>{{ radius }}</option>
+                    {% endfor %}
+                </select>
+                <select name="search-radius-time" id="search-radius-time" class="form-control form-control-block search-radius">
+                    <option class="nationally">Nationally</option>
+                    <option class="exactly">This area exactly</option>
+                    {% for time in json.search_radius_time %}
+                        {% set selected = ' selected' if data['search-radius-time'] == time %}
+                        <option{{ selected }}>{{ time }}</option>
                     {% endfor %}
                 </select>
                 <input class="submit" type="submit" value="Search">
@@ -73,23 +89,6 @@
                             <input name="key_stages[]" value="{{ stage }}" id="{{ stage | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(stage, data['key_stages']) }}>
                             {{ stage }}
                         </label>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div class="govuk-option-select" data-closed-on-load="true">
-            <div class="container-head js-container-head">
-                <div class="option-select-label">Subjects</div>
-            </div>
-            <div class="options-container" id="subjects">
-                <div class="js-auto-height-inner">
-                    {% for subject in json.subjects | sort %}
-                        {% if subject != 'Not applicable' and subject != 'Other' %}
-                        <label for="{{ subject | slug }}">
-                            <input name="subjects[]" value="{{ subject }}" id="{{ subject | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(subject, data['subjects']) }}>
-                            {{ subject }}
-                        </label>
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

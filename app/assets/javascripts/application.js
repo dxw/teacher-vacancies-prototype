@@ -38,18 +38,27 @@ var checkPublishToday = function () {
     $('#posted_at-panel').removeClass('js-hidden')
   }
 }
-
+var checkSearchRadius = function ($el) {
+  if ($el.val() === 'Distance') {
+    $('#search-radius-distance').show()
+    $('#search-radius-time').hide()
+  } else {
+    $('#search-radius-distance').hide()
+    $('#search-radius-time').show()
+  }
+}
 var checkLocation = function () {
   var $location = $('#location')
   if ($location.length && $location.val().length) {
-    $('#search-radius').removeAttr('disabled')
-    $('#exactly').attr('selected', 'selected')
-    $('#nationally').removeAttr('selected')
+    $('.search-radius').removeAttr('disabled')
+    $('.exactly').attr('selected', 'selected')
+    $('.nationally').removeAttr('selected')
   } else {
-    $('#search-radius').attr('disabled', 'disabled')
-    $('#exactly').removeAttr('selected')
-    $('#nationally').attr('selected', 'selected')
+    $('.search-radius').attr('disabled', 'disabled')
+    $('.exactly').removeAttr('selected')
+    $('.nationally').attr('selected', 'selected')
   }
+  checkSearchRadius($('input[name=search_radius_type]'))
 }
 
 var initWordCounter = function (selector, maxWords) {
@@ -65,10 +74,6 @@ var initWordCounter = function (selector, maxWords) {
     countOverflow: true,
     displayErrorText: false
   })
-}
-
-var initMultipleTextInput = function (selector) {
-  $(selector).multiTextInput();
 }
 
 $(document).ready(function () {
@@ -111,6 +116,11 @@ $(document).ready(function () {
   $('#location').on('keyup', function () {
     checkLocation()
   })
+
+  $('input[name=search_radius_type]').on('change', function () {
+    checkSearchRadius($(this))
+  })
+
   if ($('#description_wysiwyg').length) {
     tinymce.init({
       selector: '#description_wysiwyg',
