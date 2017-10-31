@@ -69,10 +69,11 @@ $path: "/public/images/";
   position: relative;
   margin-top: $gutter-half;
   margin-bottom : $gutter;
+  @extend .font-xsmall;
+
   .view-toggle {
     a {
       text-decoration: none;
-      //color: $black;
       font-weight: 700;
       i {
         margin-right:4px;
@@ -83,7 +84,6 @@ $path: "/public/images/";
     position: absolute;
     top: 0;
     right: 0;
-    @extend .font-xsmall;
     margin-bottom: $gutter;
     a {
       margin: 0 4px;
