@@ -9,26 +9,27 @@
 
 <main id="content" role="main">
     {% include "includes/phase_banner_prototype.html" %}
-    {% if query.show_map %}
+
+    {% if query.search_results %}
         <a href="/vacancies" class="link-back">Back</a>
-        <h1 class="heading-large margin-top">We found {{ vacancies.length }} {{ 'results' | pluralize(max) }} for your search</h1>
+        <h1 class="heading-large margin-top">
+            We found {{ vacancies.length }} {{ 'results' | pluralize(max) }} for your search
+            {% include 'includes/show_map_toggle.html' %}
+        </h1>
     {%  else %}
-        <h1 class="heading-large">There are currently 5,603 vacancies</h1>
+        <h1 class="heading-large">
+            There are currently 5,603 vacancies
+            {% include 'includes/show_map_toggle.html' %}
+        </h1>
     {% endif %}
+
     <div class="grid-row">
 
         <div class="column-one-third margin-top">
             {% include "includes/filters.html" %}
         </div>
         <div class="column-two-thirds">
-            <div class="items-control">
-                <div class="view-toggle">
-                    {% if query.show_map %}
-                        <a href="/vacancies"><i class="fa fa-list" aria-hidden="true"></i> View list</a>
-                    {% else %}
-                        <a href="/vacancies?show_map=1"><i class="fa fa-map-marker" aria-hidden="true"></i> View map</a>
-                    {% endif %}
-                </div>
+            <div class="items-control cf">
                 {% if query.show_map != '1' %}
                 <div class="sortable-links">
                     Sort by:
