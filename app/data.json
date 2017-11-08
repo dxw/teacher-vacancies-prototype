@@ -216,6 +216,30 @@
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
       "application_method": "application_pack"
+    },
+    {
+      "id": "1105",
+      "slug": "headteacher-1105",
+      "posted_at": "2017-03-22 11:33:00",
+      "closes_at": "2017-06-21 00:00:00",
+      "starts_at": "2017-09-09 00:00:00",
+      "school_id": "surrey-1",
+      "reference_no": "SUR-123-789",
+      "title": "Head Teacher",
+      "position": "Head Teacher",
+      "contract_type": "Full time",
+      "main_subject": "Not applicable",
+      "status": "Published",
+      "views": "876",
+      "applications": "4",
+      "contract_term": "permanent",
+      "headline": "We are looking for a Head Teacher who is driven to ensure that every pupil achieves their full potential. A Head Teacher who will nurture the school and all its pupils and staff on our journey to become Outstanding.",
+      "salary_min": 50000,
+      "salary_max": 65000,
+      "description": "The right candidate will use their experience to drive the successful implementation of change and school improvement, provide professional leadership and management for the school that reflects the vision, values and beliefs of the school. They will provide effective management of the school and identify ways of improving organisation structures and functions through the use of information technology and centralised services.",
+      "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
+      "experience_requirements": "Proven experience in a leadership role",
+      "application_method": "application_pack"
     }
   ],
   "schools": {
