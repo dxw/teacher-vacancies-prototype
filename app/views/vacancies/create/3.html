@@ -4,6 +4,10 @@
     Candidate specification
 {% endblock %}
 
+{% block sign_in_links %}
+    {% include "includes/signout.html" %}
+{% endblock %}
+
 {% block content %}
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}

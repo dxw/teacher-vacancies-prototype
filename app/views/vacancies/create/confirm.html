@@ -4,6 +4,10 @@
 Confirm details before you submit
 {% endblock %}
 
+{% block sign_in_links %}
+    {% include "includes/signout.html" %}
+{% endblock %}
+
 {% block content %}
 {% set publish_later = (data.publish_today != true) %} %}
 <main id="content" role="main" class="vacancy">

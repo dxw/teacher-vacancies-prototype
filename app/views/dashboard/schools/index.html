@@ -9,6 +9,10 @@
     {{ nav.show('vacancies') }}
 {% endblock %}
 
+{% block sign_in_links %}
+    {% include "includes/signout.html" %}
+{% endblock %}
+
 {% block content %}
     <main id="content" role="main">
         {% include "includes/phase_banner_prototype.html" %}

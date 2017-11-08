@@ -20,6 +20,11 @@
             {% if serviceName %} {{ serviceName }} {% endif %}
           {% endblock %}
         </a>
+          <div class="right sign-in-links">
+              {% block sign_in_links %}
+                  <a href="/dashboard/schools/sign-in">School sign in</a>
+              {% endblock %}
+          </div>
         {% block navigation_links %}{% endblock %}
         <!--
         <ul id="proposition-links">
