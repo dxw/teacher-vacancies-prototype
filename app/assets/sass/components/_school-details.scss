@@ -26,4 +26,9 @@ dl.school-details {
         height:400px;
         margin-top: $gutter;
    }
+   &_edit {
+       .school_logo {
+           border: 5px solid $grey-3;
+       }
+   }
 }

@@ -117,3 +117,9 @@ $path: "/public/images/";
     float: none;
   }
 }
+p.search-count {
+  margin: 0;
+  strong {
+    font-weight: bold;
+  }
+}

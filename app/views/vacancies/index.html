@@ -13,9 +13,14 @@
     {% if query.search_results %}
         <a href="/vacancies" class="link-back">Back</a>
         <h1 class="heading-large margin-top">
-            We found {{ vacancies.length }} {{ 'results' | pluralize(max) }} for your search
+            Search results
+            {% if query.location or query.keyword %}
+            for "{{ [query.location, query.keyword] | filterEmpty | join(', ') }}"
+            {% endif %}
             {% include 'includes/show_map_toggle.html' %}
         </h1>
+        <p class="search-count">We found <strong>{{ vacancies.length }}</strong> {{ 'vacancy' | pluralize(vacancies.length) }} for your search
+        </p>
     {%  else %}
         <h1 class="heading-large">
             There are currently 5,603 vacancies
