@@ -10,7 +10,7 @@
     {% include "includes/phase_banner_prototype.html" %}
     <a href="/vacancies" class="link-back">Back</a>
     <div id="apply-button-top">
-        {{ apply_now.button(vacancy.slug) }}
+        {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
     </div>
     <h1 class="heading-large margin-top">
         {{ vacancy.title }}
@@ -41,7 +41,7 @@
             {% endif %}
 
             <div id="apply-button-bottom">
-                {{ apply_now.button(vacancy.slug) }}
+                {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
             </div>
         </div>
         <div class="column-one-third vacancy-metadata">

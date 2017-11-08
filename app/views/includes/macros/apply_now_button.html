@@ -1,3 +1,7 @@
-{% macro button(slug) %}
-    <p><a class="button margin-top" href="/vacancies/{{ slug }}/download">Download application pack</a></p>
+{% macro button(slug, application_method = 'application_pack') %}
+    {% if application_method == 'application_pack' %}
+        <p><a class="button margin-top" href="/vacancies/{{ slug }}/download">Download application pack</a></p>
+    {% else %}
+        <p><a class="button margin-top" href="#external">Apply now</a></p>
+    {% endif %}
 {% endmacro %}

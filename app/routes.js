@@ -84,7 +84,8 @@ function getPreview (previewData) {
     'benefits': previewData.benefits,
     'qualifications': previewData.qualifications,
     'experience': previewData.experience,
-    'school': schools['surrey-1']
+    'school': schools['surrey-1'],
+    'application_method': previewData.application_method === 'Application pack' ? 'application_pack' : 'external_link'
   }
 }
 

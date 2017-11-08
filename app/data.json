@@ -21,7 +21,8 @@
       "salary_max": 35000,
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack"
     },
     {
       "id": 1103,
@@ -45,7 +46,8 @@
       "salary_max": 45000,
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "external_link"
     },
     {
       "id": 1104,
@@ -68,7 +70,8 @@
       "salary_max": 40000,
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack"
     },
     {
       "id": 1105,
@@ -91,7 +94,8 @@
       "salary_max": 24000,
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "external_link"
     },
     {
       "id": 1109,
@@ -114,7 +118,8 @@
       "salary_max": 35000,
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack"
     },
     {
       "id": "1119",
@@ -137,7 +142,8 @@
       "salary_max": 28450,
       "description": "The Class Teacher will: Teach a class of pupils and ensure that planning, preparation, recording, assessment and reporting meet their varying learning and social needs. Maintain the positive ethos and core values of the academy, both inside and outside the classroom. Contribute to constructive team building among teaching and non-teaching staff, parents and governors. We actively encourage and welcome visits to our academy and I know you will be impressed with what you see",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching Key Stage 1 or 2, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching Key Stage 1 or 2, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "external_link"
     },
     {
       "id": "1120",
@@ -160,7 +166,8 @@
       "salary_max": 28500,
       "description": "Rayley Mills is larger than average primary school; it became three form entry three years ago and is growing year on year. The school had an OFSTED inspection in 2012 and was judged to be ‘Good’, from then steady improvements have been made. We have a very enthusiastic team of teachers and support staff who are committed to improving outcomes for the local children. A beautiful extension was opened in September 2013 and extensive improvements were made to the outdoor areas. I recommend any interested candidates to come and visit us for an informal tour and to meet our delightful children.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack"
     },
     {
       "id": "1103",
@@ -183,7 +190,8 @@
       "salary_max": 30000,
       "description": "Has experience of supporting young people. Has knowledge of the national curriculum and Early Years Framework. Holds a PGCE or QTS in Primary Teaching. Has excellent communication, organisational and interpersonal skills.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "external_link"
     },
     {
       "id": "1104",
@@ -206,7 +214,8 @@
       "salary_max": 40000,
       "description": "Enthusiastic business studies teacher required to share that passion and inspire students. The ability to teach ICT and Computing is desirable but not essential. This position would suit either an NQT or an experienced teacher.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
-      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply."
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack"
     }
   ],
   "schools": {
