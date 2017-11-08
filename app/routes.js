@@ -49,6 +49,11 @@ router.get('/vacancies/:slug/apply', function (req, res) {
   res.render('apply/form', {'vacancy': vacancy})
 })
 
+router.get('/vacancies/:slug/download', function (req, res) {
+  var vacancy = data.findBySlug(req.params.slug)
+  res.render('vacancies/download', {'vacancy': vacancy})
+})
+
 router.get('/vacancies/:slug/apply/confirm', function (req, res) {
   var vacancy = data.findBySlug(req.params.slug)
   res.render('apply/confirm', {'vacancy': vacancy})
@@ -58,7 +63,6 @@ router.get('/vacancies/:slug/apply/success', function (req, res) {
   var vacancy = data.findBySlug(req.params.slug)
   res.render('apply/success', {'vacancy': vacancy})
 })
-
 
 function getPreview (previewData) {
   var schools = data.getAll('schools')
