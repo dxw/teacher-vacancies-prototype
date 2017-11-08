@@ -63,6 +63,23 @@
                 </div>
             </div>
         </div>
+        <div class="govuk-option-select">
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Vacancy details</div>
+            </div>
+            <div class="options-container" id="vacancy-details">
+                <div class="js-auto-height-inner">
+                    <label for="suitable_for_nqt">
+                        <input name="suitable_for_nqt" value="yes" id="suitable_for_nqt" type="checkbox" aria-controls="" {{ checked(data['suitable_for_nqt']) }}>
+                        Suitable for NQTs
+                    </label>
+                    <label for="suitable_for_nqt">
+                        <input name="job_share_available" value="yes" id="job_share_available" type="checkbox" aria-controls="" {{ checked(data['job_share_available']) }}>
+                        Job share available
+                    </label>
+                </div>
+            </div>
+        </div>
         <div class="govuk-option-select" data-closed-on-load="true">
             <div class="container-head js-container-head">
                 <div class="option-select-label">Working pattern</div>
