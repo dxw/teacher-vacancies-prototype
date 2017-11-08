@@ -12,9 +12,7 @@ router.use(function (req, res, next) {
   if (req.query.search_results) {
     res.locals.search_results = req.query.search_results
   }
-  if (req.query.show_map) {
-    res.locals.show_map = req.query.show_map
-  }
+  res.locals.query = req.query
   res.locals.version = req.session.version ? req.session.version : 1
   res.locals.url = process.env.URL
   res.locals.GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY

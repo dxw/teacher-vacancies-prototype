@@ -12,6 +12,15 @@
 {% block content %}
     <main id="content" role="main">
         {% include "includes/phase_banner_prototype.html" %}
+
+        {% if query.signed_in %}
+        <div class="banner-success">
+            <p class="banner-message">
+                You are now signed in.
+            </p>
+        </div>
+        {% endif %}
+
         <div class="right">
             <a href="/vacancies/create/1" class="button margin-top-big">Publish a vacancy</a>
         </div>

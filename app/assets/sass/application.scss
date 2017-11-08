@@ -11,6 +11,7 @@ $path: "/public/images/";
 @import '../lib/digitalmarketplace-frontend-toolkit/scss/document';
 
 
+
 @import 'utilities';
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
 @import 'patterns/check-your-answers';
@@ -23,6 +24,8 @@ $path: "/public/images/";
 @import 'components/school-details';
 @import 'components/dashboard';
 @import 'components/wysiwyg';
+@import 'components/notifications';
+
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 .filter-field-text {

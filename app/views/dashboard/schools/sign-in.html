@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    DfE sign in
+{% endblock %}
+
+{% block service_name %}
+    DfE sign in
+{% endblock %}
+
+{% block navigation_links %}
+
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <h1 class="heading-xlarge margin-bottom-large">Sign in to access DfE services</h1>
+    <p class="margin-top-large">Sign in or <a href="#">request access to a DfE service</a> to get started.</p>
+    {% import "includes/macros/form_fields.html" as form_fields with context %}
+    <div class="grid-row">
+        <div class="column-half">
+            <form action="/vacancies/create/2" method="post" class="form">
+                {{ form_fields.field('email', 'Email', 'text', false, true) }}
+                {{ form_fields.field('password', 'Password', 'password', false, true) }}
+                <div class="panel panel-border-wide margin-bottom">
+                    By continuing you accept the <a href="#">terms of use</a>
+                </div>
+                <a href="/dashboard/schools?signed_in=1" class="button">Sign in</a>
+            </form>
+            <div class="margin-top-xlarge">
+                <h2 class="heading-medium">
+                    Problems signing in
+                </h2>
+                <p><a href="#">Forgotten your password?</a></p>
+                <p><a href="#">Help</a></p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
