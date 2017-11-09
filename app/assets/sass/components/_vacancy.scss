@@ -16,6 +16,10 @@
     }
   }
 }
+.alternative-format {
+  font-size: 13px;
+  max-width: 25em;
+}
 #apply-button {
   &-top {
     float:right;
@@ -24,7 +28,11 @@
   &-bottom {
     margin-top: $gutter;
   }
+
 }
 #apply-button-top {
   text-align: right;
+  .alternative-format {
+    text-align: right;
+  }
 }

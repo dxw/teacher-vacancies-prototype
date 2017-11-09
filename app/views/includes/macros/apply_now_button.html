@@ -1,6 +1,7 @@
 {% macro button(slug, application_method = 'application_pack') %}
     {% if application_method == 'application_pack' %}
-        <p><a class="button margin-top" href="/vacancies/{{ slug }}/download">Download application pack</a></p>
+        <p><a class="button margin-top" href="#">Download application pack (ZIP)</a></p>
+        <p class="alternative-format">This file may not be suitable for users of assistive technology. <a href="">Request an accessible format.</a></p>
     {% else %}
         <p><a class="button margin-top" href="#external">Apply now</a></p>
     {% endif %}
