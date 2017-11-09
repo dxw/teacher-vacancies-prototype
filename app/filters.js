@@ -49,7 +49,8 @@ module.exports = function (env) {
     if (resource.length) {
       resource = resource + '/'
     }
-    return process.env.URL + '/' + resource + uri
+    var url = process.env.URL ? process.env.URL : ''
+    return url + '/' + resource + uri
   }
   filters.date = function (string, format) {
     format = format || 'DD/MM/YYYY'
