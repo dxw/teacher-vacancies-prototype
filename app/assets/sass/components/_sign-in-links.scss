@@ -1,8 +1,21 @@
 .sign-in-links {
   color: $white;
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include media(mobile) {
+    display: none;
+  }
   a {
     color: $white;
     display: inline-block;
     margin-top: 3px;
   }
+  strong {
+    font-weight: bold;
+  }
+}
+#proposition-menu {
+  position: relative;
 }
