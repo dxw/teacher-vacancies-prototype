@@ -46,8 +46,8 @@
                     <th class="numeric" scope="col">Publish date</th>
                     <th class="numeric" scope="col">Deadline date</th>
                     <th class="numeric" scope="col">Views</th>
-                    <th class="numeric" scope="col"></th>
-                    <th class="numeric" scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -58,8 +58,8 @@
                     <td class="numeric">{{ vacancy.posted_at | date }}</td>
                     <td class="numeric">{{ vacancy.closes_at | date }}</td>
                     <td class="numeric">{{ vacancy.views }}</td>
-                    <td class="numeric"><a href="#">Edit</a></td>
-                    <td class="numeric"><a href="#">Duplicate</a></td>
+                    <td><a href="#">Edit</a></td>
+                    <td><a href="#">Duplicate</a></td>
                 </tr>
             {% endfor %}
             </tbody>
