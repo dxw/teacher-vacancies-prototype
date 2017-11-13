@@ -1,7 +1,8 @@
 {% macro show(active) %}
-<ul id="proposition-links">
-    <li><a href="/dashboard/schools" {{ 'class=active' if active=='vacancies' }}>Vacancies</a></li>
-    {#<li><a href="/dashboard/schools/applications" {{ 'class=active' if active=='applications' }}>Applications</a></li>#}
-    <li><a href="/dashboard/schools/details" {{ 'class=active' if active == 'details' }}>School details</a></li>
-</ul>
+    <nav role="navigation" aria-label="Main navigation">
+        <ul id="proposition-links">
+            <li><a href="/dashboard/schools" {{ 'class=active' if active=='vacancies' }}>Vacancies</a></li>
+            <li><a href="/dashboard/schools/details" {{ 'class=active' if active == 'details' }}>School details</a></li>
+        </ul>
+    </nav>
 {% endmacro %}
