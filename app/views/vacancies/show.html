@@ -39,10 +39,6 @@
                 <h3 class="heading-medium">Benefits</h3>
                 <p>{{ vacancy.benefits }}</p>
             {% endif %}
-
-            <div id="apply-button-bottom">
-                {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
-            </div>
         </div>
         <div class="column-one-third vacancy-metadata">
             <aside class="padding" role="complementary">
@@ -86,6 +82,9 @@
             <img src="/public/images/school_logos/{{ vacancy.school.logo }}" alt="{{ vacancy.school.name }} logo" class="school_logo">
             {% endif %}
         </div>
+    </div>
+    <div id="apply-button-bottom">
+        {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
     </div>
 </main>
 
