@@ -9,6 +9,10 @@
     {{ nav.show('details') }}
 {% endblock %}
 
+{% block sign_in_links %}
+    {% include "includes/signout.html" %}
+{% endblock %}
+
 {% block content %}
 {% set school = json.schools['kent-1'] %}
 {% set school_address = [school.address, school.town, school.region, school.post_code] %}
@@ -42,8 +46,10 @@
                     </a>
                 </li>
             </ul>
-            <h3 class="heading-medium margin-top">Upload a new logo</h3>
-            <p><label for=""><input type="file"></label></p>
+            <div class="form-group">
+                <label for="upload-school-logo" class="form-label-bold">Upload a new logo</label>
+                <input type="file" id="upload-school-logo">
+            </div>
             {{ form_fields.submit('Upload') }}
         </div>
     </div>
