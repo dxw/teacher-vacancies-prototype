@@ -51,9 +51,6 @@
                 <div class="panel panel-border-narrow " id="posted_at-panel">
                     {{ form_fields.date('posted_at', 'Vacancy publication date', 'The date the job vacancy should go live') }}
                 </div>
-                <div class="panel panel-background">
-                    {{ form_fields.field('allow_recruiters_to_contact', 'Allow recruitment companies to contact you?', 'yesno', 'Recruitment companies may have potential candidates that meet your requirements', true) }}
-                </div>
 
                 {{ form_fields.submit('Save and continue') }}
             </form>
