@@ -39,6 +39,26 @@ router.get('/vacancies', function (req, res) {
   res.render('vacancies/index', {'vacancies': vacancies})
 })
 
+router.get('/clear-search-data', function (req, res) {
+  var filters = [
+    'location',
+    'keyword',
+    'salary_ranges',
+    'suitable_for_nqt',
+    'job_share_available',
+    'working_patterns',
+    'key_stages',
+    'leadership_levels',
+    'search_radius_type',
+    'search-radius-distance',
+    'search-radius-time'
+  ]
+  for (var filter in filters) {
+    req.session.data[filters[filter]] = null
+  }
+  res.redirect('/vacancies')
+})
+
 router.get('/vacancies/:slug', function (req, res) {
   var vacancy = (req.query.preview) ? getPreview(req.session.data) : data.findBySlug(req.params.slug)
   res.render('vacancies/show', {'vacancy': vacancy})
