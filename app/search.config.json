@@ -6,6 +6,12 @@
     "main_subject": {
       "boost": 10
     },
+    "suitable_for_nqt": {
+      "boost": 5
+    },
+    "job_share_available": {
+      "boost": 5
+    },
     "headline": {
       "boost": 5
     },
