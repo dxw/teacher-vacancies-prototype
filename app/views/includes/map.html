@@ -29,7 +29,7 @@
       {% if query['search-radius-distance'] and query.location %}
         geocoder.geocode({'address': '{{ query.location }}', 'region': 'GB'}, function(results, status) {
 
-          if (results.length > 0) {
+          if (status === 'OK' && results.length > 0) {
             var radiusMarker = new google.maps.Circle({
               center: results[0].geometry.location,
               radius: ({{ query['search-radius-distance'] }} * 1000),
