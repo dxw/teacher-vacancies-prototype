@@ -31,14 +31,14 @@
         <h1 class="heading-large">
             Vacancies
         </h1>
-        <ul class="table-filters background-panel padding margin-bottom margin-top">
-            <li>Filter: </li>
-            <li><a href="?status=all">All</a></li>
-            <li><a href="?status=published" class="current">Published</a></li>
-            <li><a href="?status=draft">Draft</a></li>
-            <li><a href="?status=expired">Expired</a></li>
+        <ul class="table-filters background-panel padding margin-bottom margin-top" aria-controls="vacancies-table" role="toolbar" tabindex="0" aria-label="Filtering options">
+            <li>Filter<span class="sr-only"> vacancies</span>: </li>
+            <li><a href="?status=all" role="button" tabindex="0"><span class="sr-only">Show </span>All</a></li>
+            <li><a href="?status=published" class="current" role="button" tabindex="-1"><span class="sr-only">Show </span>Published</a></li>
+            <li><a href="?status=draft" role="button" tabindex="-1"><span class="sr-only">Show </span>Draft</a></li>
+            <li><a href="?status=expired" role="button" tabindex="-1"><span class="sr-only">Show </span>Expired</a></li>
         </ul>
-        <table>
+        <table id="vacancies-table">
             <thead>
                 <tr>
                     <th scope="col">Job title</th>
