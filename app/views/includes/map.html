@@ -20,6 +20,18 @@
     var infos = [];
     var markers = [];
     var infoWindow = new google.maps.InfoWindow();
+
+    new google.maps.Circle({
+      center: {lat: 51.507222, lng: -0.1275},
+      radius: 20000,
+      map: map,
+      strokeColor: 'blue',
+      strokeWeight: 2,
+      fillOpacity: 0.1,
+      fillColor: 'blue',
+      zIndex: 1
+    });
+
     for (var x in vacancies) {
       var vacancy = vacancies[x]
       infos[x] = '<h3><a href="'+vacancy.link+'">'+vacancy.job_title+'</a></h3><p><strong>'+vacancy.school+'</strong></p>';

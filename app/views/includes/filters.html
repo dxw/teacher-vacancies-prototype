@@ -21,16 +21,12 @@
                     </label>
                 </div>
                 <select name="search-radius-distance" id="search-radius-distance" class="form-control form-control-block search-radius">
-                    <option class="nationally">Nationally</option>
-                    <option class="exactly">This area exactly</option>
                     {% for radius in json.search_radius %}
                         {% set selected = ' selected' if data['search-radius'] == radius %}
                         <option{{ selected }}>{{ radius }}</option>
                     {% endfor %}
                 </select>
                 <select name="search-radius-time" id="search-radius-time" class="form-control form-control-block search-radius">
-                    <option class="nationally">Nationally</option>
-                    <option class="exactly">This area exactly</option>
                     {% for time in json.search_radius_time %}
                         {% set selected = ' selected' if data['search-radius-time'] == time %}
                         <option{{ selected }}>{{ time }}</option>

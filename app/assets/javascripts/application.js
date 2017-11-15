@@ -113,7 +113,7 @@ $(document).ready(function () {
   })
 
   checkLocation()
-  $('#location').on('keyup', function () {
+  $('#location').on('input', function () {
     checkLocation()
   })
 
