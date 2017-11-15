@@ -149,11 +149,8 @@ $(document).ready(function () {
 
   $('.show-map-toggle').on('click', function(event) {
 
-    var target = event.currentTarget;
-    var showMap = target.classList.contains('show-map')
-
-    if(showMap) {
-      target.classList.remove('show-map');
+    if($(this).hasClass('show-map')) {
+      $(this).removeClass('show-map');
       $('.map').removeClass('hidden');
       $('.vacancies').addClass('hidden')
       $('.fa').removeClass('fa-map-marker').addClass('fa-list');
@@ -161,7 +158,7 @@ $(document).ready(function () {
       $('input[name=show_map]').val(1)
       initMap();
     } else {
-      target.classList.add('show-map');
+      $(this).addClass('show-map');
       $('.map').addClass('hidden');
       $('.vacancies').removeClass('hidden')
       $('.fa').removeClass('fa-list').addClass('fa-map-marker');
