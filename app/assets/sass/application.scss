@@ -88,6 +88,7 @@ $path: "/public/images/";
   position: relative;
   margin-top: $gutter-half;
   margin-bottom : $gutter + 10px;
+  @extend .font-xsmall;
   .sortable-links {
     position: absolute;
     top: 0;
