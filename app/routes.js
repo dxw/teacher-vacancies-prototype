@@ -12,6 +12,9 @@ router.use(function (req, res, next) {
   if (req.query.search_results) {
     res.locals.search_results = req.query.search_results
   }
+  if (req.body.redirect_to) {
+    return res.redirect('/' + req.body.redirect_to)
+  }
   res.locals.query = req.query
   res.locals.version = req.session.version ? req.session.version : 1
   res.locals.url = process.env.URL

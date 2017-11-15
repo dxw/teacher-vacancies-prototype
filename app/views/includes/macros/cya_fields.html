@@ -9,7 +9,7 @@
     </dd>
     <dd class="cya-change">
         {% if link %}
-        <a href="{{ link }}">
+        <a href="{{ link }}?edit={{ question | slug }}">
             Change<span class="visually-hidden"> {{ question | lower }}</span>
         </a>
         {% endif %}

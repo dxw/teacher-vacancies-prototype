@@ -105,14 +105,18 @@
 
 {% macro salary_range() %}
 <div class="form-group">
-    <label class="form-label-bold" for="salary_min">
-        Salary range
-        <span class="form-hint">
-            Annual pay before tax (£)
-        </span>
-    </label>
-    <input class="form-control form-control-1-4" id="salary_min" type="number" name="salary_min" value="{{ data['salary_min'] }}" required> to
-    <input class="form-control form-control-1-4" id="salary_max" type="number" name="salary_max" value="{{ data['salary_max'] }}">
+    <fieldset>
+        <legend class="form-label-bold">
+            Salary range
+            <span class="form-hint">
+                Annual pay before tax (£)
+            </span>
+        </legend>
+        <label for="salary_min" class="visually-hidden">Minimum salary</label>
+        <input class="form-control form-control-1-4" id="salary_min" type="number" name="salary_min" value="{{ data['salary_min'] }}" required> <span aria-hidden="true">to</span>
+        <label for="salary_max" class="visually-hidden">Maximum salary</label>
+        <input class="form-control form-control-1-4" id="salary_max" type="number" name="salary_max" value="{{ data['salary_max'] }}">
+    </fieldset>
 </div>
 {% endmacro %}
 

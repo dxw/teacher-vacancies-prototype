@@ -1,5 +1,5 @@
-<aside class="">
-    <form action="/vacancies">
+<aside>
+    <form action="/vacancies" role="search">
         <div class="filter-controls">
             Filter vacancies:
             <div class="clear-filters">
@@ -52,7 +52,7 @@
                 <div class="js-auto-height-inner">
                     {% for range in json.salary_range %}
                         <label for="{{ range | slug }}">
-                            <input name="salary_ranges[]" value="{{ range }}" id="{{ range | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(range, data['salary_ranges']) }}>
+                            <input name="salary_ranges[]" value="{{ range }}" id="{{ range | slug }}" type="checkbox"  {{ multiple_checked(range, data['salary_ranges']) }}>
                             {{ range }}
                         </label>
                     {% endfor %}
@@ -66,11 +66,11 @@
             <div class="options-container" id="vacancy-details">
                 <div class="js-auto-height-inner">
                     <label for="suitable_for_nqt">
-                        <input name="suitable_for_nqt" value="suitable_for_nqt" id="suitable_for_nqt" type="checkbox" aria-controls="" {{ checked('suitable_for_nqt', 'suitable_for_nqt') }}>
+                        <input name="suitable_for_nqt" value="suitable_for_nqt" id="suitable_for_nqt" type="checkbox" {{ checked('suitable_for_nqt', 'suitable_for_nqt') }}>
                         Suitable for NQTs
                     </label>
                     <label for="job_share_available">
-                        <input name="job_share_available" value="job_share_available" id="job_share_available" type="checkbox" aria-controls="" {{ checked('job_share_available', 'job_share_available') }}>
+                        <input name="job_share_available" value="job_share_available" id="job_share_available" type="checkbox" {{ checked('job_share_available', 'job_share_available') }}>
                         Job share available
                     </label>
                 </div>
@@ -84,7 +84,7 @@
                 <div class="js-auto-height-inner">
                     {% for type in json.contract_type %}
                         <label for="{{ type | slug }}">
-                            <input name="working_patterns[]" value="{{ type }}" id="{{ type | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(type, data['working_patterns']) }}>
+                            <input name="working_patterns[]" value="{{ type }}" id="{{ type | slug }}" type="checkbox"  {{ multiple_checked(type, data['working_patterns']) }}>
                             {{ type }}
                         </label>
                     {% endfor %}
@@ -99,7 +99,7 @@
                 <div class="js-auto-height-inner">
                     {% for stage in json.key_stages %}
                         <label for="{{ stage | slug }}">
-                            <input name="key_stages[]" value="{{ stage }}" id="{{ stage | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(stage, data['key_stages']) }}>
+                            <input name="key_stages[]" value="{{ stage }}" id="{{ stage | slug }}" type="checkbox"  {{ multiple_checked(stage, data['key_stages']) }}>
                             {{ stage }}
                         </label>
                     {% endfor %}
@@ -115,7 +115,7 @@
                     {% for level in json.leadership_level %}
                         {% if level != 'Not applicable' %}
                             <label for="{{ level | slug }}">
-                                <input name="leadership_levels[]" value="{{ level }}" id="{{ level | slug }}" type="checkbox" aria-controls="" {{ multiple_checked(level, data['leadership_levels']) }}>
+                                <input name="leadership_levels[]" value="{{ level }}" id="{{ level | slug }}" type="checkbox"  {{ multiple_checked(level, data['leadership_levels']) }}>
                                 {{ level }}
                             </label>
                         {% endif %}

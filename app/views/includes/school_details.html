@@ -1,6 +1,6 @@
 {% set school_address = [vacancy.school.address, vacancy.school.town, vacancy.school.region, vacancy.school.post_code] %}
 
-<h3 class="heading-medium">About {{ vacancy.school.name }}</h3>
+<h2 class="heading-medium">About {{ vacancy.school.name }}</h2>
 <p>{{ vacancy.school.description }}</p>
 <dl class="school-details">
     <dt>Address</dt>
@@ -17,7 +17,12 @@
     <dd><a href="{{ vacancy.school.website }}" target="_blank">{{ vacancy.school.website }}</a></dd>
 </dl>
 <p class="margin-top-big"><a href="https://www.compare-school-performance.service.gov.uk/school/136718">School performance and Ofsted results</a></p>
-<div id="map_zoom"></div>
+<figure class="map-view">
+    <figcaption>
+        Map showing location of {{ vacancy.school.name }}. <a href="https://www.google.com/maps/?q={{ vacancy.school.lat }},{{ vacancy.school.lng }}">Open in Google Maps</a>
+    </figcaption>
+    <div id="map_zoom"></div>
+</figure>
 <script>
 
   function initMap() {

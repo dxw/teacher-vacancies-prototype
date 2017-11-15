@@ -1,4 +1,7 @@
 .vacancy {
+  &-wrapper {
+    position: relative;
+  }
   &-metadata {
     aside {
       background-color: $panel-colour;
@@ -19,11 +22,18 @@
 .alternative-format {
   font-size: 13px;
   max-width: 25em;
+  @include media(mobile) {
+    max-width: none;
+  }
 }
 #apply-button {
   &-top {
-    float:right;
-    margin-top: 55px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include media(mobile) {
+      position: relative;
+    }
   }
   &-bottom {
     margin-top: $gutter;
@@ -34,5 +44,8 @@
   text-align: right;
   .alternative-format {
     text-align: right;
+    @include media(mobile) {
+      text-align: left;
+    }
   }
 }

@@ -8,16 +8,20 @@
     {% include "includes/signout.html" %}
 {% endblock %}
 
+{% block navigation_links %}
+    {% import "includes/macros/school_navigation.html" as nav %}
+    {{ nav.show('vacancies') }}
+{% endblock %}
+
 {% block content %}
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}
     <a href="/vacancies/create/2" class="link-back">Back</a>
-    <h2 class="heading-large margin-top">
+    <h1 class="heading-large margin-top">
         Publish a vacancy
         <span class="heading-secondary">Step 3 of 3</span>
-    </h2>
-    <h3 class="heading-medium margin-top">Application details</h3>
-    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id.</p>
+    </h1>
+    <h2 class="heading-medium margin-top">Application details</h2>
 
     <div class="grid-row margin-top">
         <div class="column-two-thirds">
@@ -26,7 +30,7 @@
                 {{ form_fields.field('vacancy_contact_email', 'Vacancy contact email', 'email', 'The email address of the individual or shared mailbox the applicant should contact about the job', true) }}
                 <div class="form-group">
                     <fieldset>
-                        <legend><h3 class="heading-small">How would you like candidates to apply?</h3></legend>
+                        <legend><h2 class="heading-small">How would you like candidates to apply?</h2></legend>
                         <div class="multiple-choice" data-target="apply-by-pack">
                             <input id="example-apply-by-pack" type="radio" name="application_method" value="Application pack">
                             <label for="example-apply-by-pack">Application pack</label>
@@ -51,7 +55,9 @@
                 <div class="panel panel-border-narrow " id="posted_at-panel">
                     {{ form_fields.date('posted_at', 'Vacancy publication date', 'The date the job vacancy should go live') }}
                 </div>
-
+                {% if query.edit %}
+                    <input type="hidden" name="redirect_to" value="vacancies/create/confirm">
+                {% endif %}
                 {{ form_fields.submit('Save and continue') }}
             </form>
         </div>
