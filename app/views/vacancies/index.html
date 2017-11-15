@@ -54,7 +54,7 @@
                 {% set school = json.schools[job.school_id] %}
                 <li itemscope itemtype="http://schema.org/JobPosting" class="margin-top padding-bottom">
                     {% if school.logo %}
-                    <img src="/public/images/school_logos/{{ school.logo }}" alt="{{ school.name }} logo" class="school_logo">
+                    <img src="/public/images/school_logos/{{ school.logo }}" alt="{{ school.name }} logo" class="school_logo" role="presentation">
                     {% endif %}
                     <h2 class="job-title">
                         <a href="{{ job.slug | url('vacancies') }}" title="{{ job.title }}">
