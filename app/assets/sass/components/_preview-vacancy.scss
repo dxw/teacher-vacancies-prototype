@@ -1,0 +1,12 @@
+.preview-vacancy {
+  a {
+    display:block;
+    text-decoration: none;
+    h2 {
+      text-decoration: underline;
+    }
+    p.text {
+      color: $text-colour;
+    }
+  }
+}

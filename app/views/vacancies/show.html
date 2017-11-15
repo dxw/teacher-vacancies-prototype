@@ -8,7 +8,7 @@
 {% import "includes/macros/apply_now_button.html" as apply_now %}
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}
-    <a href="/vacancies" class="link-back">Back</a>
+    <a href="{{ "/vacancies/create/confirm" if query.preview else "/vacancies" }}" class="link-back">Back</a>
     <div class="vacancy-wrapper">
         <h1 class="heading-large margin-top">
             {{ vacancy.title }}

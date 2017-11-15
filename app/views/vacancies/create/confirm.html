@@ -23,14 +23,17 @@ Confirm details before you submit
         <span class="heading-secondary">Confirm details before you submit</span>
     </h1>
 
-    <h2 class="heading-medium">
-        Preview how the vacancy will look
-    </h2>
 
-    <p class="text">
-        You can <a href="/vacancies/{{ data.title | slug }}?preview=1" target="_blank">preview</a> your vacancy to see how it will look for potential applicants.
-    </p>
-
+    <div class="panel panel-border-narrow preview-vacancy">
+        <a href="/vacancies/{{ data.title | slug }}?preview=1">
+            <h2 class="heading-medium margin-bottom">
+                Preview how the vacancy will look
+            </h2>
+            <p class="text">
+                See how your vacancy will look for potential applicants
+            </p>
+        </a>
+    </div>
     <div class="grid-row">
         <div class="column-two-thirds">
             {% import "includes/macros/cya_fields.html" as cya with context %}
