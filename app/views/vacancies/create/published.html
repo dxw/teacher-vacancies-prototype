@@ -28,11 +28,9 @@
             </div>
 
             {% if data.publish_today %}
-            <p>The vacancy has been posted, you can view it here: </p>
-            <p><a href="{{ vacancy.slug | url('vacancies') }}">{{ vacancy.slug | url('vacancies') }}</a></p>
+                <p>The vacancy has been posted, <a href="{{ vacancy.slug | url('vacancies') }}">view it</a></p>
             {% else %}
-            <p>The vacancy will be posted on <strong class="bold-small">{{ data['posted_at-day'] + '/' + data['posted_at-month'] + '/' + data['posted_at-year'] }}</strong>, you can preview it here: </p>
-            <p><a href="{{ vacancy.slug | url('vacancies') }}">{{ vacancy.slug | url('vacancies') }}</a></p>
+                <p>The vacancy will be posted on <strong class="bold-small">{{ data['posted_at-day'] + '/' + data['posted_at-month'] + '/' + data['posted_at-year'] }}</strong>, <a href="{{ vacancy.slug | url('vacancies') }}">preview it</a></p>
             {% endif %}
         </div>
     </div>
