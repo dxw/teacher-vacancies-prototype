@@ -8,6 +8,11 @@
     {% include "includes/signout.html" %}
 {% endblock %}
 
+{% block navigation_links %}
+    {% import "includes/macros/school_navigation.html" as nav %}
+    {{ nav.show('vacancies') }}
+{% endblock %}
+
 {% block content %}
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}
