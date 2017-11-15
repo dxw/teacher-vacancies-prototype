@@ -9,66 +9,68 @@
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}
     <a href="/vacancies" class="link-back">Back</a>
-    <div id="apply-button-top">
-        {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
-    </div>
-    <h1 class="heading-large margin-top">
-        {{ vacancy.title }}
-        <span class="heading-secondary">{{ vacancy.school.name }}, {{ vacancy.school.town }}, {{ vacancy.school.region }}</span>
-    </h1>
-    <div class="grid-row margin-top">
-        <div class="column-two-thirds">
-            <p class="lede">
-                {{ vacancy.headline }}
-            </p>
-            <h2 class="heading-medium">Job description</h2>
-            <div class="rich-text">{{ vacancy.description | safe }}</div>
-            <h2 class="heading-medium">Essential Requirements</h2>
-            <p>{{ vacancy.experience_requirements }}</p>
-            <h2 class="heading-medium">Education</h2>
-            <p>{{ vacancy.education_requirements }}</p>
-            {% if vacancy.qualifications %}
-                <h2 class="heading-medium">Qualifications</h2>
-                <p>{{ vacancy.qualifications }}</p>
-            {% endif %}
-            {% if vacancy.experience %}
-                <h2 class="heading-medium">Experience</h2>
-                <p>{{ vacancy.experience }}</p>
-            {% endif %}
-            {% if vacancy.benefits %}
-                <h2 class="heading-medium">Benefits</h2>
-                <p>{{ vacancy.benefits }}</p>
-            {% endif %}
+    <div class="vacancy-wrapper">
+        <h1 class="heading-large margin-top">
+            {{ vacancy.title }}
+            <span class="heading-secondary">{{ vacancy.school.name }}, {{ vacancy.school.town }}, {{ vacancy.school.region }}</span>
+        </h1>
+        <div id="apply-button-top">
+            {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
         </div>
-        <div class="column-one-third vacancy-metadata">
-            <aside class="padding" role="complementary">
-                <dl>
-                    <dt>Annual pay</dt>
-                    <dd>£{{ vacancy.salary_min | number }} <span aria-label="to">&ndash;</span> £{{ vacancy.salary_max | number }}</dd>
-                    <dt>Working pattern</dt>
-                    <dd>{{ vacancy.contract_type | default('Full time') }}</dd>
-                    <dt>Suitable for NQTs</dt>
-                    <dd>{{ "Yes" if vacancy.suitable_for_nqt else "No" }}</dd>
-                    <dt>Job share available</dt>
-                    <dd>{{ "Yes" if vacancy.job_share_available else "No" }}</dd>
-                    {% if vacancy.pay_scale %}
-                    <dt>Pay scale</dt>
-                    <dd>{{ vacancy.pay_scale }}</dd>
-                    {% endif %}
-                    <dt>Closing date</dt>
-                    <dd>{{ vacancy.closes_at | date }}</dd>
-                    <dt>Start date</dt>
-                    <dd>{{ vacancy.starts_at | date }}</dd>
-                    <dt>Posted on</dt>
-                    <dd>{{ vacancy.posted_at | date }}</dd>
-                    {% if vacancy.main_subject %}
-                        <dt>Main subject</dt>
-                        <dd>{{ vacancy.main_subject }}</dd>
-                    {% endif %}
-                    <dt>Reference number</dt>
-                    <dd>{{ vacancy.reference_no }}</dd>
-                </dl>
-            </aside>
+        <div class="grid-row margin-top">
+            <div class="column-two-thirds">
+                <p class="lede">
+                    {{ vacancy.headline }}
+                </p>
+                <h2 class="heading-medium">Job description</h2>
+                <div class="rich-text">{{ vacancy.description | safe }}</div>
+                <h2 class="heading-medium">Essential Requirements</h2>
+                <p>{{ vacancy.experience_requirements }}</p>
+                <h2 class="heading-medium">Education</h2>
+                <p>{{ vacancy.education_requirements }}</p>
+                {% if vacancy.qualifications %}
+                    <h2 class="heading-medium">Qualifications</h2>
+                    <p>{{ vacancy.qualifications }}</p>
+                {% endif %}
+                {% if vacancy.experience %}
+                    <h2 class="heading-medium">Experience</h2>
+                    <p>{{ vacancy.experience }}</p>
+                {% endif %}
+                {% if vacancy.benefits %}
+                    <h2 class="heading-medium">Benefits</h2>
+                    <p>{{ vacancy.benefits }}</p>
+                {% endif %}
+            </div>
+            <div class="column-one-third vacancy-metadata">
+                <aside class="padding" role="complementary">
+                    <dl>
+                        <dt>Annual pay</dt>
+                        <dd>£{{ vacancy.salary_min | number }} <span aria-label="to">&ndash;</span> £{{ vacancy.salary_max | number }}</dd>
+                        <dt>Working pattern</dt>
+                        <dd>{{ vacancy.contract_type | default('Full time') }}</dd>
+                        <dt>Suitable for NQTs</dt>
+                        <dd>{{ "Yes" if vacancy.suitable_for_nqt else "No" }}</dd>
+                        <dt>Job share available</dt>
+                        <dd>{{ "Yes" if vacancy.job_share_available else "No" }}</dd>
+                        {% if vacancy.pay_scale %}
+                        <dt>Pay scale</dt>
+                        <dd>{{ vacancy.pay_scale }}</dd>
+                        {% endif %}
+                        <dt>Closing date</dt>
+                        <dd>{{ vacancy.closes_at | date }}</dd>
+                        <dt>Start date</dt>
+                        <dd>{{ vacancy.starts_at | date }}</dd>
+                        <dt>Posted on</dt>
+                        <dd>{{ vacancy.posted_at | date }}</dd>
+                        {% if vacancy.main_subject %}
+                            <dt>Main subject</dt>
+                            <dd>{{ vacancy.main_subject }}</dd>
+                        {% endif %}
+                        <dt>Reference number</dt>
+                        <dd>{{ vacancy.reference_no }}</dd>
+                    </dl>
+                </aside>
+            </div>
         </div>
     </div>
     <hr aria-hidden="true">
