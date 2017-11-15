@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ vacancy.title }}
+{% endblock %}
+
+{% block content %}
+{% import "includes/macros/apply_now_button.html" as apply_now %}
+<main id="content" role="main" class="vacancy">
+    {% include "includes/phase_banner_prototype.html" %}
+    <a href="/vacancies/{{ vacancy.slug }}" class="link-back">Back</a>
+
+    <h1 class="heading-large margin-top">
+        Downloading the application pack...
+    </h1>
+    <div class="grid-row margin-top">
+        <div class="column-two-thirds">
+            <p>If your download doesn't start you can <a href="#">download the application pack</a></p>
+            <p class="margin-top">If you require the application pack in an alternative format you can <a href="#">request one</a></p>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+

@@ -12,9 +12,7 @@ router.use(function (req, res, next) {
   if (req.query.search_results) {
     res.locals.search_results = req.query.search_results
   }
-  if (req.query.show_map) {
-    res.locals.show_map = req.query.show_map
-  }
+  res.locals.query = req.query
   res.locals.version = req.session.version ? req.session.version : 1
   res.locals.url = process.env.URL
   res.locals.GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY
@@ -41,6 +39,26 @@ router.get('/vacancies', function (req, res) {
   res.render('vacancies/index', {'vacancies': vacancies})
 })
 
+router.get('/clear-search-data', function (req, res) {
+  var filters = [
+    'location',
+    'keyword',
+    'salary_ranges',
+    'suitable_for_nqt',
+    'job_share_available',
+    'working_patterns',
+    'key_stages',
+    'leadership_levels',
+    'search_radius_type',
+    'search-radius-distance',
+    'search-radius-time'
+  ]
+  for (var filter in filters) {
+    req.session.data[filters[filter]] = null
+  }
+  res.redirect('/vacancies')
+})
+
 router.get('/vacancies/:slug', function (req, res) {
   var vacancy = (req.query.preview) ? getPreview(req.session.data) : data.findBySlug(req.params.slug)
   res.render('vacancies/show', {'vacancy': vacancy})
@@ -49,6 +67,11 @@ router.get('/vacancies/:slug', function (req, res) {
 router.get('/vacancies/:slug/apply', function (req, res) {
   var vacancy = data.findBySlug(req.params.slug)
   res.render('apply/form', {'vacancy': vacancy})
+})
+
+router.get('/vacancies/:slug/download', function (req, res) {
+  var vacancy = data.findBySlug(req.params.slug)
+  res.render('vacancies/download', {'vacancy': vacancy})
 })
 
 router.get('/vacancies/:slug/apply/confirm', function (req, res) {
@@ -60,7 +83,6 @@ router.get('/vacancies/:slug/apply/success', function (req, res) {
   var vacancy = data.findBySlug(req.params.slug)
   res.render('apply/success', {'vacancy': vacancy})
 })
-
 
 function getPreview (previewData) {
   var schools = data.getAll('schools')
@@ -82,7 +104,8 @@ function getPreview (previewData) {
     'benefits': previewData.benefits,
     'qualifications': previewData.qualifications,
     'experience': previewData.experience,
-    'school': schools['surrey-1']
+    'school': schools['surrey-1'],
+    'application_method': previewData.application_method === 'Application pack' ? 'application_pack' : 'external_link'
   }
 }
 

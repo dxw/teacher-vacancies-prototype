@@ -9,16 +9,21 @@
     {{ nav.show('details') }}
 {% endblock %}
 
+{% block sign_in_links %}
+    {% include "includes/signout.html" %}
+{% endblock %}
+
 {% block content %}
 {% set school = json.schools['kent-1'] %}
 {% set school_address = [school.address, school.town, school.region, school.post_code] %}
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}
+    {% import "includes/macros/form_fields.html" as form_fields with context %}
     <h1 class="heading-large">
         School details
     </h1>
     <div class="grid-row">
-        <div class="column-full">
+        <div class="column-full school_details_edit">
             <dl class="govuk-check-your-answers cya-questions-short">
                 {% import "includes/macros/cya_fields.html" as cya with context %}
                 {% set url = '#' %}
@@ -30,6 +35,22 @@
                 {{ cya.field('Type', school.funding_status) }}
                 {{ cya.field('Website', school.website) }}
             </dl>
+            <h3 class="heading-medium">Current logo</h3>
+            <img src="/public/images/school_logos/{{ school.logo }}" alt="{{ school.name }} logo" class="school_logo">
+
+            <ul class='document-list'>
+                <li class='document-list-item'>
+                    <a href="#" class='document-link-with-icon'>
+                        <span class='document-icon'>JPG<span> document:</span></span>
+                        {{ school.name | lower | replace(' ', '-') }}-logo.jpg
+                    </a>
+                </li>
+            </ul>
+            <div class="form-group">
+                <label for="upload-school-logo" class="form-label-bold">Upload a new logo</label>
+                <input type="file" id="upload-school-logo">
+            </div>
+            {{ form_fields.submit('Upload') }}
         </div>
     </div>
 </main>

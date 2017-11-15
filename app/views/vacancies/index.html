@@ -9,27 +9,33 @@
 
 <main id="content" role="main">
     {% include "includes/phase_banner_prototype.html" %}
-    {% if search_results %}
+
+    {% if query.search_results %}
         <a href="/vacancies" class="link-back">Back</a>
-        <h1 class="heading-large margin-top">We found {{ vacancies.length }} {{ 'results' | pluralize(max) }} for your search</h1>
+        <h1 class="heading-large margin-top">
+            Search results
+            {% if query.location or query.keyword %}
+            for "{{ [query.location, query.keyword] | filterEmpty | join(', ') }}"
+            {% endif %}
+            {% include 'includes/show_map_toggle.html' %}
+        </h1>
+        <p class="search-count">We found <strong>{{ vacancies.length }}</strong> {{ 'vacancy' | pluralize(vacancies.length) }} for your search
+        </p>
     {%  else %}
-        <h1 class="heading-large">There are currently 5,603 vacancies</h1>
+        <h1 class="heading-large">
+            There are currently 5,603 vacancies
+            {% include 'includes/show_map_toggle.html' %}
+        </h1>
     {% endif %}
+
     <div class="grid-row">
 
         <div class="column-one-third margin-top">
             {% include "includes/filters.html" %}
         </div>
         <div class="column-two-thirds">
-            <div class="items-control">
-                <div class="view-toggle">
-                    {% if show_map %}
-                        <a href="/vacancies"><i class="fa fa-list" aria-hidden="true"></i> View list</a>
-                    {% else %}
-                        <a href="/vacancies?show_map=1"><i class="fa fa-map-marker" aria-hidden="true"></i> View map</a>
-                    {% endif %}
-                </div>
-                {% if show_map != '1' %}
+            <div class="items-control cf">
+                {% if query.show_map != '1' %}
                 <div class="sortable-links">
                     Sort by:
                     <a class="sortby--desc active" href="/vacancies?sort_column=expires_on&amp;sort_order=desc">Closing date</a>
@@ -38,7 +44,7 @@
                 {% endif %}
             </div>
 
-            {% if show_map %}
+            {% if query.show_map %}
                 {% include "includes/map.html" %}
             {% else %}
             {% include "includes/search_alert.html" %}

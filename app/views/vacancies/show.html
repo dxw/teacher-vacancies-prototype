@@ -10,7 +10,7 @@
     {% include "includes/phase_banner_prototype.html" %}
     <a href="/vacancies" class="link-back">Back</a>
     <div id="apply-button-top">
-        {{ apply_now.button(vacancy.slug) }}
+        {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
     </div>
     <h1 class="heading-large margin-top">
         {{ vacancy.title }}
@@ -41,17 +41,8 @@
             {% endif %}
 
             <div id="apply-button-bottom">
-                {{ apply_now.button(vacancy.slug) }}
+                {{ apply_now.button(vacancy.slug, vacancy.application_method) }}
             </div>
-            <details style="margin-top: 40px">
-                <summary><span class="summary">Are you a recruiter? You can contact the school about this vacancy</span></summary>
-                <div class="panel panel-border-narrow">
-                    <p>
-                        If you’re a recruiter or an agency and you have candidates for this role you may
-                        <a href="#contact-school">contact the school</a>.
-                    </p>
-                </div>
-            </details>
         </div>
         <div class="column-one-third vacancy-metadata">
             <aside class="padding">
@@ -60,6 +51,10 @@
                     <dd>£{{ vacancy.salary_min | number }} - £{{ vacancy.salary_max | number }}</dd>
                     <dt>Working pattern</dt>
                     <dd>{{ vacancy.contract_type | default('Full time') }}</dd>
+                    <dt>Suitable for NQTs</dt>
+                    <dd>{{ "Yes" if vacancy.suitable_for_nqt else "No" }}</dd>
+                    <dt>Job share available</dt>
+                    <dd>{{ "Yes" if vacancy.job_share_available else "No" }}</dd>
                     {% if vacancy.pay_scale %}
                     <dt>Pay scale</dt>
                     <dd>{{ vacancy.pay_scale }}</dd>

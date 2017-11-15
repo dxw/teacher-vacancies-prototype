@@ -9,9 +9,22 @@
     {{ nav.show('vacancies') }}
 {% endblock %}
 
+{% block sign_in_links %}
+    {% include "includes/signout.html" %}
+{% endblock %}
+
 {% block content %}
     <main id="content" role="main">
         {% include "includes/phase_banner_prototype.html" %}
+
+        {% if query.signed_in %}
+        <div class="banner-success">
+            <p class="banner-message">
+                You are now signed in.
+            </p>
+        </div>
+        {% endif %}
+
         <div class="right">
             <a href="/vacancies/create/1" class="button margin-top-big">Publish a vacancy</a>
         </div>
@@ -33,8 +46,8 @@
                     <th class="numeric" scope="col">Publish date</th>
                     <th class="numeric" scope="col">Deadline date</th>
                     <th class="numeric" scope="col">Views</th>
-                    <th class="numeric" scope="col">Applications</th>
-                    <th class="numeric" scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,8 +58,8 @@
                     <td class="numeric">{{ vacancy.posted_at | date }}</td>
                     <td class="numeric">{{ vacancy.closes_at | date }}</td>
                     <td class="numeric">{{ vacancy.views }}</td>
-                    <td class="numeric">{{ vacancy.applications }}</td>
-                    <td class="numeric"><a href="#">Edit</a></td>
+                    <td><a href="#">Edit</a></td>
+                    <td><a href="#">Duplicate</a></td>
                 </tr>
             {% endfor %}
             </tbody>

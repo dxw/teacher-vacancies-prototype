@@ -4,8 +4,12 @@
 Confirm details before you submit
 {% endblock %}
 
+{% block sign_in_links %}
+    {% include "includes/signout.html" %}
+{% endblock %}
+
 {% block content %}
-{% set publish_later = (data.publish_today != true) %} %}
+{% set publish_later = (data.publish_today != true) %}
 <main id="content" role="main" class="vacancy">
     {% include "includes/phase_banner_prototype.html" %}
     <a href="/vacancies/create/3" class="link-back">Back</a>
@@ -65,7 +69,7 @@ Confirm details before you submit
             <dl class="govuk-check-your-answers cya-questions-short">
                 {% set url = '/vacancies/create/3' %}
                 {{ cya.field('Vacancy contact email', data.vacancy_contact_email, url) }}
-                {{ cya.field('Application instructions', data.application_instructions, url) }}
+                {{ cya.field('Application method', data.application_method, url) }}
                 {{ cya.field('Vacancy deadline date', data['closes_at-day'] + '/' + data['closes_at-month'] + '/' + data['closes_at-year'], url) }}
                 {{ cya.field('Vacancy deadline time', data['closes_at_time-hour'] + ':' + data['closes_at_time-minute'], url) }}
                 {% if publish_later %}

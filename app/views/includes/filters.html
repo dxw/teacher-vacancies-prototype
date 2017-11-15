@@ -3,7 +3,7 @@
         <div class="filter-controls">
             Filter vacancies:
             <div class="clear-filters">
-                <a href="/vacancies">Clear filters</a>
+                <a href="/clear-search-data">Clear filters</a>
             </div>
         </div>
         <div class="filter-field-text">
@@ -60,6 +60,23 @@
                             {{ range }}
                         </label>
                     {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="govuk-option-select">
+            <div class="container-head js-container-head">
+                <div class="option-select-label">Vacancy details</div>
+            </div>
+            <div class="options-container" id="vacancy-details">
+                <div class="js-auto-height-inner">
+                    <label for="suitable_for_nqt">
+                        <input name="suitable_for_nqt" value="suitable_for_nqt" id="suitable_for_nqt" type="checkbox" aria-controls="" {{ checked('suitable_for_nqt', 'suitable_for_nqt') }}>
+                        Suitable for NQTs
+                    </label>
+                    <label for="job_share_available">
+                        <input name="job_share_available" value="job_share_available" id="job_share_available" type="checkbox" aria-controls="" {{ checked('job_share_available', 'job_share_available') }}>
+                        Job share available
+                    </label>
                 </div>
             </div>
         </div>

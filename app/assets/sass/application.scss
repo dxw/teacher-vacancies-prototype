@@ -11,6 +11,7 @@ $path: "/public/images/";
 @import '../lib/digitalmarketplace-frontend-toolkit/scss/document';
 
 
+
 @import 'utilities';
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
 @import 'patterns/check-your-answers';
@@ -23,6 +24,9 @@ $path: "/public/images/";
 @import 'components/school-details';
 @import 'components/dashboard';
 @import 'components/wysiwyg';
+@import 'components/notifications';
+@import 'components/sign-in-links';
+
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 .filter-field-text {
@@ -64,22 +68,25 @@ $path: "/public/images/";
 .govuk-previous-and-next-navigation {
   margin-top: $gutter-half;
 }
-
+.view-toggle {
+  font-size: 0.6em;
+  display: inline-block;
+  float: right;
+  margin-left: $gutter-half;
+  margin-top: $gutter-half/2;
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    i {
+      margin-right:4px;
+    }
+  }
+}
 .items-control {
   position: relative;
   margin-top: $gutter-half;
-  margin-bottom : $gutter;
+  margin-bottom : $gutter + 10px;
   @extend .font-xsmall;
-
-  .view-toggle {
-    a {
-      text-decoration: none;
-      font-weight: 700;
-      i {
-        margin-right:4px;
-      }
-    }
-  }
   .sortable-links {
     position: absolute;
     top: 0;
@@ -108,5 +115,11 @@ $path: "/public/images/";
     display: inline-block;
     width: 40%;
     float: none;
+  }
+}
+p.search-count {
+  margin: 0;
+  strong {
+    font-weight: bold;
   }
 }
