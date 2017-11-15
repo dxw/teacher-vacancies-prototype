@@ -28,8 +28,8 @@
                     </label>
                     <select name="search-radius" id="search-radius" class="form-control form-control-3-4 search-radius" >
                         {% for radius in json.search_radius %}
-                            {% set selected = ' selected' if data['search-radius'] == range %}
-                            <option{{ selected }}>{{ radius }}</option>
+                            {% set selected = ' selected' if data['search-radius'] == range.km %}
+                            <option{{ selected }}>{{ radius.label }}</option>
                         {% endfor %}
                     </select>
                 </div>
