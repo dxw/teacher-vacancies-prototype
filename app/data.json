@@ -449,10 +449,10 @@
     "Multi-Academy Trust CEO"
   ],
   "search_radius": [
-    "Within 5 miles",
-    "Within 10 miles",
-    "Within 20 miles",
-    "Within 50 miles"
+    {"label": "Within 5 miles" , "km": 8.04},
+    {"label": "Within 10 miles", "km": 16.08},
+    {"label": "Within 20 miles", "km": 32.1869},
+    {"label": "Within 50 miles", "km": 80.4672}
   ],
   "search_radius_time": [
     "Within 15 minutes",

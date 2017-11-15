@@ -22,8 +22,8 @@
                 </div>
                 <select name="search-radius-distance" id="search-radius-distance" class="form-control form-control-block search-radius">
                     {% for radius in json.search_radius %}
-                        {% set selected = ' selected' if data['search-radius'] == radius %}
-                        <option{{ selected }}>{{ radius }}</option>
+                        {% set selected = ' selected' if data['search-radius-distance'] == radius.km %}
+                        <option{{ selected }} value="{{ radius.km }}">{{ radius.label }}</option>
                     {% endfor %}
                 </select>
                 <select name="search-radius-time" id="search-radius-time" class="form-control form-control-block search-radius">
@@ -124,6 +124,7 @@
             </div>
         </div>
 
+        <input type="hidden" name="show_map" value="{% if query.show_map == 1 %}1{% else %}0{% endif %}">
         <input type="hidden" name="search_results" value="1">
         <input class="button" type="submit" value="Apply filters">
     </form>

@@ -1,5 +1,4 @@
 <div id="map"></div>
-
 <script>
     var vacancies = []
     {% for vacancy in vacancies %}
@@ -12,45 +11,64 @@
     })
     {% endfor %}
 
+
+  var mapInitialized = false
+
   function initMap() {
-    var bounds = new google.maps.LatLngBounds();
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8
-    });
-    var infos = [];
-    var markers = [];
-    var infoWindow = new google.maps.InfoWindow();
 
-    new google.maps.Circle({
-      center: {lat: 51.507222, lng: -0.1275},
-      radius: 20000,
-      map: map,
-      strokeColor: 'blue',
-      strokeWeight: 2,
-      fillOpacity: 0.1,
-      fillColor: 'blue',
-      zIndex: 1
-    });
-
-    for (var x in vacancies) {
-      var vacancy = vacancies[x]
-      infos[x] = '<h3><a href="'+vacancy.link+'">'+vacancy.job_title+'</a></h3><p><strong>'+vacancy.school+'</strong></p>';
-      markers[x] = new google.maps.Marker({
-        position: {lat: vacancy.lat, lng: vacancy.lng},
-        map: map,
-        title: vacancy.job_title
+    if (!mapInitialized) {
+      var bounds = new google.maps.LatLngBounds();
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8
       });
-      bounds.extend(markers[x].position);
-      google.maps.event.addListener(markers[x], 'click', (function(marker, x) {
-        return function() {
-          infoWindow.setContent(infos[x]);
-          infoWindow.open(map, marker);
-        }
-      })(markers[x], x));
+      var geocoder = new google.maps.Geocoder;
+      var infos = [];
+      var markers = [];
+      var infoWindow = new google.maps.InfoWindow();
+
+      {% if query['search-radius-distance'] and query.location %}
+        geocoder.geocode({'address': '{{ query.location }}'}, function(results, status) {
+
+          if (results.length > 0) {
+            var radiusMarker = new google.maps.Circle({
+              center: results[0].geometry.location,
+              radius: ({{ query['search-radius-distance'] }} * 1000),
+              map: map,
+              strokeColor: 'blue',
+              strokeWeight: 2,
+              fillOpacity: 0.1,
+              fillColor: 'blue',
+              zIndex: 1
+            });
+
+            map.setCenter(results[0].geometry.location)
+            map.fitBounds(radiusMarker.getBounds())
+          }
+        })
+      {% endif %}
+
+
+      for (var x in vacancies) {
+        var vacancy = vacancies[x]
+        infos[x] = '<h3><a href="'+vacancy.link+'">'+vacancy.job_title+'</a></h3><p><strong>'+vacancy.school+'</strong></p>';
+        markers[x] = new google.maps.Marker({
+          position: {lat: vacancy.lat, lng: vacancy.lng},
+          map: map,
+          title: vacancy.job_title
+        });
+        bounds.extend(markers[x].position);
+        google.maps.event.addListener(markers[x], 'click', (function(marker, x) {
+          return function() {
+            infoWindow.setContent(infos[x]);
+            infoWindow.open(map, marker);
+          }
+        })(markers[x], x));
+      }
+      map.fitBounds(bounds);
+      mapInitialized = true;
     }
-    map.fitBounds(bounds);
   }
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap">
+<script
+        src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}">
 </script>
