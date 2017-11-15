@@ -27,7 +27,7 @@
       var infoWindow = new google.maps.InfoWindow();
 
       {% if query['search-radius-distance'] and query.location %}
-        geocoder.geocode({'address': '{{ query.location }}'}, function(results, status) {
+        geocoder.geocode({'address': '{{ query.location }}', 'region': 'GB'}, function(results, status) {
 
           if (results.length > 0) {
             var radiusMarker = new google.maps.Circle({
