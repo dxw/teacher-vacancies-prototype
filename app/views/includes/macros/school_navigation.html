@@ -1,5 +1,5 @@
 {% macro show(active) %}
-    <nav role="navigation" aria-label="Main navigation">
+    <nav aria-label="Main navigation">
         <ul id="proposition-links">
             <li><a href="/dashboard/schools" {{ 'class=active' if active=='vacancies' }}>Vacancies</a></li>
             <li><a href="/dashboard/schools/details" {{ 'class=active' if active == 'details' }}>School details</a></li>
