@@ -47,7 +47,9 @@
             <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
                 {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
             </div>
-
+            {% if query.edit %}
+                <input type="hidden" name="redirect_to" value="vacancies/create/confirm">
+            {% endif %}
             {{ form_fields.submit('Save and continue') }}
             </form>
         </div>

@@ -17,7 +17,6 @@
         <span class="heading-secondary">Step 3 of 3</span>
     </h1>
     <h2 class="heading-medium margin-top">Application details</h2>
-    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id.</p>
 
     <div class="grid-row margin-top">
         <div class="column-two-thirds">
@@ -51,7 +50,9 @@
                 <div class="panel panel-border-narrow " id="posted_at-panel">
                     {{ form_fields.date('posted_at', 'Vacancy publication date', 'The date the job vacancy should go live') }}
                 </div>
-
+                {% if query.edit %}
+                    <input type="hidden" name="redirect_to" value="vacancies/create/confirm">
+                {% endif %}
                 {{ form_fields.submit('Save and continue') }}
             </form>
         </div>

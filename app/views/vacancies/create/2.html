@@ -28,6 +28,9 @@
                 {{ form_fields.textarea('education', 'Education', 'Educational background needed for the position') }}
                 {{ form_fields.textarea('qualifications', 'Qualifications', 'Specific qualifications required for this role') }}
                 {{ form_fields.textarea('experience', 'Experience', 'Expected teaching or other experience') }}
+                {% if query.edit %}
+                    <input type="hidden" name="redirect_to" value="vacancies/create/confirm">
+                {% endif %}
                 {{ form_fields.submit('Save and continue') }}
             </form>
         </div>
