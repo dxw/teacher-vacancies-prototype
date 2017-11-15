@@ -27,8 +27,6 @@
                         Search radius
                     </label>
                     <select name="search-radius" id="search-radius" class="form-control form-control-3-4 search-radius" >
-                        <option class="nationally">Nationally</option>
-                        <option class="exactly">This area exactly</option>
                         {% for radius in json.search_radius %}
                             {% set selected = ' selected' if data['search-radius'] == range %}
                             <option{{ selected }}>{{ radius }}</option>
