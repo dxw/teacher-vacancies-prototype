@@ -36,10 +36,10 @@
         <div class="column-two-thirds">
             <div class="items-control cf">
                 {% if query.show_map != '1' %}
-                <div class="sortable-links">
+                <div class="sortable-links" role="toolbar" aria-label="Sorting options" aria-controls="vacancies">
                     Sort by:
-                    <a class="sortby--desc active" href="/vacancies?sort_column=expires_on&amp;sort_order=desc">Closing date</a>
-                    <a class="sortby--desc" href="/vacancies?sort_column=publish_on&amp;sort_order=desc">Published date</a>
+                    <a class="sortby--desc active" aria-selected="true" role="button" tabindex="0" href="/vacancies?sort_column=expires_on&amp;sort_order=desc">Closing date <span class="sr-only">descending</span></a>
+                    <a class="sortby--desc" aria-selected="false" role="button" tabindex="-1" href="/vacancies?sort_column=publish_on&amp;sort_order=desc">Published date <span class="sr-only">descending</span></a>
                 </div>
                 {% endif %}
             </div>
