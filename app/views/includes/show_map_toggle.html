@@ -1,7 +1,8 @@
 <div class="view-toggle">
-    {% if query.show_map %}
-        <a href="/vacancies"><i class="fa fa-list" aria-hidden="true"></i> View results as list</a>
+    {% if query.show_map == 1 %}
+        <a href="#" class="show-map-toggle"><i class="fa fa-list" aria-hidden="true"></i> <span class="label">View results as list</span></a>
     {% else %}
-        <a href="/vacancies?show_map=1"><i class="fa fa-map-marker" aria-hidden="true"></i> View results on map</a>
+        <a href="#" class="show-map-toggle show-map"><i class="fa fa-map-marker" aria-hidden="true"></i>
+        <span class="label">View results on map</span></a>
     {% endif %}
 </div>

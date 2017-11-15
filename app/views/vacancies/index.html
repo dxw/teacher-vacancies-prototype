@@ -44,11 +44,12 @@
                 {% endif %}
             </div>
 
-            {% if query.show_map %}
+            <div class="map {% if query.show_map != 1 %}hidden{% endif %}">
                 {% include "includes/map.html" %}
-            {% else %}
+            </div>
+
             {% include "includes/search_alert.html" %}
-            <ul class="vacancies">
+            <ul class="vacancies {% if query.show_map == 1 %}hidden{% endif %}">
                 {% for job in vacancies | sort(vacancies, false, false, 'score') %}
                 {% set school = json.schools[job.school_id] %}
                 <li itemscope itemtype="http://schema.org/JobPosting" class="margin-top padding-bottom">
@@ -110,7 +111,6 @@
                         </li>
                     </ul>
                 </nav>
-            {% endif %}
             {% endif %}
         </div>
     </div>
