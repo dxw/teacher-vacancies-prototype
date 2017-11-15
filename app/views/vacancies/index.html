@@ -49,18 +49,18 @@
             </div>
 
             {% include "includes/search_alert.html" %}
-            <ul class="vacancies {% if query.show_map == 1 %}hidden{% endif %}">
+            <ul class="vacancies {% if query.show_map == 1 %}hidden{% endif %}" id="vacancies">
                 {% for job in vacancies | sort(vacancies, false, false, 'score') %}
                 {% set school = json.schools[job.school_id] %}
                 <li itemscope itemtype="http://schema.org/JobPosting" class="margin-top padding-bottom">
                     {% if school.logo %}
                     <img src="/public/images/school_logos/{{ school.logo }}" alt="{{ school.name }} logo" class="school_logo">
                     {% endif %}
-                    <h3 class="job-title">
+                    <h2 class="job-title">
                         <a href="{{ job.slug | url('vacancies') }}" title="{{ job.title }}">
                             <span itemprop="title">{{ job.title }}</span>
                         </a>
-                    </h3>
+                    </h2>
                     <p class="job-location">
                         <span itemprop="hiringOrganization" itemscope itemtype="http://schema.org/Organization">
                             <span itemprop="name">{{ school.name }}</span></span>,

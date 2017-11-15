@@ -21,22 +21,22 @@
             <p class="lede">
                 {{ vacancy.headline }}
             </p>
-            <h3 class="heading-medium">Job description</h3>
+            <h2 class="heading-medium">Job description</h2>
             <div class="rich-text">{{ vacancy.description | safe }}</div>
-            <h3 class="heading-medium">Essential Requirements</h3>
+            <h2 class="heading-medium">Essential Requirements</h2>
             <p>{{ vacancy.experience_requirements }}</p>
-            <h3 class="heading-medium">Education</h3>
+            <h2 class="heading-medium">Education</h2>
             <p>{{ vacancy.education_requirements }}</p>
             {% if vacancy.qualifications %}
-                <h3 class="heading-medium">Qualifications</h3>
+                <h2 class="heading-medium">Qualifications</h2>
                 <p>{{ vacancy.qualifications }}</p>
             {% endif %}
             {% if vacancy.experience %}
-                <h3 class="heading-medium">Experience</h3>
+                <h2 class="heading-medium">Experience</h2>
                 <p>{{ vacancy.experience }}</p>
             {% endif %}
             {% if vacancy.benefits %}
-                <h3 class="heading-medium">Benefits</h3>
+                <h2 class="heading-medium">Benefits</h2>
                 <p>{{ vacancy.benefits }}</p>
             {% endif %}
         </div>
