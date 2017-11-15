@@ -77,7 +77,7 @@
                         <dd class="double">
                             <span itemprop="baseSalary" itemscope itemtype="http://schema.org/MonetaryAmount">
                                 <meta itemprop="currency" content="GBP" />
-                                £<span itemprop="minValue">{{ job.salary_min | number }}</span> -
+                                £<span itemprop="minValue">{{ job.salary_min | number }}</span> <span aria-label="to">&ndash;</span>
                                 £<span itemprop="maxValue">{{ job.salary_max | number }}</span>
                             </span>
                         </dd>

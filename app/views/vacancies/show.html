@@ -44,7 +44,7 @@
             <aside class="padding" role="complementary">
                 <dl>
                     <dt>Annual pay</dt>
-                    <dd>£{{ vacancy.salary_min | number }} - £{{ vacancy.salary_max | number }}</dd>
+                    <dd>£{{ vacancy.salary_min | number }} <span aria-label="to">&ndash;</span> £{{ vacancy.salary_max | number }}</dd>
                     <dt>Working pattern</dt>
                     <dd>{{ vacancy.contract_type | default('Full time') }}</dd>
                     <dt>Suitable for NQTs</dt>
