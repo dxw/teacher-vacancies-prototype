@@ -421,24 +421,22 @@
     "Post 16"
   ],
   "subjects": [
-    "Not applicable",
-    "Primary education",
-    "English",
-    "Mathematics",
-    "Science",
     "Art and design",
     "Citizenship",
     "Computing",
     "Design and technology",
+    "English",
     "Geography",
     "History",
     "Languages",
+    "Mathematics",
     "Music",
     "Physical education",
+    "Science",
+    "Primary education",
     "Other"
   ],
   "leadership_level": [
-    "Not applicable",
     "Middle Leader",
     "Senior Leader",
     "Principal",

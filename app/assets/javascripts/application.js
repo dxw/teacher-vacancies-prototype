@@ -61,6 +61,36 @@ var checkLocation = function () {
   checkSearchRadius($('input[name=search_radius_type]'))
 }
 
+var checkLeadershipRole = function() {
+  var leadership_role = document.getElementById('is_leadership')
+  var leadership_panel = document.getElementById('leadership-role-panel')
+
+  if (leadership_role.checked) {
+    leadership_panel.classList.remove('js-hidden')
+  } else {
+    leadership_panel.classList.add('js-hidden')
+  }
+}
+
+checkLeadershipRole();
+document.getElementById('is_leadership').addEventListener('change', checkLeadershipRole)
+
+
+var checkPayScale = function() {
+  var belongs_to_pay_scale = document.getElementById('on_pay_scale')
+  var pay_scale_panel = document.getElementById('pay-scale-panel')
+
+  if (belongs_to_pay_scale.checked) {
+    pay_scale_panel.classList.remove('js-hidden')
+  } else {
+    pay_scale_panel.classList.add('js-hidden')
+  }
+}
+
+checkLeadershipRole();
+document.getElementById('on_pay_scale').addEventListener('change', checkPayScale)
+
+
 var initWordCounter = function (selector, maxWords) {
   $(selector).textcounter({
     type: 'word',

@@ -29,6 +29,30 @@
 </div>
 {% endmacro %}
 
+{% macro radio_buttons(name, label, options, hint, required=false, bold_label=true) %}
+    {% set label = label + ' (optional)' if required == false else label %}
+    <div class="form-group">
+        <label class="form-label {% if bold_label %}form-label-bold{% endif %}" for="{{ name }}">
+            {{ label }}
+            {% if hint != '' %}
+                <span class="form-hint">
+                {{ hint }}
+                </span>
+            {% endif %}
+        </label>
+            <fieldset class="inline-checkboxes">
+                {% for option in options %}
+                    {% if option != 'Other' %}
+                    <div class="multiple-choice">
+                        <input id="{{ option }}" type="radio" name="{{ name }}[]" value="{{ option }}" {{ checked(option, data[name]) }}>
+                        <label for="{{ option }}">{{ option }}</label>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </fieldset>
+    </div>
+{% endmacro %}
+
 {% macro multiple_checkboxes(name, label, options, hint, required=false) %}
     {% set label = label + ' (optional)' if required == false else label %}
     <div class="form-group">
@@ -41,7 +65,7 @@
             {% endif %}
         </label>
             <fieldset class="inline-checkboxes">
-                {% for option in options | sort %}
+                {% for option in options %}
                     {% if option != 'Other' and option != 'Not applicable' %}
                     <div class="multiple-choice">
                         <input id="{{ option }}" type="checkbox" name="{{ name }}[]" value="{{ option }}" {{ multiple_checked(option, data[name]) }}>
@@ -107,7 +131,6 @@
 <div class="form-group">
     <fieldset>
         <legend class="form-label-bold">
-            Salary range
             <span class="form-hint">
                 Annual pay before tax (£)
             </span>

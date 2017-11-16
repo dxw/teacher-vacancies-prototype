@@ -31,24 +31,45 @@
             {{ form_fields.wysiwyg('description', 'Job description', 'A description of the job, and the duties involved, and competencies and attitudes expected to be shown by the jobholder', true) }}
             {{ form_fields.textarea('other_roles', 'Other roles', 'Other roles the applicant will be expected to fulfill', 3) }}
             {{ form_fields.textarea('benefits', 'Benefits') }}
-            {{ form_fields.select('main_subject', 'Main subject', json.subjects, 'The main subject to be taught by teacher', true) }}
+
+            {{ form_fields.radio_buttons('main_subject', 'Main subject', json.subjects, 'The main subject to be taught by teacher', true) }}
+
             {{ form_fields.multiple_checkboxes('additional_subjects', 'Additional subjects', json.subjects, 'Any other subjects the applicant will be expected to teach', true) }}
             {{ form_fields.multiple_checkboxes('key_stage', 'Key Stage', json.key_stages, 'The education stage expected to be taught', true) }}
 
-            {{ form_fields.salary_range() }}
-            {{ form_fields.select('pay_scale', 'Pay scale', json.pay_scales, 'The pay scale on which the salary of the job falls') }}
-            {{ form_fields.select('working_pattern', 'Working pattern', json.contract_type, '', true) }}
+            <fieldset>
+                <legend class="heading-small">Salary</legend>
+                {{ form_fields.salary_range() }}
+
+                {{ form_fields.checkbox('on_pay_scale', 'Belongs to a national pay scale', checked('on_payscale', '1') if (data.pay_scales != 'Not applicable' and data.pay_scales != null)) }}
+                <div class="panel panel-border-narrow js-hidden" id="pay-scale-panel">
+                    {{ form_fields.radio_buttons('pay_scale', 'Pay scale', json.pay_scales, 'The pay scale on which the salary of the job falls', true, false) }}
+                </div>
+
+            </fieldset>
+
+            {{ form_fields.radio_buttons('working_pattern', 'Working pattern', json.contract_type, '', true) }}
+
             <div class="panel panel-border-narrow js-hidden" id="fte-panel">
                 {{ form_fields.field('fte', 'Full time equivalent', 'number', 'Percentage of a full time position') }}
             </div>
             <div class="panel panel-border-narrow js-hidden" id="flexible-panel">
                 {{ form_fields.textarea('flexible_working_details', 'Flexible working details', 'Provide further details here') }}
             </div>
+            {{ form_fields.checkbox('is_permanent', 'This is a permanent position', checked('is_permanent', '1') if data.is_permanent else true) }}
+
             {{ form_fields.checkbox('is_job_share', 'This position has a job share available', checked('is_job_share', '1') if data.is_flexible else false) }}
 
-            {{ form_fields.select('leadership_level', 'Leadership level', json.leadership_level) }}
+            <fieldset>
+                <legend class="heading-small">Leadership</legend>
+                {{ form_fields.checkbox('is_leadership', 'This is a leadership role', checked('is_permanent', '1') if (data.leadership_level != 'Not applicable' and data.leadership_level != null)) }}
+
+                <div class="panel panel-border-narrow js-hidden" id="leadership-role-panel">
+                    {{ form_fields.radio_buttons('leadership_level', 'Leadership level', json.leadership_level, '', true, false) }}
+                </div>
+            </fieldset>
+
             {{ form_fields.date('starts_at', 'Start date', 'Expected start date of the job') }}
-            {{ form_fields.checkbox('is_permanent', 'This is a permanent position', checked('is_permanent', '1') if data.is_permanent else true) }}
             <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
                 {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
             </div>
