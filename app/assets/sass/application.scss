@@ -126,6 +126,10 @@ p.search-count {
   }
 }
 
+.loading {
+  color: $grey-2;
+}
+
 /* Override the styles from digitalmarketplace toolkit */
 .filter-field-text input[type="search"] {
   width: 100%;
