@@ -22,16 +22,75 @@
         Map showing location of {{ vacancy.school.name }}. <a href="https://www.google.com/maps/?q={{ vacancy.school.lat }},{{ vacancy.school.lng }}">Open in Google Maps</a>
     </figcaption>
     <div id="map_zoom"></div>
+
+    <div>
+      <div class="heading-small">Commute</div>
+      <select id="route-mode" class="form-control" style="width: 180px">
+        <option value="DRIVING">Driving</option>
+        <option value="TRANSIT">Public transport</option>
+        <option value="BICYCLING">Cycling</option>
+        <option value="WALKING">Walking</option>
+      </select>
+      from
+      <input type="search" id="route-from" class="form-control" style="width: 150px" value="{{ data['location'] }}"/> :
+      <span id="directions-duration"></span>
+    </div>
 </figure>
 <script>
 
   function initMap() {
     var myLatLng = {lat: {{ vacancy.school.lat }}, lng: {{ vacancy.school.lng}} };
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+
+    var routeModeSelect = document.getElementById('route-mode')
+    var routeFromInput = document.getElementById('route-from')
+    var directionsDuration = document.getElementById('directions-duration')
 
     var map = new google.maps.Map(document.getElementById('map_zoom'), {
       zoom: 17,
       center: myLatLng
     });
+
+    directionsDisplay.setMap(map);
+
+    var currentDate = new Date();
+    var dayDiffToNextMondey = ( 7 - currentDate.getDay() ) % 7 + 1
+    var nextMondayAtStartOfDay = currentDate
+    nextMondayAtStartOfDay.setDate(currentDate.getDate() + dayDiffToNextMondey)
+    nextMondayAtStartOfDay.setHours(7)
+    nextMondayAtStartOfDay.setMinutes(0)
+
+
+    var showDirections = function() {
+
+      if (routeFromInput.value != '') {
+        directionsService.route({
+          origin: routeFromInput.value,
+          destination: myLatLng,
+          travelMode: routeModeSelect.value,
+          drivingOptions: {
+            departureTime: nextMondayAtStartOfDay,
+            trafficModel: 'optimistic'
+          }
+        }, function(response, status) {
+          if (status === 'OK') {
+            console.log(response)
+            var duration = response.routes[0].legs[0].duration;
+            if (duration) {
+              directionsDuration.textContent = duration.text
+            }
+            directionsDisplay.setDirections(response);
+          } else {
+            console.log('Directions request failed due to ' + status);
+          }
+        });
+      }
+    }
+    showDirections()
+
+    routeModeSelect.addEventListener('change', showDirections)
+    routeFromInput.addEventListener('change', showDirections)
 
     var marker = new google.maps.Marker({
       position: myLatLng,
