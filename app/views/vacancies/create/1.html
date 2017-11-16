@@ -32,9 +32,8 @@
             {{ form_fields.textarea('other_roles', 'Other roles', 'Other roles the applicant will be expected to fulfill', 3) }}
             {{ form_fields.textarea('benefits', 'Benefits') }}
 
-            {{ form_fields.radio_buttons('main_subject', 'Main subject', json.subjects, 'The main subject to be taught by teacher', true) }}
 
-            {{ form_fields.multiple_checkboxes('additional_subjects', 'Additional subjects', json.subjects, 'Any other subjects the applicant will be expected to teach', true) }}
+            {{ form_fields.multiple_checkboxes('additional_subjects', 'Subjects taught', json.subjects, 'Any subjects the applicant will be expected to teach', true) }}
             {{ form_fields.multiple_checkboxes('key_stage', 'Key Stage', json.key_stages, 'The education stage expected to be taught', true) }}
 
             <fieldset>
