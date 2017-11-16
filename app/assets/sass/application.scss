@@ -125,3 +125,9 @@ p.search-count {
     font-weight: bold;
   }
 }
+
+/* Override the styles from digitalmarketplace toolkit */
+.filter-field-text input[type="search"] {
+  width: 100%;
+  border-right: 1px solid #bfc1c3;
+}
