@@ -87,6 +87,10 @@ $(document).ready(function () {
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
 
+  $('#filters input, #filters select').on('change', function() {
+    $('#filters').submit()
+  })
+
   checkWorkingPattern()
   checkFlexible()
   $('#working_pattern').on('change', function () {
