@@ -38,35 +38,53 @@
 </figure>
 <script>
 
+  var map, directionsService, directionsDisplay;
+  var routeModeSelect = document.getElementById('route-mode')
+  var routeFromInput = document.getElementById('route-from')
+  var directionsDuration = document.getElementById('directions-duration')
+  var myLatLng = {lat: {{ vacancy.school.lat }}, lng: {{ vacancy.school.lng}} };
+  var directionsRequestsCount = 0
+
   function initMap() {
-    var myLatLng = {lat: {{ vacancy.school.lat }}, lng: {{ vacancy.school.lng}} };
-    var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer;
+    directionsService = new google.maps.DirectionsService;
+    directionsDisplay = new google.maps.DirectionsRenderer;
 
-    var routeModeSelect = document.getElementById('route-mode')
-    var routeFromInput = document.getElementById('route-from')
-    var directionsDuration = document.getElementById('directions-duration')
-
-    var map = new google.maps.Map(document.getElementById('map_zoom'), {
+    map = new google.maps.Map(document.getElementById('map_zoom'), {
       zoom: 17,
       center: myLatLng
     });
 
-    directionsDisplay.setMap(map);
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: '{{ vacancy.school.name }}'
+    });
 
-    var currentDate = new Date();
-    var dayDiffToNextMondey = ( 7 - currentDate.getDay() ) % 7 + 1
-    var nextMondayAtStartOfDay = currentDate
-    nextMondayAtStartOfDay.setDate(currentDate.getDate() + dayDiffToNextMondey)
-    nextMondayAtStartOfDay.setHours(7)
-    nextMondayAtStartOfDay.setMinutes(0)
+    showDirections()
+  }
+
+  var currentDate = new Date();
+  var dayDiffToNextMondey = ( 7 - currentDate.getDay() ) % 7 + 1
+  var nextMondayAtStartOfDay = currentDate
+  nextMondayAtStartOfDay.setDate(currentDate.getDate() + dayDiffToNextMondey)
+  nextMondayAtStartOfDay.setHours(7)
+  nextMondayAtStartOfDay.setMinutes(0)
 
 
-    var showDirections = function() {
+  var showDirections = function() {
 
+    var directionsRequestsCountOnRequest;
+    if (map) {
       if (routeFromInput.value != '') {
+
+        directionsRequestsCount += 1
+        directionsRequestsCountOnRequest = directionsRequestsCount
+
+        directionsDuration.textContent = 'Calculating'
+        directionsDuration.classList.add('loading')
+
         directionsService.route({
-          origin: routeFromInput.value,
+          origin: routeFromInput.value + ", UK",
           destination: myLatLng,
           travelMode: routeModeSelect.value,
           drivingOptions: {
@@ -74,30 +92,43 @@
             trafficModel: 'optimistic'
           }
         }, function(response, status) {
-          if (status === 'OK') {
-            console.log(response)
-            var duration = response.routes[0].legs[0].duration;
-            if (duration) {
-              directionsDuration.textContent = duration.text
+
+          // Check that response is the last one fired
+          if (directionsRequestsCount == directionsRequestsCountOnRequest) {
+            if (status === 'OK') {
+              var duration = response.routes[0].legs[0].duration;
+              if (duration) {
+                directionsDuration.classList.remove('loading')
+                directionsDuration.textContent = duration.text
+              }
+              directionsDisplay.setMap(map);
+              directionsDisplay.setDirections(response);
+            } else {
+              console.log('Directions request failed due to ' + status);
             }
-            directionsDisplay.setDirections(response);
-          } else {
-            console.log('Directions request failed due to ' + status);
           }
+
         });
+      } else {
+        directionsDuration.textContent = ''
+        directionsDisplay.setMap(null)
       }
     }
-    showDirections()
-
-    routeModeSelect.addEventListener('change', showDirections)
-    routeFromInput.addEventListener('change', showDirections)
-
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: map,
-      title: '{{ vacancy.school.name }}'
-    });
   }
+
+  var directionsInputTimer = null
+  function resetDirectionsTimer(event) {
+    if (directionsInputTimer) {
+      clearTimeout(directionsInputTimer)
+    }
+    directionsInputTimer = setTimeout(showDirections, 300)
+  }
+
+  routeModeSelect.addEventListener('change', showDirections)
+  routeFromInput.addEventListener('change', showDirections)
+
+  routeFromInput.addEventListener('keyup', resetDirectionsTimer)
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap">
