@@ -30,7 +30,6 @@
             {{ form_fields.textarea('headline', 'Headline', 'Single sentence, summing up the job on offer, to appear at top of the listing', 3,true) }}
             {{ form_fields.wysiwyg('description', 'Job description', 'A description of the job, and the duties involved, and competencies and attitudes expected to be shown by the jobholder', true) }}
             {{ form_fields.textarea('other_roles', 'Other roles', 'Other roles the applicant will be expected to fulfill', 3) }}
-            {{ form_fields.textarea('benefits', 'Benefits') }}
 
 
             {{ form_fields.multiple_checkboxes('additional_subjects', 'Subjects taught', json.subjects, 'Any subjects the applicant will be expected to teach', true) }}
@@ -47,6 +46,7 @@
 
             </fieldset>
 
+            {{ form_fields.textarea('benefits', 'Benefits') }}
             {{ form_fields.radio_buttons('working_pattern', 'Working pattern', json.contract_type, '', true) }}
 
             <div class="panel panel-border-narrow js-hidden" id="fte-panel">
