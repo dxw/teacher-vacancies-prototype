@@ -152,7 +152,7 @@ $(document).ready(function () {
     if($(this).hasClass('show-map')) {
       $(this).removeClass('show-map');
       $('.map').removeClass('hidden');
-      $('.vacancies').addClass('hidden')
+      $('.vacancies, .govuk-previous-and-next-navigation').addClass('hidden')
       $('.fa').removeClass('fa-map-marker').addClass('fa-list');
       $('.label').text('View results as list')
       $('input[name=show_map]').val(1)
@@ -160,7 +160,7 @@ $(document).ready(function () {
     } else {
       $(this).addClass('show-map');
       $('.map').addClass('hidden');
-      $('.vacancies').removeClass('hidden')
+      $('.vacancies, .govuk-previous-and-next-navigation').removeClass('hidden')
       $('.fa').removeClass('fa-list').addClass('fa-map-marker');
       $('.label').text('View results on map')
       $('input[name=show_map]').val(0)
