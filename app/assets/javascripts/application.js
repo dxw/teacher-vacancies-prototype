@@ -76,7 +76,18 @@ var initWordCounter = function (selector, maxWords) {
   })
 }
 
-$(document).ready(function () {
+var initPjax = function () {
+  $(document).on('submit', '#filters', function (event) {
+    $.pjax.submit(event, '#content', {
+      scrollTo: false
+    })
+  })
+}
+$(document).on('pjax:end', function () {
+  checkSearchRadius($('input[name=search_radius_type]'))
+  initMap()
+})
+$(document).on('ready', function () {
   // Use GOV.UK shim-links-with-button-role.js to trigger a link styled to look like a button,
   // with role="button" when the space key is pressed.
   GOVUK.shimLinksWithButtonRole.init()
@@ -87,9 +98,11 @@ $(document).ready(function () {
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
 
-  $('#filters input, #filters select').on('change', function() {
+  $(document).on('change', '#filters input, #filters select', function () {
     $('#filters').submit()
   })
+
+  initPjax()
 
   checkWorkingPattern()
   checkFlexible()
@@ -112,7 +125,7 @@ $(document).ready(function () {
 
   initWordCounter('#description', 500)
 
-  $('#close-notification').on('click', function () {
+  $(document).on('click', '#close-notification', function () {
     $(this).parents('.notification').hide()
   })
 
@@ -151,7 +164,7 @@ $(document).ready(function () {
     initMap();
   }
 
-  $('.show-map-toggle').on('click', function(event) {
+  $(document).on('click', '.show-map-toggle', function(event) {
 
     if($(this).hasClass('show-map')) {
       $(this).removeClass('show-map');

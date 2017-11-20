@@ -3,6 +3,9 @@ var _ = require('underscore')
 var router = express.Router()
 var search = require('./search')
 var data = require('./data')
+var pjax = require('express-pjax-middleware')
+
+router.use(pjax())
 
 // Route middleware
 router.use(function (req, res, next) {
@@ -39,7 +42,7 @@ router.get('/vacancies', function (req, res) {
   if (req.query.search_results && !isEmpty) {
     vacancies = search.filter(query)
   }
-  res.render('vacancies/index', {'vacancies': vacancies})
+  res.renderPjax('vacancies/index', {'vacancies': vacancies})
 })
 
 router.get('/clear-search-data', function (req, res) {
