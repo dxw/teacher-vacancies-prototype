@@ -63,32 +63,42 @@ var checkLocation = function () {
 
 var checkLeadershipRole = function() {
   var leadership_role = document.getElementById('is_leadership')
-  var leadership_panel = document.getElementById('leadership-role-panel')
 
-  if (leadership_role.checked) {
-    leadership_panel.classList.remove('js-hidden')
-  } else {
-    leadership_panel.classList.add('js-hidden')
+  if (leadership_role) {
+    var leadership_panel = document.getElementById('leadership-role-panel')
+
+    if (leadership_role.checked) {
+      leadership_panel.classList.remove('js-hidden')
+    } else {
+      leadership_panel.classList.add('js-hidden')
+    }
   }
 }
 
 checkLeadershipRole();
-document.getElementById('is_leadership').addEventListener('change', checkLeadershipRole)
-
+var leadership_role = document.getElementById('is_leadership')
+if (leadership_role) {
+  leadership_role.addEventListener('change', checkLeadershipRole)
+}
 
 var checkPayScale = function() {
   var belongs_to_pay_scale = document.getElementById('on_pay_scale')
   var pay_scale_panel = document.getElementById('pay-scale-panel')
 
-  if (belongs_to_pay_scale.checked) {
-    pay_scale_panel.classList.remove('js-hidden')
-  } else {
-    pay_scale_panel.classList.add('js-hidden')
+  if (belongs_to_pay_scale && pay_scale_panel) {
+    if (belongs_to_pay_scale.checked) {
+      pay_scale_panel.classList.remove('js-hidden')
+    } else {
+      pay_scale_panel.classList.add('js-hidden')
+    }
   }
 }
 
-checkLeadershipRole();
-document.getElementById('on_pay_scale').addEventListener('change', checkPayScale)
+checkPayScale();
+var belongs_to_pay_scale = document.getElementById('on_pay_scale')
+if (belongs_to_pay_scale) {
+  belongs_to_pay_scale.addEventListener('change', checkPayScale)
+}
 
 
 var initWordCounter = function (selector, maxWords) {
