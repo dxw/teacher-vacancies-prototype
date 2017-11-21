@@ -42,7 +42,8 @@ router.get('/vacancies', function (req, res) {
   if (req.query.search_results && !isEmpty) {
     vacancies = search.filter(query)
   }
-  res.renderPjax('vacancies/index', {'vacancies': vacancies})
+  var baseUrl = '' + req.protocol + '://' + req.get('host');
+  res.render('vacancies/index', {'vacancies': vacancies, url: baseUrl})
 })
 
 router.get('/clear-search-data', function (req, res) {
