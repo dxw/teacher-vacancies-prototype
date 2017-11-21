@@ -10,5 +10,11 @@
       margin-bottom: $gutter-half/2;
     }
   }
-
+  .publish-button {
+    float: right;
+    @include media(mobile) {
+      float: none;
+      margin: 0;
+    }
+  }
 }

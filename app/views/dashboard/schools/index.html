@@ -25,7 +25,7 @@
         </div>
         {% endif %}
 
-        <div class="right">
+        <div class="publish-button">
             <a href="/vacancies/create/1" class="button margin-top-big">Publish a vacancy</a>
         </div>
         <h1 class="heading-large">
@@ -42,9 +42,9 @@
             <thead>
                 <tr>
                     <th scope="col">Job title</th>
-                    <th scope="col">Status</th>
-                    <th class="numeric" scope="col">Publish date</th>
-                    <th class="numeric" scope="col">Deadline date</th>
+                    <th scope="col" class="hide-on-mobile">Status</th>
+                    <th class="numeric hide-on-mobile" scope="col">Publish date</th>
+                    <th class="numeric hide-on-mobile" scope="col">Deadline date</th>
                     <th class="numeric" scope="col">Views</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -54,9 +54,9 @@
             {% for vacancy in json.vacancies %}
                 <tr>
                     <td scope="row"><a href="/vacancies/{{ vacancy.slug }}">{{ vacancy.title }}</a></td>
-                    <td>{{ vacancy.status }}</td>
-                    <td class="numeric">{{ vacancy.posted_at | date }}</td>
-                    <td class="numeric">{{ vacancy.closes_at | date }}</td>
+                    <td class="hide-on-mobile">{{ vacancy.status }}</td>
+                    <td class="numeric hide-on-mobile">{{ vacancy.posted_at | date }}</td>
+                    <td class="numeric hide-on-mobile">{{ vacancy.closes_at | date }}</td>
                     <td class="numeric">{{ vacancy.views }}</td>
                     <td><a href="#">Edit</a></td>
                     <td><a href="#">Duplicate</a></td>
