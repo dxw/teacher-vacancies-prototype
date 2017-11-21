@@ -76,6 +76,10 @@ $path: "/public/images/";
   float: right;
   margin-left: $gutter-half;
   margin-top: $gutter-half/2;
+  @include media(mobile) {
+    float: none;
+    margin-left: 0;
+  }
   a {
     text-decoration: none;
     font-weight: 700;
@@ -94,6 +98,11 @@ $path: "/public/images/";
     top: 0;
     right: 0;
     margin-bottom: $gutter;
+    @include media(mobile) {
+      position: relative;
+      margin-left: 0;
+      margin-bottom: 0;
+    }
     a {
       margin: 0 4px;
       &.active {
