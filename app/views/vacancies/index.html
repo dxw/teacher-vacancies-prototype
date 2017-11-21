@@ -100,7 +100,7 @@
                 <li class="margin-top">No vacancies found. Try expanding your search.</li>
                 {% endfor %}
             </ul>
-            {% if max > 9  %}
+            {% if max > 9 and query.show_map != 1  %}
                 <nav class="govuk-previous-and-next-navigation" role="navigation" aria-label="Pagination">
                     <ul class="group">
                         <li class="next-page">
