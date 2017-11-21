@@ -183,28 +183,30 @@ $(document).ready(function () {
     })
   }
 
-  if ($('.show-map-toggle.show-map').length != 1) {
-    initMap();
-  }
-
-  $('.show-map-toggle').on('click', function(event) {
-
-    if($(this).hasClass('show-map')) {
-      $(this).removeClass('show-map');
-      $('.map').removeClass('hidden');
-      $('.vacancies').addClass('hidden')
-      $('.fa').removeClass('fa-map-marker').addClass('fa-list');
-      $('.label').text('View results as list')
-      $('input[name=show_map]').val(1)
+  if ($('.show-map').length > 0) {
+    if ($('.show-map-toggle.show-map').length != 1) {
       initMap();
-    } else {
-      $(this).addClass('show-map');
-      $('.map').addClass('hidden');
-      $('.vacancies').removeClass('hidden')
-      $('.fa').removeClass('fa-list').addClass('fa-map-marker');
-      $('.label').text('View results on map')
-      $('input[name=show_map]').val(0)
     }
-    event.preventDefault();
-  })
+
+    $('.show-map-toggle').on('click', function(event) {
+
+      if($(this).hasClass('show-map')) {
+        $(this).removeClass('show-map');
+        $('.map').removeClass('hidden');
+        $('.vacancies').addClass('hidden')
+        $('.fa').removeClass('fa-map-marker').addClass('fa-list');
+        $('.label').text('View results as list')
+        $('input[name=show_map]').val(1)
+        initMap();
+      } else {
+        $(this).addClass('show-map');
+        $('.map').addClass('hidden');
+        $('.vacancies').removeClass('hidden')
+        $('.fa').removeClass('fa-list').addClass('fa-map-marker');
+        $('.label').text('View results on map')
+        $('input[name=show_map]').val(0)
+      }
+      event.preventDefault();
+    })
+  }
 })
