@@ -61,6 +61,46 @@ var checkLocation = function () {
   checkSearchRadius($('input[name=search_radius_type]'))
 }
 
+var checkLeadershipRole = function() {
+  var leadership_role = document.getElementById('is_leadership')
+
+  if (leadership_role) {
+    var leadership_panel = document.getElementById('leadership-role-panel')
+
+    if (leadership_role.checked) {
+      leadership_panel.classList.remove('js-hidden')
+    } else {
+      leadership_panel.classList.add('js-hidden')
+    }
+  }
+}
+
+checkLeadershipRole();
+var leadership_role = document.getElementById('is_leadership')
+if (leadership_role) {
+  leadership_role.addEventListener('change', checkLeadershipRole)
+}
+
+var checkPayScale = function() {
+  var belongs_to_pay_scale = document.getElementById('on_pay_scale')
+  var pay_scale_panel = document.getElementById('pay-scale-panel')
+
+  if (belongs_to_pay_scale && pay_scale_panel) {
+    if (belongs_to_pay_scale.checked) {
+      pay_scale_panel.classList.remove('js-hidden')
+    } else {
+      pay_scale_panel.classList.add('js-hidden')
+    }
+  }
+}
+
+checkPayScale();
+var belongs_to_pay_scale = document.getElementById('on_pay_scale')
+if (belongs_to_pay_scale) {
+  belongs_to_pay_scale.addEventListener('change', checkPayScale)
+}
+
+
 var initWordCounter = function (selector, maxWords) {
   $(selector).textcounter({
     type: 'word',
@@ -160,28 +200,30 @@ $(document).on('ready', function () {
     })
   }
 
-  if ($('.show-map-toggle.show-map').length != 1) {
-    initMap();
-  }
-
-  $(document).on('click', '.show-map-toggle', function(event) {
-
-    if($(this).hasClass('show-map')) {
-      $(this).removeClass('show-map');
-      $('.map').removeClass('hidden');
-      $('.vacancies, .govuk-previous-and-next-navigation').addClass('hidden')
-      $('.fa').removeClass('fa-map-marker').addClass('fa-list');
-      $('.label').text('View results as list')
-      $('input[name=show_map]').val(1)
+  if ($('.show-map').length > 0) {
+    if ($('.show-map-toggle.show-map').length != 1) {
       initMap();
-    } else {
-      $(this).addClass('show-map');
-      $('.map').addClass('hidden');
-      $('.vacancies, .govuk-previous-and-next-navigation').removeClass('hidden')
-      $('.fa').removeClass('fa-list').addClass('fa-map-marker');
-      $('.label').text('View results on map')
-      $('input[name=show_map]').val(0)
     }
-    event.preventDefault();
-  })
+
+    $(document).on('click', '.show-map-toggle', function(event) {
+
+      if($(this).hasClass('show-map')) {
+        $(this).removeClass('show-map');
+        $('.map').removeClass('hidden');
+        $('.vacancies, .govuk-previous-and-next-navigation').addClass('hidden')
+        $('.fa').removeClass('fa-map-marker').addClass('fa-list');
+        $('.label').text('View results as list')
+        $('input[name=show_map]').val(1)
+        initMap();
+      } else {
+        $(this).addClass('show-map');
+        $('.map').addClass('hidden');
+        $('.vacancies, .govuk-previous-and-next-navigation').removeClass('hidden')
+        $('.fa').removeClass('fa-list').addClass('fa-map-marker');
+        $('.label').text('View results on map')
+        $('input[name=show_map]').val(0)
+      }
+      event.preventDefault();
+    })
+  }
 })

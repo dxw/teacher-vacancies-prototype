@@ -49,8 +49,7 @@
                         </div>
                     </fieldset>
                 </div>
-                {{ form_fields.date('closes_at', 'Vacancy deadline date', 'The deadline date for receiving applications', true) }}
-                {{ form_fields.time('closes_at_time', 'Vacancy deadline time', 'The deadline time for receiving applications') }}
+                {{ form_fields.date_and_time('closes_at', 'Application deadline', 'The last day on which applications will be accepted', true) }}
                 {{ form_fields.checkbox('publish_today', 'Publish vacancy today', checked('publish_today', '1') if data.publish_today else true) }}
                 <div class="panel panel-border-narrow " id="posted_at-panel">
                     {{ form_fields.date('posted_at', 'Vacancy publication date', 'The date the job vacancy should go live') }}
