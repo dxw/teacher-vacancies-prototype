@@ -129,3 +129,9 @@ p.search-count {
 .loading {
   color: $grey-2;
 }
+
+/* Override the styles from digitalmarketplace toolkit */
+.filter-field-text input[type="search"] {
+  width: 100%;
+  border-right: 1px solid #bfc1c3;
+}

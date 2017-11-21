@@ -57,12 +57,15 @@
                     <img src="/public/images/school_logos/{{ school.logo }}" alt="{{ school.name }} logo" class="school_logo" role="presentation">
                     {% endif %}
                     <h2 class="job-title">
-                        <a href="{{ job.slug | url('vacancies') }}" title="{{ job.title }}">
+                        <a href="{{ job.slug | url('vacancies') }}" title="{{ job.title }}" itemprop="url" >
                             <span itemprop="title">{{ job.title }}</span>
                         </a>
                     </h2>
                     <p class="job-location">
                         <span itemprop="hiringOrganization" itemscope itemtype="http://schema.org/Organization">
+                            {% if school.logo %}
+                                <meta itemprop="logo" content="{{ url }}/public/images/school_logos/{{ school.logo }}">
+                            {% endif %}
                             <span itemprop="name">{{ school.name }}</span></span>,
                         <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
                             <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -70,15 +73,19 @@
                                 <meta itemprop="postalCode" content="{{ school.post_code }}" />
                                 <span itemprop="addressLocality">{{ school.town }}</span>, <span itemprop="addressRegion">{{ school.region }}</span>
                             </span>
+                            <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+                                <meta itemprop="latitude" content="{{ school.lat }}" />
+                                <meta itemprop="longitude" content="{{ school.lng}}" />
+                            </span>
                         </span>
                     </p>
                     <dl>
                         <dt>Annual salary</dt>
                         <dd class="double">
                             <span itemprop="baseSalary" itemscope itemtype="http://schema.org/MonetaryAmount">
-                                <meta itemprop="currency" content="GBP" />
-                                £<span itemprop="minValue">{{ job.salary_min | number }}</span> <span aria-label="to">&ndash;</span>
-                                £<span itemprop="maxValue">{{ job.salary_max | number }}</span>
+
+                                <span itemprop="currency" content="GBP">£</span><span itemprop="minValue" content="{{ job.salary_min }}">{{ job.salary_min | number }}</span> <span aria-label="to">&ndash;</span>
+                                £<span itemprop="maxValue" content="{{ job.salary_max }}">{{ job.salary_max | number }}</span>
                             </span>
                         </dd>
                         <dt>Closing date</dt>
@@ -93,7 +100,6 @@
                     <meta itemprop="educationRequirements" content="{{ job.education_requirements }}" />
                     <meta itemprop="experienceRequirements" content="{{ job.experience_requirements }}" />
                     <meta itemprop="description" content="{{ job.headline }}" />
-                    <meta itemprop="url" content="{{ job.slug | url('vacancies') }}" />
                     <meta itemprop="industry" content="Education" />
                 </li>
                 {% else %}
