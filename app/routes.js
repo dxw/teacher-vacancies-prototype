@@ -43,7 +43,7 @@ router.get('/vacancies', function (req, res) {
     vacancies = search.filter(query)
   }
   var baseUrl = '' + req.protocol + '://' + req.get('host');
-  res.render('vacancies/index', {'vacancies': vacancies, url: baseUrl})
+  res.renderPjax('vacancies/index', {'vacancies': vacancies, url: baseUrl})
 })
 
 router.get('/clear-search-data', function (req, res) {
