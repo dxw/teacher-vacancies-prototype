@@ -56,7 +56,9 @@
                 {{ form_fields.textarea('flexible_working_details', 'Flexible working details', 'Provide further details here') }}
             </div>
             {{ form_fields.checkbox('is_permanent', 'This is a permanent position', checked('is_permanent', '1') if data.is_permanent else true) }}
-
+            <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
+                {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
+            </div>
             {{ form_fields.checkbox('is_job_share', 'This position has a job share available', checked('is_job_share', '1') if data.is_flexible else false) }}
 
             <fieldset>
@@ -69,9 +71,6 @@
             </fieldset>
 
             {{ form_fields.date('starts_at', 'Expected start date', 'For example, 31 8 2018') }}
-            <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
-                {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
-            </div>
             {% if query.edit %}
                 <input type="hidden" name="redirect_to" value="vacancies/create/confirm">
             {% endif %}
