@@ -9,6 +9,7 @@ router.use(pjax())
 
 // Route middleware
 router.use(function (req, res, next) {
+
   if (req.query.version) {
     req.session.version = req.query.version
   }
@@ -23,11 +24,7 @@ router.use(function (req, res, next) {
   res.locals.url = process.env.URL
   res.locals.GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY
   res.locals.json = data.getAll()
-  res.locals.multiple_checked = function (item, data) {
-    if (data && data.indexOf(item) >= 0) {
-      return ' checked'
-    }
-  }
+
   next()
 })
 // Route index page
@@ -36,35 +33,11 @@ router.get('/', function (req, res) {
 })
 
 router.get('/vacancies', function (req, res) {
-  var vacancies = data.getAll('vacancies')
-  var query = _.chain(req.query).omit('search_results').value()
-  var isEmpty = _.chain(query).values().unique().compact().isEmpty().value()
-  if (req.query.search_results && !isEmpty) {
-    vacancies = search.filter(query)
-  }
+  var vacancies = search.new_filter(req.query)
   var baseUrl = '' + req.protocol + '://' + req.get('host');
   res.renderPjax('vacancies/index', {'vacancies': vacancies, url: baseUrl})
 })
 
-router.get('/clear-search-data', function (req, res) {
-  var filters = [
-    'location',
-    'keyword',
-    'salary_ranges',
-    'suitable_for_nqt',
-    'job_share_available',
-    'working_patterns',
-    'key_stages',
-    'leadership_levels',
-    'search_radius_type',
-    'search-radius-distance',
-    'search-radius-time'
-  ]
-  for (var filter in filters) {
-    req.session.data[filters[filter]] = null
-  }
-  res.redirect('/vacancies')
-})
 
 router.get('/vacancies/:slug', function (req, res) {
   var vacancy = (req.query.preview) ? getPreview(req.session.data) : data.findBySlug(req.params.slug)
