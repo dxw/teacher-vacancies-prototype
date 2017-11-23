@@ -127,6 +127,9 @@ app.use(session({
   secret: crypto.randomBytes(64).toString('hex')
 }))
 
+
+app.use(utils.autoStoreData)
+
 // Disallow search index idexing
 app.use(function (req, res, next) {
   // Setting headers stops pages being indexed even if indexed pages link to them.
