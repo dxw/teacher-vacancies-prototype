@@ -32,8 +32,8 @@
             {{ form_fields.textarea('other_roles', 'Other roles', 'Other roles the applicant will be expected to fulfill', 3) }}
 
 
-            {{ form_fields.multiple_checkboxes('additional_subjects', 'Subjects taught', json.subjects, 'Any subjects the applicant will be expected to teach', true) }}
-            {{ form_fields.multiple_checkboxes('key_stage', 'Key Stage', json.key_stages, 'The education stage expected to be taught', true) }}
+            {{ form_fields.multiple_checkboxes('additional_subjects', 'Subjects taught', json.subjects, 'Any subjects the applicant will be expected to teach', true, req.session.data) }}
+            {{ form_fields.multiple_checkboxes('key_stage', 'Key Stage', json.key_stages, 'The education stage expected to be taught', true, req.session.data) }}
 
             <fieldset>
                 <legend class="heading-small">Salary</legend>
@@ -47,7 +47,7 @@
             </fieldset>
 
             {{ form_fields.textarea('benefits', 'Benefits') }}
-            {{ form_fields.radio_buttons('working_pattern', 'Working pattern', json.contract_type, '', true) }}
+            {{ form_fields.radio_buttons('working_pattern', 'Working pattern', json.contract_type, '', true, true, req.session.data) }}
 
             <div class="panel panel-border-narrow js-hidden" id="fte-panel">
                 {{ form_fields.field('fte', 'Full time equivalent', 'number', 'Percentage of a full time position') }}
