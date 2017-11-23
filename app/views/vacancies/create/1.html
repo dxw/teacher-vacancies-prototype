@@ -59,6 +59,7 @@
             <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
                 {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
             </div>
+            {{ form_fields.checkbox('suitable_for_nqt', 'This position is suitable for a newly qualified teacher', checked('suitable_for_nqt', '1') if data.suitable_for_nqt else false) }}
             {{ form_fields.checkbox('is_job_share', 'This position has a job share available', checked('is_job_share', '1') if data.is_flexible else false) }}
 
             <fieldset>
