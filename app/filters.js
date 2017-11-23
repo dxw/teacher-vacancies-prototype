@@ -63,7 +63,7 @@ module.exports = function (env) {
     return obj ? JSON.stringify(obj) : '';
   }
   filters.slug = function (string) {
-    return string.toLowerCase().replace(/[^a-z0-9]/g, '-')
+    return (string || '').toLowerCase().replace(/[^a-z0-9]/g, '-')
   }
   filters.pluralize = function (string, number) {
     return pluralize(string, number)
