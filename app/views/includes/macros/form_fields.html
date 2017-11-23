@@ -29,7 +29,7 @@
 </div>
 {% endmacro %}
 
-{% macro radio_buttons(name, label, options, hint, required=false, bold_label=true) %}
+{% macro radio_buttons(name, label, options, hint, required=false, bold_label=true, data=req.session.data) %}
     {% set label = label + ' (optional)' if required == false else label %}
     <div class="form-group">
         <label class="form-label {% if bold_label %}form-label-bold{% endif %}" for="{{ name }}">
@@ -53,7 +53,7 @@
     </div>
 {% endmacro %}
 
-{% macro multiple_checkboxes(name, label, options, hint, required=false) %}
+{% macro multiple_checkboxes(name, label, options, hint, required=false, data=query) %}
     {% set label = label + ' (optional)' if required == false else label %}
     <div class="form-group">
         <label class="form-label-bold" for="{{ name }}">
