@@ -44,7 +44,7 @@
                 {% for option in options %}
                     {% if option != 'Other' %}
                     <div class="multiple-choice">
-                        <input id="{{ option }}" type="radio" name="{{ name }}[]" value="{{ option }}" {{ checked(option, data[name]) }}>
+                        <input id="{{ option }}" type="radio" name="{{ name }}[]" value="{{ option }}" {{ 'checked' if data[name] and data[name].indexOf(option) >= 0 }}>
                         <label for="{{ option }}">{{ option }}</label>
                     </div>
                     {% endif %}
@@ -68,7 +68,7 @@
                 {% for option in options %}
                     {% if option != 'Other' and option != 'Not applicable' %}
                     <div class="multiple-choice">
-                        <input id="{{ option }}" type="checkbox" name="{{ name }}[]" value="{{ option }}" {{ 'checked' if query[name] and query[name].indexOf(option) >= 0 }}>
+                        <input id="{{ option }}" type="checkbox" name="{{ name }}[]" value="{{ option }}" {{ 'checked' if data[name] and data[name].indexOf(option) >= 0 }}>
                         <label for="{{ option }}">{{ option }}</label>
                     </div>
                     {% endif %}
