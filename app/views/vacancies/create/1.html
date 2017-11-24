@@ -39,7 +39,7 @@
                 <legend class="heading-small">Salary</legend>
                 {{ form_fields.salary_range() }}
 
-                {{ form_fields.checkbox('on_pay_scale', 'Belongs to a national pay scale', checked('on_payscale', '1') if (data.pay_scales != 'Not applicable' and data.pay_scales != null)) }}
+                {{ form_fields.checkbox('on_pay_scale', 'Belongs to a national pay scale', (data.pay_scales != 'Not applicable' and data.pay_scales != null)) }}
                 <div class="panel panel-border-narrow js-hidden" id="pay-scale-panel">
                     {{ form_fields.radio_buttons('pay_scale', 'Pay scale', json.pay_scales, 'The pay scale on which the salary of the job falls', true, false) }}
                 </div>
@@ -55,16 +55,16 @@
             <div class="panel panel-border-narrow js-hidden" id="flexible-panel">
                 {{ form_fields.textarea('flexible_working_details', 'Flexible working details', 'Provide further details here') }}
             </div>
-            {{ form_fields.checkbox('is_permanent', 'This is a permanent position', checked('is_permanent', '1') if data.is_permanent else true) }}
+            {{ form_fields.checkbox('is_permanent', 'This is a permanent position', (data.is_permanent)) }}
             <div class="panel panel-border-narrow js-hidden" id="end-date-panel">
                 {{ form_fields.date('ends_at', 'End date', 'Expected end date of the job') }}
             </div>
-            {{ form_fields.checkbox('suitable_for_nqt', 'This position is suitable for a newly qualified teacher', checked('suitable_for_nqt', '1') if data.suitable_for_nqt else false) }}
-            {{ form_fields.checkbox('is_job_share', 'This position has a job share available', checked('is_job_share', '1') if data.is_flexible else false) }}
+            {{ form_fields.checkbox('suitable_for_nqt', 'This position is suitable for a newly qualified teacher', data.suitable_for_nqt) }}
+            {{ form_fields.checkbox('is_job_share', 'This position has a job share available', data.is_flexible) }}
 
             <fieldset>
                 <legend class="heading-small">Leadership</legend>
-                {{ form_fields.checkbox('is_leadership', 'This is a leadership role', checked('is_permanent', '1') if (data.leadership_level != 'Not applicable' and data.leadership_level != null)) }}
+                {{ form_fields.checkbox('is_leadership', 'This is a leadership role', (data.leadership_level != 'Not applicable' and data.leadership_level != null)) }}
 
                 <div class="panel panel-border-narrow js-hidden" id="leadership-role-panel">
                     {{ form_fields.radio_buttons('leadership_level', 'Leadership level', json.leadership_level, '', true, false) }}
