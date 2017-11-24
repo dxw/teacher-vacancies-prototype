@@ -1,5 +1,83 @@
 {
   "vacancies": [
+      {
+      "id": 1104,
+      "slug": "music-and-art-teacher-1104",
+      "posted_at": "2017-06-30 12:34:00",
+      "closes_at": "2017-09-07 00:00:00",
+      "starts_at": "2017-10-01 00:00:00",
+      "school_id": "kent-1",
+      "reference_no": "ABC-123-456",
+      "title": "Music and art teacher",
+      "position": "Teacher",
+      "contract_type": "Full time",
+      "subjects": ["Music", "Art"],
+      "status": "Published",
+      "views": 430,
+      "applications": 9,
+      "contract_term": "fixed",
+      "headline": "We are looking to recruit a teacher of music and art at a school where staff and students work together to create an inviting and purposeful atmosphere.",
+      "salary_min": 10000,
+      "salary_max": 19000,
+      "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
+      "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack",
+      "suitable_for_nqt": true,
+      "key_stages": ["Key Stage 1", "Key Stage 2"]
+      },
+      {
+      "id": 1104,
+      "slug": "new-primary-teacher-1104",
+      "posted_at": "2017-06-30 12:34:00",
+      "closes_at": "2017-09-07 00:00:00",
+      "starts_at": "2017-10-01 00:00:00",
+      "school_id": "kent-1",
+      "reference_no": "ABC-123-456",
+      "title": "Newly qualified teacher: Primary",
+      "position": "Teacher",
+      "contract_type": "Full time",
+      "subjects": ["Primary"],
+      "status": "Published",
+      "views": 430,
+      "applications": 9,
+      "contract_term": "fixed",
+      "headline": "We are looking to recruit a P.E. Teacher at a school where staff and students work together to create an inviting and purposeful atmosphere.",
+      "salary_min": 10000,
+      "salary_max": 19000,
+      "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
+      "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack",
+      "suitable_for_nqt": true,
+      "key_stages": ["Key Stage 1", "Key Stage 2"]
+      },
+      {
+      "id": 1103,
+      "slug": "pe-teacher-1103",
+      "posted_at": null,
+      "closes_at": "2017-09-07 00:00:00",
+      "starts_at": "2017-10-01 00:00:00",
+      "school_id": "kent-1",
+      "reference_no": "ABC-123-456",
+      "title": "PE Teacher",
+      "position": "Teacher",
+      "contract_type": "Full time",
+      "subjects": ["Maths"],
+      "status": "Draft",
+      "views": 430,
+      "applications": 9,
+      "contract_term": "fixed",
+      "headline": "We are looking to recruit a P.E. Teacher at a school where staff and students work together to create an inviting and purposeful atmosphere.",
+      "salary_min": 20000,
+      "salary_max": 35000,
+      "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
+      "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
+      "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
+      "application_method": "application_pack",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 3", "Key Stage 4"]
+    },
     {
       "id": 1102,
       "slug": "maths-teacher-1102",
@@ -10,8 +88,8 @@
       "reference_no": "ABC-123-456",
       "title": "Maths Teacher",
       "position": "Teacher",
-      "contract_type": "Full time",
-      "main_subject": "Maths",
+      "contract_type": "Flexible",
+      "subjects": ["Maths"],
       "status": "Published",
       "views": 430,
       "applications": 9,
@@ -22,7 +100,9 @@
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
-      "application_method": "application_pack"
+      "application_method": "application_pack",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 3", "Key Stage 4"]
     },
     {
       "id": 1103,
@@ -35,7 +115,7 @@
       "title": "Science Teacher",
       "position": "Teacher",
       "contract_type": "Part time",
-      "main_subject": "Science",
+      "subjects": ["Science"],
       "status": "Published",
       "weekly_hours": "20",
       "views": 550,
@@ -48,7 +128,8 @@
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
       "application_method": "external_link",
-      "suitable_for_nqt": "suitable_for_nqt"
+      "suitable_for_nqt": true,
+      "key_stages": ["Key Stage 3", "Key Stage 4"]
     },
     {
       "id": 1104,
@@ -61,7 +142,7 @@
       "title": "Year 5 Teacher",
       "position": "Teacher",
       "contract_type": "Full time",
-      "main_subject": "Not applicable",
+      "subjects": ["Not applicable"],
       "status": "Published",
       "views": 950,
       "applications": 17,
@@ -72,7 +153,9 @@
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
-      "application_method": "application_pack"
+      "application_method": "application_pack",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 2"]
     },
     {
       "id": 1105,
@@ -85,7 +168,7 @@
       "title": "Primary Teacher - SEMH Specialist",
       "position": "Teacher",
       "contract_type": "Full time",
-      "main_subject": "Not applicable",
+      "subjects": ["Not applicable"],
       "status": "Published",
       "views": 111,
       "applications": 1,
@@ -96,7 +179,9 @@
       "description": "Mark and assess students' work on a regular basis in accordance with the school's marking and assessment policy. Set and mark homework in accordance with school policy and departmental guidelines. Attend staff, departmental and other meetings as required. Liaise effectively with parents or carers on students’ progress and achievements.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
-      "application_method": "external_link"
+      "application_method": "external_link",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 1", "Key Stage 2"]
     },
     {
       "id": 1109,
@@ -109,7 +194,7 @@
       "title": "KS2 Teacher",
       "position": "Teacher",
       "contract_type": "Full time",
-      "main_subject": "Not applicable",
+      "subjects": [],
       "status": "Published",
       "views": 231,
       "applications": 9,
@@ -121,7 +206,9 @@
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
       "application_method": "application_pack",
-      "job_share_available": "job_share_available"
+      "job_share_available": "job_share_available",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 2"]
     },
     {
       "id": "1119",
@@ -134,7 +221,7 @@
       "title": "Class teacher KS1",
       "position": "Teacher",
       "contract_type": "Full time",
-      "main_subject": "Class Teacher KS1",
+      "subjects": [],
       "status": "Published",
       "views": "320",
       "applications": "4",
@@ -146,7 +233,9 @@
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching Key Stage 1 or 2, NQTs and/or OS-trained teachers welcome to apply.",
       "application_method": "external_link",
-      "job_share_available": "job_share_available"
+      "job_share_available": "job_share_available",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 1"]
     },
     {
       "id": "1120",
@@ -159,7 +248,7 @@
       "title": "Class teacher KS2",
       "position": "Teacher",
       "contract_type": "Full time",
-      "main_subject": "Class Teacher KS2",
+      "subjects": [],
       "status": "Published",
       "views": "320",
       "applications": "4",
@@ -171,7 +260,9 @@
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
       "application_method": "application_pack",
-      "job_share_available": "job_share_available"
+      "job_share_available": "job_share_available",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 2"]
     },
     {
       "id": "1103",
@@ -184,7 +275,7 @@
       "title": "Primary Teacher",
       "position": "Teacher",
       "contract_type": "Full time",
-      "main_subject": "Key Stage 1",
+      "subjects": [],
       "status": "Published",
       "views": "130",
       "applications": "2",
@@ -196,7 +287,8 @@
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
       "application_method": "external_link",
-      "suitable_for_nqt": "suitable_for_nqt"
+      "suitable_for_nqt": true,
+      "key_stages": ["Key Stage 1", "Key Stage 2"]
     },
     {
       "id": "1104",
@@ -209,7 +301,7 @@
       "title": "Business Studies Teacher",
       "position": "Teacher",
       "contract_type": "Full time",
-      "main_subject": "Business Studies",
+      "subjects": ["Business Studies"],
       "status": "Published",
       "views": "320",
       "applications": "4",
@@ -221,7 +313,8 @@
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience teaching the UK curriculum, NQTs and/or OS-trained teachers welcome to apply.",
       "application_method": "application_pack",
-      "suitable_for_nqt": "suitable_for_nqt"
+      "suitable_for_nqt": true,
+      "key_stages": ["Key Stage 3", "Key Stage 4"]
     },
     {
       "id": "1105",
@@ -234,7 +327,7 @@
       "title": "Head Teacher",
       "position": "Head Teacher",
       "contract_type": "Full time",
-      "main_subject": "Not applicable",
+      "subjects": [],
       "status": "Published",
       "views": "876",
       "applications": "4",
@@ -245,7 +338,10 @@
       "description": "The right candidate will use their experience to drive the successful implementation of change and school improvement, provide professional leadership and management for the school that reflects the vision, values and beliefs of the school. They will provide effective management of the school and identify ways of improving organisation structures and functions through the use of information technology and centralised services.",
       "education_requirements": "Bachelor of Education / PGCE / or equivalent teaching degree.",
       "experience_requirements": "Proven experience in a leadership role",
-      "application_method": "application_pack"
+      "application_method": "application_pack",
+      "suitable_for_nqt": false,
+      "key_stages": ["Key Stage 3", "Key Stage 4"],
+      "leadership_level": "Headteacher"
     }
   ],
   "schools": {
@@ -377,15 +473,15 @@
     }
   },
   "salary_range": [
-    "Up to £15,000",
-    "£15,001 to £25,000",
-    "£25,001 to £35,000",
-    "£35,001 to £45,000",
-    "£45,001 to £55,000",
-    "£55,001 to £65,000",
-    "£65,001 to £75,000",
-    "£75,001 to £85,000",
-    "£85,001 and above"
+    {"text": "Up to £15,000", "value": "0-15000"},
+    {"text": "£15,001 to £25,000", "value": "15001-25000"},
+    {"text": "£25,001 to £35,000", "value": "25001-35000"},
+    {"text": "£35,001 to £45,000", "value": "35001-45000"},
+    {"text": "£45,001 to £55,000", "value": "45001-55000"},
+    {"text": "£55,001 to £65,000", "value": "55001-65000"},
+    {"text": "£65,001 to £75,000", "value": "65001-75000"},
+    {"text": "£75,001 to £85,000", "value": "75001-85000"},
+    {"text": "£85,001 and above", "value": "85001-999999999"}
   ],
   "pay_scales": [
     "Main pay range 1",

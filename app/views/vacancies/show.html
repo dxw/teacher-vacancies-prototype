@@ -62,9 +62,16 @@
                         <dd>{{ vacancy.starts_at | date }}</dd>
                         <dt>Posted on</dt>
                         <dd>{{ vacancy.posted_at | date }}</dd>
-                        {% if vacancy.main_subject %}
-                            <dt>Main subject</dt>
-                            <dd>{{ vacancy.main_subject }}</dd>
+                        {% if vacancy.subjects.length > 0 %}
+                            <dt>
+                            {% if vacancy.subjects.length == 1 %}
+                                Subject
+                            {% else %}
+                                Subjects
+                            {% endif %} taught</dt>
+                            <dd>{% for subject in vacancy.subjects %}
+                                <div>{{ subject }}</div>
+                            {% endfor %}</dd>
                         {% endif %}
                         <dt>Reference number</dt>
                         <dd>{{ vacancy.reference_no }}</dd>

@@ -3,7 +3,7 @@
     "title": {
       "boost": 20
     },
-    "main_subject": {
+    "subjects": {
       "boost": 10
     },
     "suitable_for_nqt": {

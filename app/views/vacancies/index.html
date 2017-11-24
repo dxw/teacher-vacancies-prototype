@@ -88,12 +88,23 @@
                                 £<span itemprop="maxValue" content="{{ job.salary_max }}">{{ job.salary_max | number }}</span>
                             </span>
                         </dd>
+                        <dt>Contract</dt>
+                        <dd class="double" itemprop="employmentType">
+                        {{ job.contract_type }}, {{ job.contract_term }}
+
+                        {% if job.job_share_available %}
+                            <div>Job share available</div>
+                        {% endif %}
+
+                        {% if job.suitable_for_nqt %}
+                            <div>Suitable for NQTs</div>
+                        {% endif %}
+
+                        </dd>
                         <dt>Closing date</dt>
                         <dd itemprop="validThrough" content="{{ job.closes_at }}">{{ job.closes_at | date }}</dd>
                         <dt>Posted on</dt>
                         <dd itemprop="datePosted" content="{{ job.posted_at }}">{{ job.posted_at | date }}</dd>
-                        <dt>Contract</dt>
-                        <dd itemprop="employmentType">{{ job.contract_type }}</dd>
                         <dt>Start date</dt>
                         <dd>{{ job.starts_at | date }}</dd>
                     </dl>
