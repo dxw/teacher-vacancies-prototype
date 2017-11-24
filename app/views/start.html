@@ -43,11 +43,11 @@
                     <label class="form-label" for="salary-range">
                         Salary range
                     </label>
-                    <select name="salary-range" id="salary-range" class="form-control form-control-3-4">
+                    <select name="salary_ranges[]" id="salary-range" class="form-control form-control-3-4">
                         <option value="">Any</option>
                         {% for range in json.salary_range %}
-                            {% set selected = ' selected' if data['salary-range'] == range %}
-                            <option{{ selected }}>{{ range }}</option>
+                            {% set selected = ' selected' if data['salary_ranges[]'] == range %}
+                            <option{{ selected }} value="{{ range.value }}">{{ range.text }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -79,6 +79,12 @@
                     <div class="multiple-choice">
                         <input id="suitable_for_nqt" name="suitable_for_nqt" type="checkbox" value="yes">
                         <label for="suitable_for_nqt">Suitable for NQTs</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="multiple-choice">
+                        <input id="job_share_available" name="job_share_available" type="checkbox" value="yes">
+                        <label for="job_share_available">Job share available</label>
                     </div>
                 </div>
 
