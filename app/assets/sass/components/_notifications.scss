@@ -2,6 +2,9 @@
   border: 5px solid;
   margin: $gutter 0 0 0;
   padding: $gutter-half;
+  @include media(mobile) {
+    margin: 0;
+  }
   p {
     font-size: 1.2em;
     line-height: 1.25;

@@ -7,6 +7,9 @@
   @include media(mobile) {
     display: none;
   }
+  @include media(tablet) {
+    display: none;
+  }
   a {
     color: $white;
     display: inline-block;

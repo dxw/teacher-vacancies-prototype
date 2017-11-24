@@ -123,6 +123,18 @@ var initPjax = function () {
     })
   })
 }
+
+var checkOptionSelectMobile = function () {
+  if ($(window).width() > 640) {
+    return
+  }
+  $('[data-closed-on-load-mobile]').each(function () {
+    if ($(this).data('closed-on-load-mobile') === true) {
+      $(this).addClass('js-closed').find('.js-container-head').attr('aria-expanded', false)
+    }
+  })
+}
+
 $(document).on('pjax:end', function () {
   checkSearchRadius($('input[name=search_radius_type]'))
   initMap()
@@ -143,6 +155,8 @@ $(document).on('ready', function () {
   })
 
   initPjax()
+
+  checkOptionSelectMobile()
 
   checkWorkingPattern()
   checkFlexible()
