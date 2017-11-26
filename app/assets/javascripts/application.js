@@ -138,6 +138,8 @@ var checkOptionSelectMobile = function () {
 $(document).on('pjax:end', function () {
   checkSearchRadius($('input[name=search_radius_type]'))
   initMap()
+  var showHideContent = new GOVUK.ShowHideContent()
+  showHideContent.init()
 })
 $(document).on('ready', function () {
   // Use GOV.UK shim-links-with-button-role.js to trigger a link styled to look like a button,
