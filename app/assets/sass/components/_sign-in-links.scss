@@ -10,6 +10,9 @@
   @include media(tablet) {
     display: none;
   }
+  @include media(desktop) {
+    display: block;
+  }
   a {
     color: $white;
     display: inline-block;
